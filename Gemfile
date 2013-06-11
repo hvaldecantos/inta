@@ -10,6 +10,7 @@ gem 'figaro', '~> 0.6.4'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.2'
+  gem 'spork', '~> 0.9.2'
 end
 
 group :test do

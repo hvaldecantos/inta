@@ -8,6 +8,14 @@ gem 'rails', '3.2.13'
 gem 'pg', '~> 0.15.1'
 gem 'figaro', '~> 0.6.4'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.13.2'
+end
+
+group :test do
+  gem 'capybara', '~> 2.1.0'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Paginas Estaticas" do
   
+  let(:base_title) { "Sitio Web INTA Famaillá" }
+
   describe "Pagina de Inicio" do
     it "should have the h1 'INTA'" do
       visit '/paginas_estaticas/inicio'
@@ -10,7 +12,7 @@ describe "Paginas Estaticas" do
 
     it "should have the right title" do
       visit '/paginas_estaticas/inicio'
-      page.should have_title "Sitio Web INTA Famaillá | Inicio"
+      page.should have_title "#{base_title} | Inicio"
     end
   end
 
@@ -22,7 +24,7 @@ describe "Paginas Estaticas" do
 
     it "should have the right title" do
       visit '/paginas_estaticas/ayuda'
-      page.should have_title "Sitio Web INTA Famaillá | Ayuda"
+      page.should have_title "#{base_title} | Ayuda"
     end
   end
 
@@ -34,7 +36,7 @@ describe "Paginas Estaticas" do
 
     it "should have the right title" do
       visit '/paginas_estaticas/acerca'
-      page.should have_title "Sitio Web INTA Famaillá | Acerca"
+      page.should have_title "#{base_title} | Acerca"
     end
   end
 
@@ -46,7 +48,7 @@ describe "Paginas Estaticas" do
 
     it "should have the right title" do
       visit '/paginas_estaticas/contacto'
-      page.should have_title "Sitio Web INTA Famaillá | Contacto"
+      page.should have_title "#{base_title} | Contacto"
     end
   end
 end

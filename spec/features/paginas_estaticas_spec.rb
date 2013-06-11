@@ -37,4 +37,16 @@ describe "Paginas Estaticas" do
       page.should have_title "Sitio Web INTA Famaillá | Acerca"
     end
   end
+
+  describe "Pagina de Contacto" do
+    it "should have the content 'Contacto'" do
+      visit '/paginas_estaticas/contacto'
+      page.should have_content('Contacto')
+    end
+
+    it "should have the right title" do
+      visit '/paginas_estaticas/contacto'
+      page.should have_title "Sitio Web INTA Famaillá | Contacto"
+    end
+  end
 end

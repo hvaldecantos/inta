@@ -15,4 +15,11 @@ describe "Paginas Estaticas" do
       page.should have_content('Ayuda')
     end
   end
+
+  describe "Pagina Acerca" do
+    it "should have the content 'Acerca'" do
+      visit '/paginas_estaticas/acerca'
+      page.should have_content('Acerca')
+    end
+  end
 end

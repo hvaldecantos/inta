@@ -4,4 +4,7 @@ class PaginasEstaticasController < ApplicationController
 
   def ayuda
   end
+
+  def acerca
+  end
 end

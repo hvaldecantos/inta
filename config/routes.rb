@@ -1,9 +1,9 @@
 Inta::Application.routes.draw do
-  get "paginas_estaticas/inicio"
-  get "paginas_estaticas/acerca"
-  get "paginas_estaticas/ayuda"
-  get "paginas_estaticas/contacto"
-
+  
+  root to: "paginas_estaticas#inicio"
+  match '/contacto', to: 'paginas_estaticas#contacto'
+  match '/ayuda', to: 'paginas_estaticas#ayuda'
+  match '/acerca', to: 'paginas_estaticas#acerca'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

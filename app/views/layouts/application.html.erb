@@ -10,8 +10,34 @@
   <![endif]-->
 </head>
 <body>
+  <header class="navbar navbar-fixed-top">
+    <div class="container">
+      <%= link_to "INTA-Famaillá", '#', id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Inicio", '#' %></li>
+          <li><%= link_to "Ayuda", '#' %></li>
+          <li><%= link_to "Entrar", '#' %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<%= yield %>
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer class="footer">
+    <small>
+      <a href="http://inta.gob.ar/"> INTA</a> Instituto Nacional de Tecnología Agropecuaria
+    </small>
+    <nav>
+      <ul>
+        <li><%= link_to "Acerca", '#' %></li>
+        <li><%= link_to "Contacto", '#' %></li>
+      </ul>
+    </nav>
+  </footer>
 
 </body>
 </html>

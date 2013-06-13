@@ -1,54 +1,33 @@
 require 'spec_helper'
 
 describe "Paginas Estaticas" do
-  
+
+  subject { page }
+
   let(:base_title) { "Sitio Web INTA Famaillá" }
 
   describe "Pagina de Inicio" do
-    it "should have the h1 'INTA'" do
-      visit root_path
-      page.should have_selector('h1', text: 'INTA')
-    end
-
-    it "should have the right title" do
-      visit root_path
-      page.should have_title "#{base_title} | Inicio"
-    end
+    before { visit root_path }
+    it { should have_selector('h1', text: 'INTA')}
+    it { should have_title "#{base_title} | Inicio"}
   end
 
   describe "Pagina de Ayuda" do
-    it "should have the h1 'Ayuda'" do
-      visit ayuda_path
-      page.should have_selector('h1', text: 'Ayuda')
-    end
-
-    it "should have the right title" do
-      visit ayuda_path
-      page.should have_title "#{base_title} | Ayuda"
-    end
+    before { visit ayuda_path }
+    it { should have_selector('h1', text: 'Ayuda') }
+    it { should have_title "#{base_title} | Ayuda" }
   end
 
   describe "Pagina Acerca" do
-    it "should have the h1 'Acerca'" do
-      visit acerca_path
-      page.should have_selector('h1', text: 'Acerca')
-    end
-
-    it "should have the right title" do
-      visit acerca_path
-      page.should have_title "#{base_title} | Acerca"
-    end
+    before { visit acerca_path }
+    it { should have_selector('h1', text: 'Acerca') }
+    it { should have_title "#{base_title} | Acerca" }
   end
 
-  describe "Pagina de Contacto" do
-    it "should have the h1 'Contacto'" do
-      visit contacto_path
-      page.should have_selector('h1', text: 'Contacto')
-    end
-
-    it "should have the right title" do
-      visit contacto_path
-      page.should have_title "#{base_title} | Contacto"
-    end
+  describe "Pagina Contacto" do
+    before { visit contacto_path }
+    it { should have_selector('h1', text: 'Contacto') }
+    it { should have_title "#{base_title} | Contacto" }
   end
+  
 end

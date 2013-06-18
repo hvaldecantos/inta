@@ -13,6 +13,7 @@ gem 'devise', '~> 2.2.4'
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.2'
   gem 'spork', '~> 0.9.2'
+  gem 'better_errors', '~> 0.9.0'
 end
 
 group :test do

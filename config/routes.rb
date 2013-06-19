@@ -1,11 +1,14 @@
 Inta::Application.routes.draw do
-  
-  devise_for :users
 
   root to: "paginas_estaticas#inicio"
   match '/contacto', to: 'paginas_estaticas#contacto'
   match '/ayuda', to: 'paginas_estaticas#ayuda'
   match '/acerca', to: 'paginas_estaticas#acerca'
+
+  devise_for :users
+  scope "/admin" do
+    resources :users
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

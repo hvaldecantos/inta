@@ -1,0 +1,30 @@
+<% provide(:title, 'Usuario ' + @usuario.name) %>
+  <p>
+    <h1><b>Nombre:</b><%= @usuario.name %></h1>
+  </p>
+  <p>
+    <b>Email:</b>
+    <%= @usuario.email %>
+  </p>
+  <p>
+    <b>Cantidad de Accesos al sistema:</b>
+    <%= @usuario.sign_in_count %>
+  </p>
+  <p>
+    <b>Acceso actual:</b>
+    <%= @usuario.current_sign_in_at %>
+  </p>
+  <p>
+    <b>Ultimo acceso:</b>
+    <%= @usuario.last_sign_in_at %>
+  </p>
+  <p>
+    <b>Fecha creación:</b>
+    <%= @usuario.created_at %>
+  </p>
+  <p>
+    <b>Fecha ultima edición:</b>
+    <%= @usuario.updated_at %>
+  </p>
+
+<%= link_to 'Editar', edit_user_path(@usuario) %> | <%= link_to 'Listado de Usuarios', users_path %>

@@ -5,7 +5,7 @@ Inta::Application.routes.draw do
   match '/ayuda', to: 'paginas_estaticas#ayuda'
   match '/acerca', to: 'paginas_estaticas#acerca'
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   scope "/admin" do
     resources :users
   end

@@ -1,21 +1,28 @@
 es:
   activerecord:
+    models:
+      user: "Usuario"
     attributes:
-      user:
+      user: 
         name: "Nombre"
         password: "Clave"
         password_confirmation: "Confirmación de clave"
         current_password: "Clave actual"
+        remember_me: "Recordarme" #Devise attribute
     errors:
       models:
         user:
           attributes:
             email:
               taken: ': ya esta en uso por otro usuario'
+              blank: ': no puede estar vacío'
+              invalid: ': no es válido'
             password:
-              confirmation: ': debe ingresar la confirmación de la clave'
+              confirmation: ': la confirmación de la clave es inválida'
               too_short: ': es muy corta (Mínimo %{count} caracteres)'
               blank: ': no puede estar vacía'
             current_password:
               blank: ': no puede estar vacía'
               invalid: ': es invalida'
+            name:
+              blank: ': no puede estar vacío'

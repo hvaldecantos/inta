@@ -1,0 +1,21 @@
+es:
+  activerecord:
+    attributes:
+      user:
+        name: "Nombre"
+        password: "Clave"
+        password_confirmation: "Confirmación de clave"
+        current_password: "Clave actual"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: ': ya esta en uso por otro usuario'
+            password:
+              confirmation: ': debe ingresar la confirmación de la clave'
+              too_short: ': es muy corta (Mínimo %{count} caracteres)'
+              blank: ': no puede estar vacía'
+            current_password:
+              blank: ': no puede estar vacía'
+              invalid: ': es invalida'

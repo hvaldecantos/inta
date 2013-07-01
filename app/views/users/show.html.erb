@@ -6,6 +6,14 @@
     <b>Email:</b>
     <%= @usuario.email %>
   </p>
+
+  <p>
+    <b>Roles: </b>    
+    <% for role in Role.all %>
+        <%= check_box_tag "user[role_ids][]", role.id, @usuario.roles.include?(role), options = {:disabled => true} %>
+        <%=h role.name %>
+    <% end %>
+  </p>
   <p>
     <b>Cantidad de Accesos al sistema:</b>
     <%= @usuario.sign_in_count %>

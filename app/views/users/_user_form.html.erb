@@ -9,6 +9,16 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
+
+  <div>
+    <%= f.label :role %>
+    <% for role in Role.all %>
+      <%= check_box_tag "user[role_ids][]", role.id, @usuario.roles.include?(role) %>
+      <%=h role.name %>
+    <% end %>
+  <%= hidden_field_tag "user[role_ids][]", "" %>
+  </div>
+
   <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password %>

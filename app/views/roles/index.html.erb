@@ -1,0 +1,26 @@
+<% provide(:title, 'Listado de Roles') %>
+<h2>Listado de roles</h2>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @roles.each do |role| %>
+  <tr>
+    <td><%= role.name %></td>
+    <td><%= role.description %></td>
+    <td><%= link_to 'Mostrar', role %></td>
+    <td><%= link_to 'Editar', edit_role_path(role) %></td>
+    <td><%= link_to 'Borrar', role, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Rol', new_role_path %>

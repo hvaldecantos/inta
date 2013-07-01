@@ -1,0 +1,13 @@
+<% provide(:title, 'Rol ' + @role.name) %>
+<p>
+  <h2><%= @role.name %></h2>
+</p>
+
+<p>
+  <b>Descripción:</b>
+  <%= @role.description %>
+</p>
+
+
+<%= link_to 'Editar', edit_role_path(@role) %> |
+<%= link_to 'Listado de roles', roles_path %>

@@ -2,6 +2,7 @@ es:
   activerecord:
     models:
       user: "Usuario"
+      role: "Rol"
     attributes:
       user: 
         name: "Nombre"
@@ -9,8 +10,15 @@ es:
         password_confirmation: "Confirmación de contraseña"
         current_password: "Contraseña actual"
         remember_me: "Recordarme" #Devise attribute
+      role:
+        name: 'Nombre'
+        description: "Descripción"
     errors:
       models:
+        role:
+          attributes:
+            name:
+              blank: ': no puede estar vacio'
         user:
           attributes:
             email:

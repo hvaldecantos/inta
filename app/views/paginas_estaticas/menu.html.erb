@@ -2,4 +2,11 @@
 <h1>Menu</h1>
 <p>
   Links para todas las apps.
+  <% if can? :update, [:Role, :User] %>
+    <li><%= link_to "Roles", roles_path %></li>
+    <li><%= link_to "Usuarios", users_path %></li>
+  <% end %>
+  <% if can? :update, :AnalisisRSD %>
+    <li><%= link_to "RSD", '#' %></li>
+  <% end %>
 </p>

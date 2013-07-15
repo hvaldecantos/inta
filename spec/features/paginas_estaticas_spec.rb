@@ -2,9 +2,33 @@ require 'spec_helper'
 
 describe "Paginas Estaticas" do
 
-  subject { page }
+  describe "Links on the layout" do
+    let(:user) { FactoryGirl.create(:user) }
+    it "should have right links before user is logged" do
+      visit root_path
+      click_link "Acerca"
+      page.should have_title full_title("Acerca")
+      click_link "Contacto"
+      page.should have_title full_title("Contacto")
+      click_link "Ayuda"
+      page.should have_title full_title("Ayuda")
+      click_link "Entrar"
+      page.should have_title full_title("Autenticación")
+      click_link "Inicio"
+      page.should have_title full_title("Inicio")
+    end
+    it "should have right links after user is logged" do
+      visit root_path
+      click_link "Entrar"
+      fill_in "Email", with: user.email
+      fill_in "Contraseña", with: user.password  # fill_in I18n.t('activerecord.attributes.user.password'), with: user.password  
+      click_button "Autenticar"
+      click_link "Inicio" # Link Inicio points now to menu page
+      page.should have_title full_title("Menu")
+    end
+  end
 
-  let(:base_title) { "Sitio Web INTA Famaillá" }
+  subject { page }
 
   describe "Pagina de Inicio" do
     before { visit root_path }

@@ -1,6 +1,11 @@
 Inta::Application.routes.draw do
 
+  authenticated :user do
+    root to: 'paginas_estaticas#menu'
+  end
   root to: "paginas_estaticas#inicio"
+
+  match '/inicio', to: 'paginas_estaticas#inicio'
   match '/contacto', to: 'paginas_estaticas#contacto'
   match '/ayuda', to: 'paginas_estaticas#ayuda'
   match '/acerca', to: 'paginas_estaticas#acerca'

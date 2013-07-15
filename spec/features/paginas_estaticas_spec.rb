@@ -30,4 +30,16 @@ describe "Paginas Estaticas" do
     it { should have_title full_title("Contacto") }
   end
   
+  describe "Pagina Menu" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      visit new_user_session_path
+      fill_in "Email", with: user.email
+      fill_in "Contraseña", with: user.password  # fill_in I18n.t('activerecord.attributes.user.password'), with: user.password  
+      click_button "Autenticar"
+      visit menu_path
+    end
+    it { should have_selector('h1', text: 'Menu') }
+    it { should have_title full_title("Menu") }
+  end
 end

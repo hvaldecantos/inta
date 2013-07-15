@@ -10,4 +10,7 @@ class PaginasEstaticasController < ApplicationController
 
   def contacto
   end
+
+  def menu
+  end  
 end

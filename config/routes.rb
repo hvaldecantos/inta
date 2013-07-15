@@ -4,6 +4,7 @@ Inta::Application.routes.draw do
   match '/contacto', to: 'paginas_estaticas#contacto'
   match '/ayuda', to: 'paginas_estaticas#ayuda'
   match '/acerca', to: 'paginas_estaticas#acerca'
+  match '/menu', to: 'paginas_estaticas#menu'
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   scope "/admin" do

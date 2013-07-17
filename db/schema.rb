@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701022514) do
+ActiveRecord::Schema.define(:version => 20130717233211) do
 
   create_table "assignments", :id => false, :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20130701022514) do
   end
 
   add_index "assignments", ["user_id", "role_id"], :name => "index_assignments_on_user_id_and_role_id", :unique => true
+
+  create_table "profiles", :force => true do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "telefono_fijo"
+    t.string   "telefono_celular"
+    t.integer  "user_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

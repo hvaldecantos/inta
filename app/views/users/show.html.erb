@@ -1,6 +1,6 @@
-<% provide(:title, 'Usuario ' + @usuario.name) %>
+<% provide(:title, "Usuario #{@usuario.profile.nombre}") %>
   <p>
-    <h2><%= @usuario.name %></h2>
+    <h2><%= @usuario.profile.nombre %></h2>
   </p>
   <p>
     <b>Email:</b>

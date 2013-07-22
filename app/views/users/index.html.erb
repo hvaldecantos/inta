@@ -12,7 +12,7 @@
   <% @usuarios.each do |usuario| %>
     <tr>
       <td><%= usuario.email %></td>
-      <td><%= usuario.name %></td>
+      <td><%= usuario.profile.nombre %></td>
       <td><%= usuario.last_sign_in_at %></td>
       <td><%= usuario.sign_in_count %></td>
       <td><%= link_to 'Mostrar', usuario %></td>

@@ -1,0 +1,24 @@
+<%= form_for(@profile) do |f| %>
+  <%= render 'shared/form_error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_fijo %>
+    <%= f.text_field :telefono_fijo %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono_celular %>
+    <%= f.text_field :telefono_celular %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -16,6 +16,14 @@ Inta::Application.routes.draw do
     resources :users
     resources :roles
   end
+
+  scope "/users" do
+    controller :profiles do
+      put 'profiles/:id' => :update, as: :profile
+      get 'profiles/:id/edit' => :edit, as: :edit_profile
+    end
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

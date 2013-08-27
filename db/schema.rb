@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130722191002) do
+ActiveRecord::Schema.define(:version => 20130827143312) do
 
   create_table "assignments", :id => false, :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -21,6 +21,45 @@ ActiveRecord::Schema.define(:version => 20130722191002) do
   end
 
   add_index "assignments", ["user_id", "role_id"], :name => "index_assignments_on_user_id_and_role_id", :unique => true
+
+  create_table "comunas_municipios", :id => false, :force => true do |t|
+    t.string  "nombre"
+    t.string  "categoria"
+    t.integer "provincia_id"
+    t.integer "departamento_id_base"
+    t.integer "id_base"
+    t.string  "fuente"
+    t.integer "agencia_id"
+    t.integer "departamento_id"
+    t.integer "id",                   :null => false
+  end
+
+  create_table "departamentos", :id => false, :force => true do |t|
+    t.integer "provincia_id"
+    t.integer "id_base"
+    t.string  "id",           :null => false
+    t.string  "nombre"
+    t.string  "cabecera"
+  end
+
+  create_table "localidades", :id => false, :force => true do |t|
+    t.string  "nombre"
+    t.integer "provincia_id"
+    t.float   "pobla_2001"
+    t.integer "id",                   :null => false
+    t.integer "departamento_id"
+    t.string  "id_base"
+    t.integer "comunas_municipio_id"
+  end
+
+  create_table "parajes", :id => false, :force => true do |t|
+    t.integer "id",                   :null => false
+    t.string  "nombre"
+    t.integer "localidad_id"
+    t.string  "tipo"
+    t.integer "departamento_id"
+    t.integer "comunas_municipio_id"
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "nombre"

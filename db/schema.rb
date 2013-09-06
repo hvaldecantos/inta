@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130827143312) do
+ActiveRecord::Schema.define(:version => 20130906153720) do
 
   create_table "assignments", :id => false, :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20130827143312) do
     t.integer "id",                   :null => false
     t.integer "departamento_id"
     t.string  "id_base"
-    t.integer "comunas_municipio_id"
+    t.integer "comuna_municipio_id"
   end
 
   create_table "parajes", :id => false, :force => true do |t|
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20130827143312) do
     t.integer "localidad_id"
     t.string  "tipo"
     t.integer "departamento_id"
-    t.integer "comunas_municipio_id"
+    t.integer "comuna_municipio_id"
   end
 
   create_table "profiles", :force => true do |t|

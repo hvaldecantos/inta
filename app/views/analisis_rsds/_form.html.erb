@@ -1,0 +1,80 @@
+<%= form_for(@analisis_rsd) do |f| %>
+  <%= render 'shared/form_error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :fecha_extraccion %>
+    <%= f.date_select :fecha_extraccion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_ingreso %>
+    <%= f.date_select :fecha_ingreso %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_analisis %>
+    <%= f.date_select :fecha_analisis %>
+  </div>
+  <div class="field">
+    <%= f.label :variedad_id %>
+    <%= f.number_field :variedad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :membrana %>
+    <%= f.text_field :membrana %>
+  </div>
+  <div class="field">
+    <%= f.label :anio_plantacion %>
+    <%= f.date_select :anio_plantacion %>
+  </div>
+  <div class="field">
+    <%= f.label :parcela_id %>
+    <%= f.number_field :parcela_id %>
+  </div>
+  <div class="field">
+    <%= f.label :paraje_id %>
+    <%= f.collection_select :paraje_id, Paraje.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :departamento_id %>
+    <%= f.collection_select :departamento_id, Departamento.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :comuna_municipio_id %>
+    <%= f.collection_select :comuna_municipio_id, ComunaMunicipio.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :localidad_id %>
+    <%= f.collection_select :localidad_id, Localidad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :productor_id %>
+    <%= f.number_field :productor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :procedencia_id %>
+    <%= f.number_field :procedencia_id %>
+  </div>
+  <div class="field">
+    <%= f.label :agente_id %>
+    <%= f.collection_select :agente_id, Profile.order('apellido, nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :promotor_id %>
+    <%= f.collection_select :promotor_id, Profile.order('apellido, nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :laboratorista_id %>
+    <%= f.collection_select :laboratorista_id, Profile.order('apellido, nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :incidencia %>
+    <%= f.text_field :incidencia %>
+  </div>
+  <div class="field">
+    <%= f.label :analizado %>
+    <%= f.check_box :analizado %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

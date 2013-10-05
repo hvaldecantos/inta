@@ -1,0 +1,94 @@
+<% provide(:title, 'Análisis RSD ' + @analisis_rsd.fecha_ingreso.strftime("%d/%m/%Y")) %>
+<p>
+  <b>Fecha extraccion:</b>
+  <%= @analisis_rsd.fecha_extraccion %>
+</p>
+
+<p>
+  <b>Fecha ingreso:</b>
+  <%= @analisis_rsd.fecha_ingreso %>
+</p>
+
+<p>
+  <b>Fecha analisis:</b>
+  <%= @analisis_rsd.fecha_analisis %>
+</p>
+
+<p>
+  <b>Variedad:</b>
+  <%= @analisis_rsd.variedad_id %>
+</p>
+
+<p>
+  <b>Membrana:</b>
+  <%= @analisis_rsd.membrana %>
+</p>
+
+<p>
+  <b>Anio plantacion:</b>
+  <%= @analisis_rsd.anio_plantacion %>
+</p>
+
+<p>
+  <b>Parcela:</b>
+  <%= @analisis_rsd.parcela_id %>
+</p>
+
+<p>
+  <b>Paraje:</b>
+  <%= @analisis_rsd.paraje_id %>
+</p>
+
+<p>
+  <b>Departamento:</b>
+  <%= @analisis_rsd.departamento_id %>
+</p>
+
+<p>
+  <b>Comuna municipio:</b>
+  <%= @analisis_rsd.comuna_municipio_id %>
+</p>
+
+<p>
+  <b>Localidad:</b>
+  <%= @analisis_rsd.localidad_id %>
+</p>
+
+<p>
+  <b>Productor:</b>
+  <%= @analisis_rsd.productor_id %>
+</p>
+
+<p>
+  <b>Procedencia:</b>
+  <%= @analisis_rsd.procedencia_id %>
+</p>
+
+<p>
+  <b>Agente:</b>
+  <%= @analisis_rsd.agente_id %>
+</p>
+
+<p>
+  <b>Promotor:</b>
+  <%= @analisis_rsd.promotor_id %>
+</p>
+
+<p>
+  <b>Laboratorista:</b>
+  <%= @analisis_rsd.laboratorista_id %>
+</p>
+
+<p>
+  <b>Incidencia:</b>
+  <%= @analisis_rsd.incidencia %>
+</p>
+
+<p>
+  <b>Analizado:</b>
+  <%= @analisis_rsd.analizado %>
+</p>
+
+
+<%= link_to 'Editar', edit_analisis_rsd_path(@analisis_rsd) %> |
+<%= link_to 'Listado Análisis RSD', analisis_rsds_path %>

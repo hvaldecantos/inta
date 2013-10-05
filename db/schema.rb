@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906153720) do
+ActiveRecord::Schema.define(:version => 20131003004809) do
+
+  create_table "analisis_rsds", :force => true do |t|
+    t.date     "fecha_extraccion"
+    t.date     "fecha_ingreso"
+    t.date     "fecha_analisis"
+    t.integer  "variedad_id"
+    t.string   "membrana"
+    t.date     "anio_plantacion"
+    t.integer  "parcela_id"
+    t.integer  "paraje_id"
+    t.integer  "departamento_id"
+    t.integer  "comuna_municipio_id"
+    t.integer  "localidad_id"
+    t.integer  "productor_id"
+    t.integer  "procedencia_id"
+    t.integer  "agente_id"
+    t.integer  "promotor_id"
+    t.integer  "laboratorista_id"
+    t.float    "incidencia"
+    t.boolean  "analizado"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "assignments", :id => false, :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -46,14 +69,14 @@ ActiveRecord::Schema.define(:version => 20130906153720) do
     t.string  "nombre"
     t.integer "provincia_id"
     t.float   "pobla_2001"
-    t.integer "id",                   :null => false
+    t.integer "id",                  :null => false
     t.integer "departamento_id"
     t.string  "id_base"
     t.integer "comuna_municipio_id"
   end
 
   create_table "parajes", :id => false, :force => true do |t|
-    t.integer "id",                   :null => false
+    t.integer "id",                  :null => false
     t.string  "nombre"
     t.integer "localidad_id"
     t.string  "tipo"

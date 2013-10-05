@@ -6,8 +6,8 @@ class Ability
     user ||= User.new
     if user.has_role? :admin
       can :manage, :all
-    elsif user.has_role? :laboratorio
-      can :manage, :AnalisisRSD
+    elsif user.has_role? :laboratorista
+      can :manage, :AnalisisRsd
     else
       can :read, :all
     end

@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_one :profile
   after_create :create_user_profile
 
+  scope :extensionistas, joins(:roles).where("roles.name = 'Extensionista' ")
+
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end

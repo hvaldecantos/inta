@@ -6,4 +6,7 @@ class Role < ActiveRecord::Base
 
   has_many :assignments
   has_many :users, :through => :assignments
+
+  scope :extensionistas, where("name = 'Extensionista' ")
+  scope :administradores, where("name = 'admin' ")
 end

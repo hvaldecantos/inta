@@ -1,5 +1,8 @@
 Inta::Application.routes.draw do
 
+  resources :analisis_rsds
+
+
   authenticated :user do
     root to: 'paginas_estaticas#menu'
   end

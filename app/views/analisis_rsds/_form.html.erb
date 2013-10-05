@@ -55,15 +55,15 @@
   </div>
   <div class="field">
     <%= f.label :agente_id %>
-    <%= f.collection_select :agente_id, Profile.order('apellido, nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
+    <%= f.collection_select :agente_id, Profile.agentes, :id, :apellido_nombre, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :promotor_id %>
-    <%= f.collection_select :promotor_id, Profile.order('apellido, nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
+    <%= f.collection_select :promotor_id, Profile.promotores, :id, :apellido_nombre, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :laboratorista_id %>
-    <%= f.collection_select :laboratorista_id, Profile.order('apellido, nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
+    <%= f.collection_select :laboratorista_id, Profile.laboratoristas, :id, :apellido_nombre, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :incidencia %>

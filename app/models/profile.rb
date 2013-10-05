@@ -3,6 +3,13 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
+  has_many :roles, :through => :user
+
+  scope :agentes, joins(:roles).where("roles.name = 'Agente' ").order('apellido, nombre ASC')
+  scope :extensionistas, joins(:roles).where("roles.name = 'Extensionista' ").order('apellido, nombre ASC')
+  scope :promotores, joins(:roles).where("roles.name = 'Extensionista' ").order('apellido, nombre ASC')
+  scope :laboratoristas, joins(:roles).where("roles.name = 'Laboratorista' ").order('apellido, nombre ASC')
+
   def apellido_nombre
     nombre_completo = ""
     if apellido.nil? == false

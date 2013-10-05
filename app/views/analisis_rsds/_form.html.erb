@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :anio_plantacion %>
-    <%= f.date_select :anio_plantacion %>
+    <%= f.date_select :anio_plantacion, discard_month: true, discard_day: true %>
   </div>
   <div class="field">
     <%= f.label :parcela_id %>

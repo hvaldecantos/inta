@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131003004809) do
+ActiveRecord::Schema.define(:version => 20131005233147) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20131003004809) do
   create_table "departamentos", :id => false, :force => true do |t|
     t.integer "provincia_id"
     t.integer "id_base"
-    t.string  "id",           :null => false
+    t.integer "id",           :null => false
     t.string  "nombre"
     t.string  "cabecera"
   end

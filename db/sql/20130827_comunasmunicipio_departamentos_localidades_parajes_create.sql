@@ -26,7 +26,7 @@ CREATE TABLE comunas_municipios (
 CREATE TABLE departamentos (
     provincia_id integer,
     id_base integer,
-    id character varying(255) NOT NULL,
+    id integer NOT NULL,
     nombre character varying(255),
     cabecera character varying(255)
 );

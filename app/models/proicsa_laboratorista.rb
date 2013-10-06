@@ -1,0 +1,3 @@
+class ProicsaLaboratorista < Profile
+
+end

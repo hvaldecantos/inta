@@ -6,4 +6,8 @@ class AnalisisRsd < ActiveRecord::Base
   belongs_to :comuna_municipio
   belongs_to :localidad
 
+  belongs_to :agente, class_name: "Profile"
+  belongs_to :promotor, class_name: "Profile"
+  belongs_to :laboratorista, class_name: "Profile"
+
 end

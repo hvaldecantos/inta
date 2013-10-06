@@ -23,9 +23,9 @@
     <td><%= analisis_rsd.fecha_analisis %></td>
     <td><%= analisis_rsd.variedad_id %></td>
     <td><%= analisis_rsd.procedencia_id %></td>
-    <td><%= analisis_rsd.agente_id %></td>
-    <td><%= analisis_rsd.promotor_id %></td>
-    <td><%= analisis_rsd.laboratorista_id %></td>
+    <td><%= analisis_rsd.agente.apellido_nombre %></td>
+    <td><%= analisis_rsd.promotor.apellido_nombre %></td>
+    <td><%= analisis_rsd.laboratorista.apellido_nombre %></td>
     <td><%= analisis_rsd.incidencia %></td>
     <td><%= analisis_rsd.analizado %></td>
     <td><%= link_to 'Mostrar', analisis_rsd %></td>

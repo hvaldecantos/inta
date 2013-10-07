@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007150507) do
+ActiveRecord::Schema.define(:version => 20131007163812) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -103,8 +103,10 @@ ActiveRecord::Schema.define(:version => 20131007150507) do
     t.datetime "updated_at",        :null => false
     t.string   "type"
     t.integer  "proicsa_agente_id"
+    t.integer  "persona_id"
   end
 
+  add_index "profiles", ["persona_id"], :name => "index_profiles_on_persona_id"
   add_index "profiles", ["proicsa_agente_id"], :name => "index_profiles_on_proicsa_agente_id"
 
   create_table "programas", :force => true do |t|

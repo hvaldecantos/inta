@@ -1,16 +1,5 @@
 <%= form_for(@role) do |f| %>
   <%= render 'shared/form_error_messages', object: f.object %>
-<!--   <% if @role.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
-
-      <ul>
-      <% @role.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %> -->
 
   <div class="field">
     <%= f.label :name %>
@@ -20,6 +9,11 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
+  <div class="field">
+    <%= f.label :programa_id %>
+    <%= f.collection_select :programa_id, Programa.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

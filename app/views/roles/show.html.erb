@@ -8,6 +8,10 @@
   <%= @role.description %>
 </p>
 
+<p>
+  <b>Programa:</b>
+  <%= if @role.programa.nil? then "-------" else @role.programa.nombre end %>
+</p>
 
 <%= link_to 'Editar', edit_role_path(@role) %> |
 <%= link_to 'Listado de roles', roles_path %>

@@ -1,5 +1,5 @@
 class Role < ActiveRecord::Base
-  attr_accessible :description, :name
+  attr_accessible :description, :name, :programa_id
   
   validates_presence_of :name
   validates_uniqueness_of :name

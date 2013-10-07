@@ -1,0 +1,26 @@
+<% provide(:title, 'Listado de Programas') %>
+<h2>Listado de Programas</h2>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @programas.each do |programa| %>
+  <tr>
+    <td><%= programa.nombre %></td>
+    <td><%= programa.descripcion %></td>
+    <td><%= link_to 'Mostrar', programa %></td>
+    <td><%= link_to 'Editar', edit_programa_path(programa) %></td>
+    <td><%= link_to 'Borrar', programa, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nuevo Programa', new_programa_path %>

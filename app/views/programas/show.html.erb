@@ -1,0 +1,13 @@
+<% provide(:title, 'Programa ' + @programa.nombre) %>
+<p>
+  <h2><%= @programa.nombre %></h2>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @programa.descripcion %>
+</p>
+
+
+<%= link_to 'Editar', edit_programa_path(@programa) %> |
+<%= link_to 'Listado de Programas', programas_path %>

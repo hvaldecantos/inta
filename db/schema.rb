@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007000410) do
+ActiveRecord::Schema.define(:version => 20131007003407) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20131007000410) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "programa_id"
   end
 
   create_table "users", :force => true do |t|

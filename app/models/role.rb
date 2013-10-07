@@ -11,4 +11,11 @@ class Role < ActiveRecord::Base
 
   scope :extensionistas, where("name = 'Extensionista' ")
   scope :administradores, where("name = 'admin' ")
+
+  def self.all_from_programa(nombre_progama)
+    Role.joins(:programa).where("programas.nombre = '#{nombre_progama}'").order("roles.name")
+  end
+  def self.all_sin_programa
+    Role.where("programa_id is null").order("roles.name")
+  end
 end

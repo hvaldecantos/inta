@@ -1,12 +1,15 @@
 <% provide(:title, 'Listado de Usuarios') %>
 <h2>Listado de Usuarios</h2>
 
-<table>
+<table class="table table-striped table-condensed">
   <tr>
     <th>Email</th>
     <th>Nombre</th>
     <th>Ultimo acceso</th>
     <th>Cant. acceso</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
   <% @usuarios.each do |usuario| %>

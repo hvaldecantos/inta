@@ -12,6 +12,16 @@
 class Programa < ActiveRecord::Base
   attr_accessible :descripcion, :nombre
 
-  has_many :roles
+  has_many :roles, :dependent => :restrict
+
+  NOMBRE_VALIDO_REGEX = /^\s*\w*\s*$/
+  
+  validates :nombre, presence: true, 
+                     length: {maximum: 50}, 
+                     format: { with: NOMBRE_VALIDO_REGEX }, 
+                     uniqueness: { case_sensitive: false }
+  def nombre=(s)
+    write_attribute(:nombre, s.to_s.strip)
+  end              
 
 end

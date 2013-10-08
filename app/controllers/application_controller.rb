@@ -6,4 +6,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
   
+  rescue_from ActiveRecord::DeleteRestrictionError do |exception|
+    redirect_to :back, :alert => exception.message
+  end
 end

@@ -42,7 +42,7 @@ class Role < ActiveRecord::Base
   end
 
   def profile_subclass_name
-    programa.nombre + name
+    programa.nombre.camelize + name.camelize
   end
 
   private

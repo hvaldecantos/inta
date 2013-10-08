@@ -41,13 +41,13 @@ class Role < ActiveRecord::Base
     Role.where("programa_id is null").order("roles.name")
   end
 
-  def subclass_name
+  def profile_subclass_name
     programa.nombre + name
   end
 
   private
     def profile_subclass_for_role_exists
-      if !programa_id.nil? && !Profile.clases_derivadas.include?(subclass_name) then
+      if !programa_id.nil? && !Profile.clases_derivadas.include?(profile_subclass_name) then
        errors.add(:name, ": el rol '#{name}' no se encuentra implementado en el sistema.")
      end
     end

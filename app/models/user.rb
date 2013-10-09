@@ -31,17 +31,49 @@ class User < ActiveRecord::Base
   has_many :roles, :through => :assignments
 
   has_one :profile
-  after_create :create_user_profile
+
+  has_many :programas, :through => :roles, :uniq => true
+
+  has_one :persona
+  after_create :crear_persona_asociada
 
   scope :extensionistas, joins(:roles).where("roles.name = 'Extensionista' ")
+
+  after_update :update_persona_profile
+
+  def update_persona_profile
+    old_profiles = {}
+    Profile.where("persona_id = #{persona.id}").each do |c|
+      old_profiles[c.type] = c.id
+    end
+
+    edited_profiles = []
+    programas.each do |programa|
+      roles.where("programa_id = #{programa.id}").each do |role|
+        edited_profiles << role.profile_subclass_name.camelize
+      end
+    end
+    
+    new_profiles = old_profiles.select{|k,v| edited_profiles.include?(k) }
+    old_profiles = old_profiles.select{|k,v| !new_profiles.include?(k)}
+    edited_profiles.each{|p| new_profiles[p] = new_profiles[p]}
+
+    puts new_profiles
+    new_profiles.each do |k,v|
+      if v.nil? then
+        persona.profiles.create(type: k)
+      end
+    end
+    old_profiles.each{|k,v| Profile.destroy(v)}
+  end
 
   def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 
   private
-    def create_user_profile
-      create_profile(nombre: email)
+    def crear_persona_asociada
+      create_persona(nombre: email)
     end
 
 end

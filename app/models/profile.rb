@@ -16,11 +16,12 @@
 #
 
 class Profile < ActiveRecord::Base
-  attr_accessible  :nombre, :apellido, :telefono_fijo, :telefono_celular
+  attr_accessible  :nombre, :apellido, :telefono_fijo, :telefono_celular, :type
 
   belongs_to :user
+  belongs_to :persona
 
-  has_many :roles, :through => :user
+  has_many :roles, :through => :persona
 
   scope :agentes, joins(:roles).where("roles.name = 'Agente' ").order('apellido, nombre ASC')
   scope :extensionistas, joins(:roles).where("roles.name = 'Extensionista' ").order('apellido, nombre ASC')

@@ -20,8 +20,18 @@ class Programa < ActiveRecord::Base
                      length: {maximum: 50}, 
                      format: { with: NOMBRE_VALIDO_REGEX }, 
                      uniqueness: { case_sensitive: false }
+  validate :if_name_can_be_edited
+
   def nombre=(s)
     write_attribute(:nombre, s.to_s.strip)
   end              
+
+  private
+    def if_name_can_be_edited
+      nombre_original = Programa.find(id).nombre
+      if(roles.size > 0 && nombre != nombre_original) then
+        errors.add(:nombre, ": el nombre del programa no se puede editar.")
+      end
+    end
 
 end

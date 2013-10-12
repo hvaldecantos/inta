@@ -1,0 +1,6 @@
+<h4>Perfil Extensionista PROICSA</h4>
+
+<div class="field">
+  <%= object.label :proicsa_agente_id %>
+  <%= object.select(:proicsa_agente_id, ProicsaAgente.all_for_select, :include_blank => true)%>
+</div>

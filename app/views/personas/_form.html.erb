@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= form_for(@persona) do |f| %>
   <%= render 'shared/form_error_messages', object: f.object %>
 
   <div class="field">
@@ -10,6 +10,10 @@
     <%= f.text_field :apellido %>
   </div>
   <div class="field">
+    <%= f.label :dni %>
+    <%= f.text_field :dni %>
+  </div>
+  <div class="field">
     <%= f.label :telefono_fijo %>
     <%= f.text_field :telefono_fijo %>
   </div>
@@ -17,6 +21,10 @@
     <%= f.label :telefono_celular %>
     <%= f.text_field :telefono_celular %>
   </div>
+  
+  <%= f.fields_for(:profiles) do |builder| %>
+    <%= render "#{builder.object.corresponding_form}", object: builder %><BR>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007165329) do
+ActiveRecord::Schema.define(:version => 20131012155736) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -89,15 +89,13 @@ ActiveRecord::Schema.define(:version => 20131007165329) do
     t.string   "nombre"
     t.string   "apellido"
     t.string   "dni"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.string   "telefono_fijo"
+    t.string   "telefono_celular"
   end
 
   create_table "profiles", :force => true do |t|
-    t.string   "nombre"
-    t.string   "apellido"
-    t.string   "telefono_fijo"
-    t.string   "telefono_celular"
     t.integer  "user_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false

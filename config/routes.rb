@@ -21,9 +21,9 @@ Inta::Application.routes.draw do
   end
 
   scope "/users" do
-    controller :profiles do
-      put 'profiles/:id' => :update, as: :profile
-      get 'profiles/:id/edit' => :edit, as: :edit_profile
+    controller :personas do
+      put 'profile/:id' => :update, as: :persona
+      get 'profile/:id/edit' => :edit, as: :edit_persona
     end
   end
 

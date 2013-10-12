@@ -1,0 +1,7 @@
+<h4>Perfil Agente PROICSA</h4>
+
+<b>Extensionistas a cargo:</b><BR>
+
+<% object.object.proicsa_extensionistas.each do |extensionista| %>
+  <%= extensionista.persona.nombre %> <BR>
+<% end %>

@@ -11,7 +11,7 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.update_attributes(params[:persona])
-        format.html { redirect_to(:back, :notice => 'Persona actualizado exitosamente.') }
+        format.html { redirect_to(edit_persona_path(@persona.id), :notice => 'Persona actualizado exitosamente.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

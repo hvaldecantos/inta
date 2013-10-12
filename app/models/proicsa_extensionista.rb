@@ -12,5 +12,6 @@
 #
 
 class ProicsaExtensionista < Profile
+  attr_accessible  :pc_asignada
   belongs_to :proicsa_agente
 end

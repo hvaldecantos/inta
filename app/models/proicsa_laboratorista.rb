@@ -12,5 +12,5 @@
 #
 
 class ProicsaLaboratorista < Profile
-
+  attr_accessible  :pc_asignada
 end

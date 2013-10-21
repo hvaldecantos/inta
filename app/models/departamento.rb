@@ -10,6 +10,8 @@
 #
 
 class Departamento < ActiveRecord::Base
-  # attr_accessible :title, :body
+  has_many :localidades
+  has_many :comunas_municipios
+  has_many :parajes
   has_many :analisis_rsds
 end

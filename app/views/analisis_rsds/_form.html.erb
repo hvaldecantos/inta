@@ -29,22 +29,24 @@
     <%= f.label :parcela_id %>
     <%= f.number_field :parcela_id %>
   </div>
-  <div class="field">
-    <%= f.label :paraje_id %>
-    <%= f.collection_select :paraje_id, Paraje.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
-  </div>
+
   <div class="field">
     <%= f.label :departamento_id %>
     <%= f.collection_select :departamento_id, Departamento.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
   </div>
   <div class="field">
+    <%= f.label :localidad_id %>
+    <%= f.grouped_collection_select :localidad_id, Departamento.order('nombre ASC').all, :localidades, :nombre, :id, :nombre, :include_blank => true %>
+  </div>  
+  <div class="field">
     <%= f.label :comuna_municipio_id %>
-    <%= f.collection_select :comuna_municipio_id, ComunaMunicipio.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+    <%= f.grouped_collection_select :comuna_municipio_id, Departamento.order('nombre ASC').all, :comunas_municipios, :nombre, :id, :nombre, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :localidad_id %>
-    <%= f.collection_select :localidad_id, Localidad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+    <%= f.label :paraje_id %>
+    <%= f.grouped_collection_select :paraje_id, Departamento.order('nombre ASC').all, :parajes, :nombre, :id, :nombre, :include_blank => true %>
   </div>
+  
   <div class="field">
     <%= f.label :productor_id %>
     <%= f.number_field :productor_id %>
@@ -59,7 +61,7 @@
   </div>
   <div class="field">
     <%= f.label :promotor_id %>
-    <%= f.select :promotor_id, ProicsaExtensionista.all_for_select_id_persona, :include_blank => true %>
+    <%= f.grouped_collection_select :promotor_id, ProicsaAgente.all, :proicsa_extensionistas, :apellido_nombre, :persona_id, :apellido_nombre, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :laboratorista_id %>

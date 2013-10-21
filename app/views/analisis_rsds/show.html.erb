@@ -1,94 +1,37 @@
 <% provide(:title, 'Análisis RSD ' + @analisis_rsd.fecha_ingreso.strftime("%d/%m/%Y")) %>
-<p>
-  <b>Fecha extraccion:</b>
-  <%= @analisis_rsd.fecha_extraccion %>
-</p>
-
-<p>
-  <b>Fecha ingreso:</b>
-  <%= @analisis_rsd.fecha_ingreso %>
-</p>
-
-<p>
-  <b>Fecha analisis:</b>
-  <%= @analisis_rsd.fecha_analisis %>
-</p>
-
-<p>
-  <b>Variedad:</b>
-  <%= @analisis_rsd.variedad_id %>
-</p>
-
-<p>
-  <b>Membrana:</b>
-  <%= @analisis_rsd.membrana %>
-</p>
-
-<p>
-  <b>Anio plantacion:</b>
-  <%= @analisis_rsd.anio_plantacion.year %>
-</p>
-
-<p>
-  <b>Parcela:</b>
-  <%= @analisis_rsd.parcela_id %>
-</p>
-
-<p>
-  <b>Paraje:</b>
-  <%= @analisis_rsd.paraje.nombre %>
-</p>
-
-<p>
-  <b>Departamento:</b>
-  <%= @analisis_rsd.departamento.nombre %>
-</p>
-
-<p>
-  <b>Comuna municipio:</b>
-  <%= @analisis_rsd.comuna_municipio.nombre %>
-</p>
-
-<p>
-  <b>Localidad:</b>
-  <%= @analisis_rsd.localidad.nombre %>
-</p>
-
-<p>
-  <b>Productor:</b>
-  <%= @analisis_rsd.productor_id %>
-</p>
-
-<p>
-  <b>Procedencia:</b>
-  <%= @analisis_rsd.procedencia_id %>
-</p>
-
-<p>
-  <b>Agente:</b>
-  <%= @analisis_rsd.agente.apellido_nombre %>
-</p>
-
-<p>
-  <b>Promotor:</b>
-  <%= @analisis_rsd.promotor.apellido_nombre %>
-</p>
-
-<p>
-  <b>Laboratorista:</b>
-  <%= @analisis_rsd.laboratorista.apellido_nombre %>
-</p>
-
-<p>
-  <b>Incidencia:</b>
-  <%= @analisis_rsd.incidencia %>
-</p>
-
-<p>
-  <b>Analizado:</b>
-  <%= @analisis_rsd.analizado %>
-</p>
-
+<h2>Analisis RSD</h2>
+<table class="table table-bordered">
+  <tr>
+    <td><b>Fecha extraccion:</b> <%= @analisis_rsd.fecha_extraccion %></td>
+    <td><b>Fecha ingreso:</b> <%= @analisis_rsd.fecha_ingreso %></td>
+    <td><b>Fecha analisis:</b> <%= @analisis_rsd.fecha_analisis %></td>
+  </tr> 
+  <tr>
+    <td><b>Variedad:</b> <%= @analisis_rsd.variedad_id %></td>
+    <td><b>Membrana:</b> <%= @analisis_rsd.membrana %></td>
+    <td><b>Anio plantacion:</b> <%= @analisis_rsd.anio_plantacion.year %></td>
+  </tr>
+  <tr>
+    <td><b>Procedencia:</b> <%= @analisis_rsd.procedencia_id %></td>
+    <td><b>Productor:</b> <%= @analisis_rsd.productor_id %></td>
+    <td><b>Parcela:</b> <%= @analisis_rsd.parcela_id %></td>
+  </tr>
+  <tr>
+    <td><b>Departamento:</b> <%= @analisis_rsd.departamento.nombre %></td>
+    <td><b>Localidad:</b> <%= @analisis_rsd.localidad.nombre %></td>
+    <td><b>Comuna municipio:</b> <%= @analisis_rsd.comuna_municipio.nombre %></td>
+  </tr>
+  <tr>
+    <td><b>Agente:</b> <%= @analisis_rsd.agente.apellido_nombre %></td>
+    <td><b>Promotor:</b> <%= @analisis_rsd.promotor.apellido_nombre %></td>
+    <td><b>Paraje:</b> <%= @analisis_rsd.paraje.nombre %></td>
+  </tr>
+  <tr class="danger">
+    <td><b>Laboratorista:</b> <%= @analisis_rsd.laboratorista.apellido_nombre %></td>
+    <td><b>Incidencia:</b> <%= @analisis_rsd.incidencia %></td>
+    <td><b>Analizado:</b> <%= @analisis_rsd.analizado %></td>
+  </tr>
+</table>
 
 <%= link_to 'Editar', edit_analisis_rsd_path(@analisis_rsd) %> |
 <%= link_to 'Listado Análisis RSD', analisis_rsds_path %>

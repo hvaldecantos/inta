@@ -63,10 +63,7 @@
     <%= f.label :laboratorista_id %>
     <%= f.select :laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, :include_blank => true %>
   </div>
-  <div class="field">
-    <%= f.label :incidencia %>
-    <%= f.text_field :incidencia %>
-  </div>
+
   <div class="field">
     <%= f.label :analizado %>
     <%= f.check_box :analizado %>
@@ -74,6 +71,10 @@
   <div class="field">
     <%= f.label :fecha_analisis %>
     <%= f.date_select :fecha_analisis %>
+  </div>
+  <div class="field">
+    <%= f.label :incidencia %>
+    <%= f.text_field :incidencia %>
   </div>
   <br />
   <div class="actions">

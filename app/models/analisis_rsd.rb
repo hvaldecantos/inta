@@ -45,6 +45,7 @@ class AnalisisRsd < ActiveRecord::Base
     puts analizado
     if analizado == false
       write_attribute :fecha_analisis, nil
+      write_attribute :incidencia, nil
     end
   end
 

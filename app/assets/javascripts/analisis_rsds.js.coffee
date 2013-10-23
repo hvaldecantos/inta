@@ -44,8 +44,10 @@ jQuery ->
   controlar_analisado = () ->
     if $('#analisis_rsd_analizado').is(':checked')
       $("#analisis_rsd_fecha_analisis_3i").parent().show()
+      $("#analisis_rsd_incidencia").parent().show()
     else
       $("#analisis_rsd_fecha_analisis_3i").parent().hide()
+      $("#analisis_rsd_incidencia").parent().hide()
 
   cargar_dept_loc_com_par()
   cargar_promotores()

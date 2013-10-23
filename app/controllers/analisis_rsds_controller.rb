@@ -25,6 +25,7 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds/new.json
   def new
     @analisis_rsd = AnalisisRsd.new
+    @analisis_rsd.laboratorista_id = current_user.persona.id
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds/1/edit
   def edit
     @analisis_rsd = AnalisisRsd.find(params[:id])
+    @analisis_rsd.laboratorista_id = current_user.persona.id
   end
 
   # POST /analisis_rsds

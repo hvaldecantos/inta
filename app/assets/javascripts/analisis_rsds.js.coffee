@@ -41,7 +41,7 @@ jQuery ->
     else
       $('#analisis_rsd_paraje_id').empty()
 
-  controlar_analisado = () ->
+  controlar_analizado = () ->
     if $('#analisis_rsd_analizado').is(':checked')
       $("#analisis_rsd_fecha_analisis_3i").parent().show()
       $("#analisis_rsd_incidencia").parent().show()
@@ -51,7 +51,7 @@ jQuery ->
 
   cargar_dept_loc_com_par()
   cargar_promotores()
-  controlar_analisado()
+  controlar_analizado()
 
   $('#analisis_rsd_departamento_id').change -> 
     cargar_dept_loc_com_par()    
@@ -60,4 +60,4 @@ jQuery ->
     cargar_promotores()
 
   $('#analisis_rsd_analizado').change -> 
-    controlar_analisado()
+    controlar_analizado()

@@ -39,14 +39,20 @@ class AnalisisRsd < ActiveRecord::Base
   belongs_to :promotor, class_name: "Persona"
   belongs_to :laboratorista, class_name: "Persona"
 
-  before_update :establecer_fecha_analisis
+  before_update :establecer_fecha_e_incidencia_si_analizado_false
 
-  def establecer_fecha_analisis
-    puts analizado
+  validate :incidencia_en_blanco_si_analizado_true
+
+  def establecer_fecha_e_incidencia_si_analizado_false
     if analizado == false
       write_attribute :fecha_analisis, nil
       write_attribute :incidencia, nil
     end
   end
 
+  def incidencia_en_blanco_si_analizado_true
+    if incidencia.blank? && analizado == true then
+      errors.add(:incidencia, ": si se realizó el análisis rsd debe ingresar la incidencia.")
+    end
+  end
 end

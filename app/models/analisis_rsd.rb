@@ -39,4 +39,13 @@ class AnalisisRsd < ActiveRecord::Base
   belongs_to :promotor, class_name: "Persona"
   belongs_to :laboratorista, class_name: "Persona"
 
+  before_update :establecer_fecha_analisis
+
+  def establecer_fecha_analisis
+    puts analizado
+    if analizado == false
+      write_attribute :fecha_analisis, nil
+    end
+  end
+
 end

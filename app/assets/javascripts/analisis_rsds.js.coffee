@@ -11,7 +11,6 @@ jQuery ->
   parajes            = $('#analisis_rsd_paraje_id').html()
   promotores         = $('#analisis_rsd_promotor_id').html()
 
-
   cargar_promotores = () ->
     agente = $('#analisis_rsd_agente_id :selected').text()
     promotor_options = $(promotores).filter("optgroup[label='#{agente}']").html()
@@ -42,13 +41,21 @@ jQuery ->
     else
       $('#analisis_rsd_paraje_id').empty()
 
+  controlar_analisado = () ->
+    if $('#analisis_rsd_analizado').is(':checked')
+      $("#analisis_rsd_fecha_analisis_3i").parent().show()
+    else
+      $("#analisis_rsd_fecha_analisis_3i").parent().hide()
 
   cargar_dept_loc_com_par()
   cargar_promotores()
-
+  controlar_analisado()
 
   $('#analisis_rsd_departamento_id').change -> 
     cargar_dept_loc_com_par()    
 
   $('#analisis_rsd_agente_id').change -> 
     cargar_promotores()
+
+  $('#analisis_rsd_analizado').change -> 
+    controlar_analisado()

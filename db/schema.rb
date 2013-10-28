@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131012164545) do
+ActiveRecord::Schema.define(:version => 20131028040509) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20131012164545) do
     t.float   "pobla_2001"
     t.integer "id",                  :null => false
     t.integer "departamento_id"
-    t.string  "id_base"
+    t.integer "id_base"
     t.integer "comuna_municipio_id"
   end
 

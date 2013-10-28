@@ -1,29 +1,41 @@
 development:
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
+  postgis_extension: true
+  schema_search_path: public,postgis
   host: localhost
   database: intadev
   pool: 5
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  su_username: <%= ENV['DB_SU_USERNAME'] %>
+  su_password: <%= ENV['DB_SU_PASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
+  postgis_extension: true
+  schema_search_path: public,postgis
   host: localhost
   database: intatest
   pool: 5
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  su_username: <%= ENV['DB_SU_USERNAME'] %>
+  su_password: <%= ENV['DB_SU_PASSWORD'] %>
 
 production:
-  adapter: postgresql
+  adapter: postgis
   encoding: unicode
+  postgis_extension: true
+  schema_search_path: public,postgis
   host: ENV['DB_HOST_PRODUCTION']
   database: ENV['DB_NAME_PRODUCTION']
   pool: 5
-  username: ENV['DB_USERNAME_PRODUCTION']
-  password: ENV['DB_PASSWORD_PRODUCTION']
+  username: <%= ENV['DB_USERNAME_PRODUCTION'] %>
+  password: <%= ENV['DB_PASSWORD_PRODUCTION'] %>
+  su_username: <%= ENV['DB_SU_USERNAME_PRODUCTION'] %>
+  su_password: <%= ENV['DB_SU_PASSWORD_PRODUCTION'] %>

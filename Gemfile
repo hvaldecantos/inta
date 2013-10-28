@@ -6,6 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '~> 0.15.1'
+gem 'activerecord-postgis-adapter', '~> 0.6.5'
 gem 'figaro', '~> 0.6.4'
 gem 'bootstrap-sass', '~> 2.3.2'
 gem 'devise', '~> 2.2.4'

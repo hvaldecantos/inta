@@ -11,6 +11,7 @@
 #  agencia_id           :integer
 #  departamento_id      :integer
 #  id                   :integer          not null, primary key
+#  the_geom             :spatial({:srid=>
 #
 
 class ComunaMunicipio < ActiveRecord::Base

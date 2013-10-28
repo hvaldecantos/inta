@@ -7,6 +7,7 @@
 #  id           :integer          not null, primary key
 #  nombre       :string(255)
 #  cabecera     :string(255)
+#  the_geom     :spatial({:srid=>
 #
 
 require 'spec_helper'

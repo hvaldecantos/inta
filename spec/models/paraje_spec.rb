@@ -7,6 +7,7 @@
 #  localidad_id        :integer
 #  tipo                :string(255)
 #  departamento_id     :integer
+#  the_geom            :spatial({:srid=>
 #  comuna_municipio_id :integer
 #
 

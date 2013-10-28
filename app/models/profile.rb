@@ -9,6 +9,7 @@
 #  type              :string(255)
 #  proicsa_agente_id :integer
 #  persona_id        :integer
+#  pc_asignada       :string(255)
 #
 
 class Profile < ActiveRecord::Base

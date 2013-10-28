@@ -6,8 +6,9 @@
 #  provincia_id        :integer
 #  pobla_2001          :float
 #  id                  :integer          not null, primary key
+#  the_geom            :spatial({:srid=>
 #  departamento_id     :integer
-#  id_base             :string(255)
+#  id_base             :integer
 #  comuna_municipio_id :integer
 #
 

@@ -16,7 +16,11 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'localidad', 'localidades'
+  inflect.irregular 'Localidad', 'Localidades'
   inflect.irregular 'comuna_municipio', 'comunas_municipios'
+  inflect.irregular 'ComunaMunicipio', 'ComunasMunicipios'
   inflect.irregular 'productor', 'productores'
+  inflect.irregular 'Productor', 'Productores'
   inflect.irregular 'analisis_rsd', 'analisis_rsds'
+  inflect.irregular 'AnalisisRsd', 'AnalisisRsds'
 end

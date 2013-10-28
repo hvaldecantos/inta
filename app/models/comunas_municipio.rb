@@ -1,2 +1,0 @@
-class ComunasMunicipio < ComunaMunicipio
-end

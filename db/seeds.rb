@@ -18,10 +18,10 @@ puts 'Assigning admin role to user Admin'
 unless usuario.roles.include? rol then usuario.roles << rol end
 puts "Admin role assigned to user Admin."
 
-puts 'Copying data to Comunas_Municipios, Departamentos, Localidades and Parajes tables'
+puts 'Copying data with Geospatial info to Comunas_Municipios, Departamentos, Localidades and Parajes tables'
 conf = Rails.configuration.database_configuration[Rails.env]
 t=Thread.new do
-  system("psql -U #{conf['username']} -W -h localhost #{conf['database']} < ./db/sql/20130827_comunasmunicipio_departamentos_localidades_parajes_data.sql")
+  system("psql -U #{conf['username']} -W -h localhost #{conf['database']} < ./db/sql/20131028_comunasmunicipio_departamentos_localidades_parajes_geospatial_data.sql")
 end
 t.join
 puts '.... Done'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131028040509) do
+ActiveRecord::Schema.define(:version => 20131028150152) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20131028040509) do
     t.integer "agencia_id"
     t.integer "departamento_id"
     t.integer "id",                   :null => false
+    t.spatial "the_geom",             :limit => {:srid=>22173, :type=>"multi_polygon"}
   end
 
   create_table "departamentos", :id => false, :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20131028040509) do
     t.integer "id",           :null => false
     t.string  "nombre"
     t.string  "cabecera"
+    t.spatial "the_geom",     :limit => {:srid=>22173, :type=>"multi_polygon"}
   end
 
   create_table "localidades", :id => false, :force => true do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20131028040509) do
     t.integer "provincia_id"
     t.float   "pobla_2001"
     t.integer "id",                  :null => false
+    t.spatial "the_geom",            :limit => {:srid=>22173, :type=>"point"}
     t.integer "departamento_id"
     t.integer "id_base"
     t.integer "comuna_municipio_id"
@@ -81,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20131028040509) do
     t.integer "localidad_id"
     t.string  "tipo"
     t.integer "departamento_id"
+    t.spatial "the_geom",            :limit => {:srid=>22173, :type=>"point"}
     t.integer "comuna_municipio_id"
   end
 

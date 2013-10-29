@@ -73,7 +73,7 @@ class User < ActiveRecord::Base
 
   private
     def crear_persona_asociada
-      create_persona(nombre: email)
+      create_persona(nombre: email, apellido: email)
     end
 
 end

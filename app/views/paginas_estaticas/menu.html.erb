@@ -7,7 +7,7 @@
     <li><%= link_to "Roles", roles_path %></li>
     <li><%= link_to "Usuarios", users_path %></li>
   <% end %>
-  <% if can? :update, :AnalisisRsd %>
+  <% if can? :read, :AnalisisRsd %>
     <li><%= link_to "RSD", analisis_rsds_path %></li>
   <% end %>
 </p>

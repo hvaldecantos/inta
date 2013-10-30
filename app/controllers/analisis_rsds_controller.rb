@@ -1,4 +1,7 @@
 class AnalisisRsdsController < ApplicationController
+
+  load_and_authorize_resource
+  
   # GET /analisis_rsds
   # GET /analisis_rsds.json
   def index

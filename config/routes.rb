@@ -1,5 +1,8 @@
 Inta::Application.routes.draw do
 
+  resources :productores
+
+
   resources :analisis_rsds
 
   authenticated :user do

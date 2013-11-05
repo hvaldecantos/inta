@@ -1,0 +1,36 @@
+<% provide(:title, 'Listado de Productores') %>
+<h2>Listado de Productores</h2>
+
+<table class="table table-striped table-condensed">
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Dni</th>
+    <th>Departamento</th>
+    <th>Comuna municipio</th>
+    <th>Agencia</th>
+    <th>Email extensionista</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @productores.each do |productor| %>
+  <tr>
+    <td><%= productor.nombre %></td>
+    <td><%= productor.apellido %></td>
+    <td><%= productor.dni %></td>
+    <td><%= productor.departamento_id %></td>
+    <td><%= productor.comuna_municipio_id %></td>
+    <td><%= productor.agencia %></td>
+    <td><%= productor.email_extensionista %></td>
+    <td><%= link_to 'Mostrar', productor %></td>
+    <td><%= link_to 'Editar', edit_productor_path(productor) %></td>
+    <td><%= link_to 'Borrar', productor, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Productor', new_productor_path %>

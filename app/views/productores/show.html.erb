@@ -1,0 +1,38 @@
+<% provide(:title, 'Productor ' + @productor.apellido_nombre) %>
+<p>
+  <h2><%= @productor.apellido_nombre %></h2>
+</p>
+
+<p>
+  <b>Apellido:</b>
+  <%= @productor.apellido %>
+</p>
+
+<p>
+  <b>Dni:</b>
+  <%= @productor.dni %>
+</p>
+
+<p>
+  <b>Departamento:</b>
+  <%= @productor.departamento_id %>
+</p>
+
+<p>
+  <b>Comuna municipio:</b>
+  <%= @productor.comuna_municipio_id %>
+</p>
+
+<p>
+  <b>Agencia:</b>
+  <%= @productor.agencia %>
+</p>
+
+<p>
+  <b>Email extensionista:</b>
+  <%= @productor.email_extensionista %>
+</p>
+
+
+<%= link_to 'Editar', edit_productor_path(@productor) %> |
+<%= link_to 'Listado de Productores', productores_path %>

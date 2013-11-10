@@ -1,5 +1,8 @@
 Inta::Application.routes.draw do
 
+  resources :cania_variedades
+
+
   resources :productores
 
 

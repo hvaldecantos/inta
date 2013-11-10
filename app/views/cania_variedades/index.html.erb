@@ -1,0 +1,26 @@
+<% provide(:title, 'Listado de Variedades de Cañas') %>
+<h2>Listado de Variedades de Cañas</h2>
+
+<table class="table table-striped table-condensed">
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cania_variedades.each do |cania_variedad| %>
+  <tr>
+    <td><%= cania_variedad.nombre %></td>
+    <td><%= cania_variedad.descripcion %></td>
+    <td><%= link_to 'Mostrar', cania_variedad %></td>
+    <td><%= link_to 'Editar', edit_cania_variedad_path(cania_variedad) %></td>
+    <td><%= link_to 'Borrar', cania_variedad, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nueva Variedad de Caña', new_cania_variedad_path %>

@@ -1,0 +1,12 @@
+<% provide(:title, 'Variedad de Caña: ' + @cania_variedad.nombre) %>
+<p>
+  <h2><%= @cania_variedad.nombre %></h2>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @cania_variedad.descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_cania_variedad_path(@cania_variedad) %> |
+<%= link_to 'Listado de Variedades de Cañas', cania_variedades_path %>

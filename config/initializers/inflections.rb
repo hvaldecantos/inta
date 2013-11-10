@@ -23,4 +23,6 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'Productor', 'Productores'
   inflect.irregular 'analisis_rsd', 'analisis_rsds'
   inflect.irregular 'AnalisisRsd', 'AnalisisRsds'
+  inflect.irregular 'CaniaVariedad', 'CaniaVariedades'
+  inflect.irregular 'cania_variedad', 'cania_variedades'
 end

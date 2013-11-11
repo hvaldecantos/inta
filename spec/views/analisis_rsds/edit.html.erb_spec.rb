@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "analisis_rsds/edit" do
   before(:each) do
     @analisis_rsd = assign(:analisis_rsd, stub_model(AnalisisRsd,
-      :variedad_id => 1,
+      :cania_variedad_id => 1,
       :membrana => "MyString",
       :parcela_id => 1,
       :paraje_id => 1,
@@ -25,7 +25,7 @@ describe "analisis_rsds/edit" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", analisis_rsd_path(@analisis_rsd), "post" do
-      assert_select "input#analisis_rsd_variedad_id[name=?]", "analisis_rsd[variedad_id]"
+      assert_select "input#analisis_rsd_cania_variedad_id[name=?]", "analisis_rsd[cania_variedad_id]"
       assert_select "input#analisis_rsd_membrana[name=?]", "analisis_rsd[membrana]"
       assert_select "input#analisis_rsd_parcela_id[name=?]", "analisis_rsd[parcela_id]"
       assert_select "input#analisis_rsd_paraje_id[name=?]", "analisis_rsd[paraje_id]"

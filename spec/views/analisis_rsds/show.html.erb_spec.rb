@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "analisis_rsds/show" do
   before(:each) do
     @analisis_rsd = assign(:analisis_rsd, stub_model(AnalisisRsd,
-      :variedad_id => 1,
+      :cania_variedad_id => 1,
       :membrana => "Membrana",
       :parcela_id => 2,
       :paraje_id => 3,

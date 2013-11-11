@@ -6,7 +6,7 @@
 #  fecha_extraccion    :date
 #  fecha_ingreso       :date
 #  fecha_analisis      :date
-#  variedad_id         :integer
+#  cania_variedad_id         :integer
 #  membrana            :string(255)
 #  anio_plantacion     :date
 #  parcela_id          :integer
@@ -26,7 +26,7 @@
 #
 
 class AnalisisRsd < ActiveRecord::Base
-  attr_accessible :agente_id, :analizado, :anio_plantacion, :comuna_municipio_id, :departamento_id, :fecha_analisis, :fecha_extraccion, :fecha_ingreso, :incidencia, :laboratorista_id, :localidad_id, :membrana, :paraje_id, :parcela_id, :procedencia_id, :productor_id, :promotor_id, :variedad_id
+  attr_accessible :agente_id, :analizado, :anio_plantacion, :comuna_municipio_id, :departamento_id, :fecha_analisis, :fecha_extraccion, :fecha_ingreso, :incidencia, :laboratorista_id, :localidad_id, :membrana, :paraje_id, :parcela_id, :procedencia_id, :productor_id, :promotor_id, :cania_variedad_id
 
   validates_presence_of :comuna_municipio_id, :departamento_id, :paraje_id, :localidad_id, :agente_id, :promotor_id, :laboratorista_id
   

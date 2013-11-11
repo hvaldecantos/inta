@@ -4,7 +4,7 @@ describe "analisis_rsds/index" do
   before(:each) do
     assign(:analisis_rsds, [
       stub_model(AnalisisRsd,
-        :variedad_id => 1,
+        :cania_variedad_id => 1,
         :membrana => "Membrana",
         :parcela_id => 2,
         :paraje_id => 3,
@@ -20,7 +20,7 @@ describe "analisis_rsds/index" do
         :analizado => false
       ),
       stub_model(AnalisisRsd,
-        :variedad_id => 1,
+        :cania_variedad_id => 1,
         :membrana => "Membrana",
         :parcela_id => 2,
         :paraje_id => 3,

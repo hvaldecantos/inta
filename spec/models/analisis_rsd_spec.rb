@@ -6,7 +6,7 @@
 #  fecha_extraccion    :date
 #  fecha_ingreso       :date
 #  fecha_analisis      :date
-#  variedad_id         :integer
+#  cania_variedad_id   :integer
 #  membrana            :string(255)
 #  anio_plantacion     :date
 #  parcela_id          :integer

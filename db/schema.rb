@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131110153624) do
+ActiveRecord::Schema.define(:version => 20131111165237) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
     t.date     "fecha_ingreso"
     t.date     "fecha_analisis"
-    t.integer  "variedad_id"
+    t.integer  "cania_variedad_id"
     t.string   "membrana"
     t.date     "anio_plantacion"
     t.integer  "parcela_id"

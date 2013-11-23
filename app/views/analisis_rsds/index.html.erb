@@ -35,6 +35,8 @@
 <% end %>
 </table>
 
+<%= will_paginate @analisis_rsds, :previous_label => t("anterior"), :next_label => t("siguiente") %>
+
 <br />
 
 <%= link_to 'Ingresar Analisis rsd', new_analisis_rsd_path %>

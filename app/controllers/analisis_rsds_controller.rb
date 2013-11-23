@@ -5,7 +5,7 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds
   # GET /analisis_rsds.json
   def index
-    @analisis_rsds = AnalisisRsd.order("fecha_ingreso DESC")
+    @analisis_rsds = AnalisisRsd.paginate(:page => params[:page], :per_page => 20).order('fecha_ingreso DESC')
 
     respond_to do |format|
       format.html # index.html.erb

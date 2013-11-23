@@ -11,6 +11,7 @@ gem 'figaro', '~> 0.6.4'
 gem 'bootstrap-sass', '~> 2.3.2'
 gem 'devise', '~> 2.2.4'
 gem 'cancan', '~> 1.6.10'
+gem 'will_paginate', '~> 3.0.5'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.2'

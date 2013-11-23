@@ -50,7 +50,7 @@
     <td>
       <div class="field">
         <%= f.label :productor_id %>
-        <%= f.number_field :productor_id %>
+        <%= f.collection_select :productor_id, Productor.order('nombre ASC').all, :id, :apellido_nombre, :include_blank => true %>
       </div>
     </td>
     <td>

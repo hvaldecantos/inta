@@ -38,7 +38,8 @@ class AnalisisRsd < ActiveRecord::Base
   belongs_to :agente, class_name: "Persona"
   belongs_to :promotor, class_name: "Persona"
   belongs_to :laboratorista, class_name: "Persona"
-
+  belongs_to :productor
+  
   before_update :establecer_fecha_e_incidencia_si_analizado_false
 
   validate :incidencia_en_blanco_si_analizado_true

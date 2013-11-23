@@ -43,6 +43,35 @@ class AnalisisRsd < ActiveRecord::Base
 
   validate :incidencia_en_blanco_si_analizado_true
 
+  validate :fecha_extraccion_fecha_ingreso
+  validate :fecha_analisis_fecha_ingreso
+  validate :fecha_analisis_fecha_extraccion
+  validate :fecha_analisis_si_analisado
+
+  def fecha_analisis_si_analisado
+    if analizado == true && fecha_analisis.nil?
+      errors.add(:fecha_analisis, ": si se hizo el análisis, debe ingresar la fecha del análisis.")
+    end
+  end
+
+  def fecha_extraccion_fecha_ingreso
+    if fecha_ingreso.nil? || fecha_extraccion.nil? then return end
+    if(fecha_ingreso < fecha_extraccion) then
+      errors.add(:fecha_ingreso, ": no puede ser antes de la fecha de extracción.")
+    end
+  end
+  def fecha_analisis_fecha_ingreso
+    if fecha_analisis.nil? || fecha_ingreso.nil? then return end
+    if(fecha_analisis < fecha_ingreso) then
+      errors.add(:fecha_analisis, ": no puede ser antes de la fecha de ingreso.")
+    end
+  end
+  def fecha_analisis_fecha_extraccion
+    if fecha_analisis.nil? || fecha_extraccion.nil? then return end
+    if(fecha_analisis < fecha_extraccion) then
+      errors.add(:fecha_analisis, ": no puede ser antes de la fecha de extracción.")
+    end
+  end
   def establecer_fecha_e_incidencia_si_analizado_false
     if analizado == false
       write_attribute :fecha_analisis, nil

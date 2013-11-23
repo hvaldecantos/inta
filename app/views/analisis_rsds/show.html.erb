@@ -2,9 +2,9 @@
 <h2>Analisis RSD</h2>
 <table class="table table-bordered">
   <tr>
-    <td><b>Fecha extraccion:</b> <%= @analisis_rsd.fecha_extraccion %></td>
-    <td><b>Fecha ingreso:</b> <%= @analisis_rsd.fecha_ingreso %></td>
-    <td><b>Fecha analisis:</b> <%= @analisis_rsd.fecha_analisis %></td>
+    <td><b>Fecha extraccion:</b> <%= l(@analisis_rsd.fecha_extraccion) unless @analisis_rsd.fecha_extraccion.nil? %></td>
+    <td><b>Fecha ingreso:</b> <%= l(@analisis_rsd.fecha_ingreso) unless @analisis_rsd.fecha_ingreso.nil? %></td>
+    <td><b>Fecha analisis:</b> <%= l(@analisis_rsd.fecha_analisis) unless @analisis_rsd.fecha_analisis.nil? %></td>
   </tr> 
   <tr>
     <td><b>Variedad:</b> <%= @analisis_rsd.cania_variedad_id %></td>

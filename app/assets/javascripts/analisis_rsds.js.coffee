@@ -3,7 +3,10 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-
+  
+  $('.datepicker').datepicker({
+    dateFormat: 'dd/mm/yy'
+  });
 
   empty_option       = $('<option />').attr('value', '')
   localidades        = $('#analisis_rsd_localidad_id').html()
@@ -43,10 +46,10 @@ jQuery ->
 
   controlar_analizado = () ->
     if $('#analisis_rsd_analizado').is(':checked')
-      $("#analisis_rsd_fecha_analisis_3i").parent().show()
+      $("#analisis_rsd_fecha_analisis").parent().show()
       $("#analisis_rsd_incidencia").parent().show()
     else
-      $("#analisis_rsd_fecha_analisis_3i").parent().hide()
+      $("#analisis_rsd_fecha_analisis").parent().hide()
       $("#analisis_rsd_incidencia").parent().hide()
 
   cargar_dept_loc_com_par()

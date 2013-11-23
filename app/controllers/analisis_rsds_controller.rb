@@ -29,6 +29,7 @@ class AnalisisRsdsController < ApplicationController
   def new
     @analisis_rsd = AnalisisRsd.new
     @analisis_rsd.laboratorista_id = current_user.persona.id
+    @analisis_rsd.fecha_ingreso = Date.today
 
     respond_to do |format|
       format.html # new.html.erb

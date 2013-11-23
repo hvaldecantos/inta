@@ -1,81 +1,136 @@
 <%= form_for(@analisis_rsd) do |f| %>
   <%= render 'shared/form_error_messages', object: f.object %>
 
-  <div class="field">
-    <%= f.label :fecha_extraccion %>
-    <%= f.date_select :fecha_extraccion %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_ingreso %>
-    <%= f.date_select :fecha_ingreso %>
-  </div>
-  <div class="field">
-    <%= f.label :cania_variedad_id %>
-    <%= f.number_field :cania_variedad_id %>
-  </div>
-  <div class="field">
-    <%= f.label :membrana %>
-    <%= f.text_field :membrana %>
-  </div>
-  <div class="field">
-    <%= f.label :anio_plantacion %>
-    <%= f.date_select :anio_plantacion, discard_month: true, discard_day: true %>
-  </div>
-  <div class="field">
-    <%= f.label :parcela_id %>
-    <%= f.number_field :parcela_id %>
-  </div>
+<table class="table table-bordered">
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :fecha_extraccion %>
+        <%= f.text_field :fecha_extraccion, :value => (l(@analisis_rsd.fecha_extraccion) unless @analisis_rsd.fecha_extraccion.nil?), class: "datepicker" %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :fecha_ingreso %>
+        <%= f.text_field :fecha_ingreso, :value => (l(@analisis_rsd.fecha_ingreso) unless @analisis_rsd.fecha_ingreso.nil?), class: "datepicker" %>
+      </div>
+    </td>
+    <td>
+    </td>
+  </tr>
 
-  <div class="field">
-    <%= f.label :departamento_id %>
-    <%= f.collection_select :departamento_id, Departamento.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :localidad_id %>
-    <%= f.grouped_collection_select :localidad_id, Departamento.order('nombre ASC').all, :localidades, :nombre, :id, :nombre, :include_blank => true %>
-  </div>  
-  <div class="field">
-    <%= f.label :comuna_municipio_id %>
-    <%= f.grouped_collection_select :comuna_municipio_id, Departamento.order('nombre ASC').all, :comunas_municipios, :nombre, :id, :nombre, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :paraje_id %>
-    <%= f.grouped_collection_select :paraje_id, Departamento.order('nombre ASC').all, :parajes, :nombre, :id, :nombre, :include_blank => true %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :productor_id %>
-    <%= f.number_field :productor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :procedencia_id %>
-    <%= f.number_field :procedencia_id %>
-  </div>
-  <div class="field">
-    <%= f.label :agente_id %>
-    <%= f.select(:agente_id, ProicsaAgente.all_for_select_id_persona, :include_blank => true)%>
-  </div>
-  <div class="field">
-    <%= f.label :promotor_id %>
-    <%= f.grouped_collection_select :promotor_id, ProicsaAgente.all, :proicsa_extensionistas, :apellido_nombre, :persona_id, :apellido_nombre, :include_blank => true %>
-  </div>
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :cania_variedad_id %>
+        <%= f.number_field :cania_variedad_id %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :membrana %>
+        <%= f.text_field :membrana %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :anio_plantacion %>
+        <%= f.date_select :anio_plantacion, discard_month: true, discard_day: true %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :procedencia_id %>
+        <%= f.number_field :procedencia_id %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :productor_id %>
+        <%= f.number_field :productor_id %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :parcela_id %>
+        <%= f.number_field :parcela_id %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :departamento_id %>
+        <%= f.collection_select :departamento_id, Departamento.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :localidad_id %>
+        <%= f.grouped_collection_select :localidad_id, Departamento.order('nombre ASC').all, :localidades, :nombre, :id, :nombre, :include_blank => true %>
+      </div>  
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :comuna_municipio_id %>
+        <%= f.grouped_collection_select :comuna_municipio_id, Departamento.order('nombre ASC').all, :comunas_municipios, :nombre, :id, :nombre, :include_blank => true %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="field">
+        <%= f.label :agente_id %>
+        <%= f.select(:agente_id, ProicsaAgente.all_for_select_id_persona, :include_blank => true)%>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :promotor_id %>
+        <%= f.grouped_collection_select :promotor_id, ProicsaAgente.all, :proicsa_extensionistas, :apellido_nombre, :persona_id, :apellido_nombre, :include_blank => true %>
+      </div>    
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :paraje_id %>
+        <%= f.grouped_collection_select :paraje_id, Departamento.order('nombre ASC').all, :parajes, :nombre, :id, :nombre, :include_blank => true %>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+   <td>
+      <div class="field">
+        <%= f.label :analizado %>
+        <%= f.check_box :analizado %>
+      </div>
+    </td> 
+    <td>
+      <div class="field">
+        <%= f.label :incidencia %>
+        <%= f.text_field :incidencia %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= f.label :fecha_analisis %>
+        <%= f.text_field :fecha_analisis, :value => (l(@analisis_rsd.fecha_analisis) unless @analisis_rsd.fecha_analisis.nil?), class: "field datepicker" %>
+      </div>
+    </td>
+  </tr>
+</table>
+
   <div class="field">
     <%= f.label :laboratorista_id %>
     <%= f.select :laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, :include_blank => true %>
   </div>
-
-  <div class="field">
-    <%= f.label :analizado %>
-    <%= f.check_box :analizado %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_analisis %>
-    <%= f.date_select :fecha_analisis %>
-  </div>
-  <div class="field">
-    <%= f.label :incidencia %>
-    <%= f.text_field :incidencia %>
-  </div>
+  
+  
   <br />
   <div class="actions">
     <%= f.submit %>

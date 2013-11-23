@@ -19,8 +19,8 @@
 
 <% @analisis_rsds.each do |analisis_rsd| %>
   <tr>
-    <td><%= analisis_rsd.fecha_ingreso %></td>
-    <td><%= analisis_rsd.fecha_analisis %></td>
+    <td><%= l(analisis_rsd.fecha_ingreso) unless analisis_rsd.fecha_ingreso.nil? %></td>
+    <td><%= l(analisis_rsd.fecha_analisis) unless analisis_rsd.fecha_analisis.nil? %></td>
     <td><%= analisis_rsd.cania_variedad_id %></td>
     <td><%= analisis_rsd.procedencia_id %></td>
     <td><%= analisis_rsd.agente.apellido_nombre %></td>

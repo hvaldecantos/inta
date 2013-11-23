@@ -39,7 +39,6 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds/1/edit
   def edit
     @analisis_rsd = AnalisisRsd.find(params[:id])
-    @analisis_rsd.laboratorista_id = current_user.persona.id
   end
 
   # POST /analisis_rsds

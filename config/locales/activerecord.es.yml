@@ -3,6 +3,7 @@ es:
     models:
       user: "Usuario"
       role: "Rol"
+      cania_variedad: "Variedad de Caña"
     attributes:
       user: 
         name: "Nombre"
@@ -13,6 +14,9 @@ es:
       role:
         name: 'Nombre'
         description: "Descripción"
+      analisis_rsd:
+        anio_plantacion : "Año Plantación"
+        cania_variedad_id: "Variedad de Caña"
     errors:
       models:
         role:

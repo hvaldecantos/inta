@@ -21,7 +21,7 @@
   <tr>
     <td><%= l(analisis_rsd.fecha_ingreso) unless analisis_rsd.fecha_ingreso.nil? %></td>
     <td><%= l(analisis_rsd.fecha_analisis) unless analisis_rsd.fecha_analisis.nil? %></td>
-    <td><%= analisis_rsd.cania_variedad_id %></td>
+    <td><%= analisis_rsd.cania_variedad.nombre unless analisis_rsd.cania_variedad.nil? %></td>
     <td><%= analisis_rsd.procedencia_id %></td>
     <td><%= analisis_rsd.agente.apellido_nombre %></td>
     <td><%= analisis_rsd.promotor.apellido_nombre %></td>

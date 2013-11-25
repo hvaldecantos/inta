@@ -7,13 +7,13 @@
     <td><b>Fecha analisis:</b> <%= l(@analisis_rsd.fecha_analisis) unless @analisis_rsd.fecha_analisis.nil? %></td>
   </tr> 
   <tr>
-    <td><b>Variedad:</b> <%= @analisis_rsd.cania_variedad_id %></td>
+    <td><b>Variedad:</b> <%= @analisis_rsd.cania_variedad.nombre unless @analisis_rsd.cania_variedad.nil? %></td>
     <td><b>Membrana:</b> <%= @analisis_rsd.membrana %></td>
     <td><b>Anio plantacion:</b> <%= @analisis_rsd.anio_plantacion.year %></td>
   </tr>
   <tr>
     <td><b>Procedencia:</b> <%= @analisis_rsd.procedencia_id %></td>
-    <td><b>Productor:</b> <%= @analisis_rsd.productor.apellido_nombre %></td>
+    <td><b>Productor:</b> <%= @analisis_rsd.productor.apellido_nombre unless @analisis_rsd.productor.nil? %></td>
     <td><b>Parcela:</b> <%= @analisis_rsd.parcela_id %></td>
   </tr>
   <tr>

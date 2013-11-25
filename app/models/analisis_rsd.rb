@@ -39,6 +39,7 @@ class AnalisisRsd < ActiveRecord::Base
   belongs_to :promotor, class_name: "Persona"
   belongs_to :laboratorista, class_name: "Persona"
   belongs_to :productor
+  belongs_to :cania_variedad
   
   before_update :establecer_fecha_e_incidencia_si_analizado_false
 

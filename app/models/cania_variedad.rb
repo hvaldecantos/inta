@@ -12,5 +12,7 @@
 class CaniaVariedad < ActiveRecord::Base
   attr_accessible :descripcion, :nombre
 
+  has_many :analisis_rsds
+
   validates_presence_of :nombre
 end

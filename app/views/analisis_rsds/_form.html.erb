@@ -23,7 +23,7 @@
     <td>
       <div class="field">
         <%= f.label :cania_variedad_id %>
-        <%= f.number_field :cania_variedad_id %>
+        <%= f.collection_select :cania_variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
       </div>
     </td>
     <td>

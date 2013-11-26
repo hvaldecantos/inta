@@ -1,0 +1,40 @@
+<script src="app/assets/javascripts/raphael-min.js"></script>
+<script src="app/assets/javascripts/morris.js-0.4.3/morris.js"></script>
+<script src="app/assets/javascripts/morris.js-0.4.3/lib/prettify.js"></script>
+
+<% provide(:title, 'Reportes de Analisis RSD') %>
+<h2>Reportes de Analisis RSD</h2>
+
+<div>
+  <%= link_to "General", analisis_rsd_reporte_general_path(0) %> | 
+  <%= link_to "Histograma", analisis_rsd_reporte_histograma_path(0) %> |
+  <%= link_to "Por departamento", '#' %> | <%= link_to "Variedades de Cañas", '#' %>
+</div>
+
+<br><br>
+
+<div>
+  <div id="barchart" style="height: 250px;"></div>
+  <p class="text-center">
+    <br>
+    Porcentajes de caña infectada en Tucumán<br>
+    sobre un total de <%= @resultado.values[0][0] %> muestras</p>
+</div>
+
+<script defer="defer" type="text/javascript">
+  new Morris.Bar({
+        element: 'barchart',
+        data: [
+          { y: 'Sana\nsin infección', a: <%= @resultado.values[0][1].to_i %> },
+          { y: 'Incidencia\n entre 0 y 25', a: <%= @resultado.values[0][2].to_i %> },
+          { y: 'Incidencia\n entre 25 y 50', a: <%= @resultado.values[0][2].to_i %> },
+          { y: 'Incidencia\n entre 50 y 75', a: <%= @resultado.values[0][2].to_i %> },
+          { y: 'Incidencia\n entre 75 y 100', a: <%= @resultado.values[0][3].to_i %> }
+        ],
+        xkey: 'y',
+        ykeys: ['a'],
+        labels: ['Cantidad de muestras']
+  }); 
+</script>
+<br>
+<%= link_to 'Listado Análisis RSD', analisis_rsds_path %>

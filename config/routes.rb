@@ -1,12 +1,12 @@
 Inta::Application.routes.draw do
 
   resources :cania_variedades
-
-
   resources :productores
 
-
-  resources :analisis_rsds
+  resources :analisis_rsds do
+      get 'reporte_general'
+      get 'reporte_histograma'
+  end
 
   authenticated :user do
     root to: 'paginas_estaticas#menu'

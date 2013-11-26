@@ -85,4 +85,25 @@ class AnalisisRsdsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def reporte_general
+    sql = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
+                  count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as si,
+                  count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as no
+           FROM analisis_rsds;"
+    
+    @resultado = ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def reporte_histograma
+    sql = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
+             count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END),
+             count(CASE WHEN (incidencia > 0 AND incidencia <= 25) THEN 1 ELSE null END),
+             count(CASE WHEN (incidencia > 25 AND incidencia <= 50) THEN 1 ELSE null END),
+             count(CASE WHEN (incidencia > 50 AND incidencia <= 75) THEN 1 ELSE null END),
+             count(CASE WHEN (incidencia > 75 AND incidencia <= 100) THEN 1 ELSE null END) 
+          FROM analisis_rsds;"
+    
+    @resultado = ActiveRecord::Base.connection.execute(sql)
+  end
 end

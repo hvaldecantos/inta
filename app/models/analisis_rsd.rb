@@ -23,6 +23,7 @@
 #  analizado           :boolean
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  _data_origin_id     :integer
 #
 
 class AnalisisRsd < ActiveRecord::Base

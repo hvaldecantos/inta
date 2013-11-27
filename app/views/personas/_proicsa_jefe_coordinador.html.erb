@@ -1,0 +1,12 @@
+<h4>Perfil Jefe de Coordinador PROICSA</h4>
+
+<div class="field">
+  <%= object.label :pc_asignada %>
+  <%= object.text_field :pc_asignada, :disabled => true %>
+</div>
+
+<b>Coordinadores a cargo:</b><BR>
+
+<% object.object.coordinadores.each do |coordinador| %>
+  <%= coordinador.persona.nombre %> <BR>
+<% end %>

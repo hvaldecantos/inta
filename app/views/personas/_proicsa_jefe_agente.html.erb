@@ -1,0 +1,17 @@
+<h4>Perfil Jefe de Agente PROICSA</h4>
+
+<div class="field">
+  <%= object.label :pc_asignada %>
+  <%= object.text_field :pc_asignada, :disabled => true %>
+</div>
+
+<b>Agentes a cargo:</b><BR>
+
+<% object.object.proicsa_agentes.each do |agente| %>
+  <%= agente.persona.nombre %> <BR>
+<% end %>
+<br><br>
+<div class="field">
+  <%= object.label :proicsa_coordinador_id %>
+  <%= object.select(:proicsa_coordinador_id, ProicsaCoordinador.all_for_select, :include_blank => true)%>
+</div>

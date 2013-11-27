@@ -4,7 +4,7 @@
   <%= object.label :pc_asignada %>
   <%= object.text_field :pc_asignada, :disabled => true %>
 </div>
-
+<br><br>
 <div class="field">
   <%= object.label :proicsa_agente_id %>
   <%= object.select(:proicsa_agente_id, ProicsaAgente.all_for_select, :include_blank => true)%>

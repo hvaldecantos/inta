@@ -16,7 +16,7 @@
 #
 
 class Profile < ActiveRecord::Base
-  attr_accessible  :type, :proicsa_agente_id
+  attr_accessible  :type, :proicsa_agente_id, :proicsa_jefe_agente_id, :proicsa_coordinador_id, :proicsa_jefe_coordinador_id
 
   belongs_to :user
   belongs_to :persona

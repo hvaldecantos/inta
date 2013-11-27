@@ -10,3 +10,8 @@
 <% object.object.proicsa_extensionistas.each do |extensionista| %>
   <%= extensionista.persona.nombre %> <BR>
 <% end %>
+<br><br>
+<div class="field">
+  <%= object.label :proicsa_jefe_agente_id %>
+  <%= object.select(:proicsa_jefe_agente_id, ProicsaJefeAgente.all_for_select, :include_blank => true)%>
+</div>

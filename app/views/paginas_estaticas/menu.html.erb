@@ -1,15 +1,14 @@
 <% provide(:title, 'Menu') %>
 <h1>Menu</h1>
 <p>
-  Links para todas las apps.
   <% if can? :update, [:Role, :User, :Programa] %>
     <li><%= link_to "Programas", programas_path %></li>
     <li><%= link_to "Roles", roles_path %></li>
     <li><%= link_to "Usuarios", users_path %></li>
-    <li><%= link_to "Variedades de Cañas", cania_variedades_path %></li>
   <% end %>
-  <% if can? :read, :AnalisisRsd %>
+  <% if can? :read, AnalisisRsd %>
     <li><%= link_to "Analisis de RSD", analisis_rsds_path %></li>
   <% end %>
   <li><%= link_to "Productores", productores_path %></li>
+  <li><%= link_to "Variedades de Cañas", cania_variedades_path %></li>
 </p>

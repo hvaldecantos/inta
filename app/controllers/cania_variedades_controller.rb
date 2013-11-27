@@ -1,4 +1,7 @@
 class CaniaVariedadesController < ApplicationController
+  
+  load_and_authorize_resource
+
   # GET /cania_variedades
   # GET /cania_variedades.json
   def index

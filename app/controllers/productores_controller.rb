@@ -1,4 +1,7 @@
 class ProductoresController < ApplicationController
+  
+  load_and_authorize_resource
+  
   # GET /productores
   # GET /productores.json
   def index

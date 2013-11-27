@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127203009) do
+ActiveRecord::Schema.define(:version => 20131127232645) do
+
+  create_table "agencias", :force => true do |t|
+    t.integer  "codigo"
+    t.string   "nombre"
+    t.string   "domicilio"
+    t.string   "telefono_fijo"
+    t.text     "telefono_celular"
+    t.string   "email"
+    t.integer  "comuna_municipio_id"
+    t.datetime "created_at",                                                   :null => false
+    t.datetime "updated_at",                                                   :null => false
+    t.spatial  "the_geom",            :limit => {:srid=>0, :type=>"geometry"}
+  end
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"

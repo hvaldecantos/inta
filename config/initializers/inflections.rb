@@ -25,4 +25,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'AnalisisRsd', 'AnalisisRsds'
   inflect.irregular 'CaniaVariedad', 'CaniaVariedades'
   inflect.irregular 'cania_variedad', 'cania_variedades'
+  inflect.irregular 'ProicsaCoordinador', 'ProicsaCoordinadores'
+  inflect.irregular 'proicsa_coordinador', 'proicsa_coordinadores'
+  inflect.irregular 'ProicsaJefeCoordinador', 'ProicsaJefeCoordinadores'
+  inflect.irregular 'proicsa_jefe_coordinador', 'proicsa_jefe_coordinadores'
 end

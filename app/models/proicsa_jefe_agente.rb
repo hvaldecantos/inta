@@ -15,6 +15,7 @@
 #  proicsa_jefe_coordinador_id :integer
 #
 
-class ProicsaLaboratorista < Profile
+class ProicsaJefeAgente < Profile
   attr_accessible  :pc_asignada
+  has_many :proicsa_agentes
 end

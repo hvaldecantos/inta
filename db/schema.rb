@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113051723) do
+ActiveRecord::Schema.define(:version => 20131127203009) do
 
   create_table "analisis_rsds", :force => true do |t|
     t.date     "fecha_extraccion"
@@ -127,10 +127,16 @@ ActiveRecord::Schema.define(:version => 20131113051723) do
     t.integer  "proicsa_agente_id"
     t.integer  "persona_id"
     t.string   "pc_asignada"
+    t.integer  "proicsa_jefe_agente_id"
+    t.integer  "proicsa_coordinador_id"
+    t.integer  "proicsa_jefe_coordinador_id"
   end
 
   add_index "profiles", ["persona_id"], :name => "index_profiles_on_persona_id"
   add_index "profiles", ["proicsa_agente_id"], :name => "index_profiles_on_proicsa_agente_id"
+  add_index "profiles", ["proicsa_coordinador_id"], :name => "index_profiles_on_proicsa_coordinador_id"
+  add_index "profiles", ["proicsa_jefe_agente_id"], :name => "index_profiles_on_proicsa_jefe_agente_id"
+  add_index "profiles", ["proicsa_jefe_coordinador_id"], :name => "index_profiles_on_proicsa_jefe_coordinador_id"
 
   create_table "programas", :force => true do |t|
     t.string   "nombre"

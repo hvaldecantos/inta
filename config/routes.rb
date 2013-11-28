@@ -6,6 +6,7 @@ Inta::Application.routes.draw do
   resources :analisis_rsds do
       get 'reporte_general'
       get 'reporte_histograma'
+      get 'reporte_mapas'
   end
 
   authenticated :user do

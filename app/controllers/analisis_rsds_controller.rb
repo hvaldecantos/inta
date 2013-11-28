@@ -88,12 +88,21 @@ class AnalisisRsdsController < ApplicationController
   end
 
   def reporte_general
-    sql = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
+    @resultado = {}
+
+    sql1 = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
                   count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as si,
                   count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as no
            FROM analisis_rsds;"
+    @resultado["general"] = ActiveRecord::Base.connection.execute(sql1)    
+
+    sql2 = "SELECT  count(CASE WHEN (agente_id = 60) THEN 1 ELSE null END) as simoca,
+                    count(CASE WHEN (agente_id = 58) THEN 1 ELSE null END) as monteros,
+                    count(CASE WHEN (agente_id = 59) THEN 1 ELSE null END) as aguilares
+            FROM analisis_rsds;;"
     
-    @resultado = ActiveRecord::Base.connection.execute(sql)
+    @resultado["cantidad_por_agencia"] = ActiveRecord::Base.connection.execute(sql2)
+    
   end
 
   def reporte_histograma

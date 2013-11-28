@@ -1,7 +1,7 @@
 class AnalisisRsdsController < ApplicationController
 
   load_and_authorize_resource
-  skip_authorize_resource :only => [:reporte_general, :reporte_histograma]
+  skip_authorize_resource :only => [:reporte_general, :reporte_histograma, :reporte_mapas]
 
   # GET /analisis_rsds
   # GET /analisis_rsds.json
@@ -107,4 +107,8 @@ class AnalisisRsdsController < ApplicationController
     
     @resultado = ActiveRecord::Base.connection.execute(sql)
   end
+
+   def reporte_mapas
+   end
+
 end

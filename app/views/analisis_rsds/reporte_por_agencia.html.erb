@@ -1,0 +1,25 @@
+<%= render 'menu_reportes' %>
+
+<br><br>
+
+<div>
+  <h4 class="text-center" >Distribución de incidencias por agencia - Provincia de Tucumán</h4>
+  <div id="por_comunas" style="height: 250px;"></div>
+  <p class="text-center">
+    <br>
+    Porcentajes de caña infectada en Tucumán<br>
+    sobre un total de <%= @total_de_muestras %> muestras</p>
+</div>
+
+<script>
+Morris.Bar({
+  element: 'por_comunas',
+  data: <%= raw @hash.to_json %>,
+  xkey: 'y',
+  ykeys: ['a', 'b'],
+  labels: ['Sana', 'Infectada']
+});
+
+</script>
+<br>
+<%= link_to 'Listado Análisis RSD', analisis_rsds_path %>

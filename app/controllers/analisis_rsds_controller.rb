@@ -136,7 +136,28 @@ class AnalisisRsdsController < ApplicationController
     end
   end
 
-   def reporte_mapas
-   end
+  def reporte_mapas
+  end
 
+  def reporte_por_agencia
+    sql = "SELECT count(*) FROM analisis_rsds WHERE analizado = true AND agente_id IN (58, 59, 60);"
+    @total_de_muestras = ActiveRecord::Base.connection.execute(sql).values[0][0].to_i
+
+    sql = " SELECT CASE WHEN (agente_id=58) THEN 'Monteros' ELSE
+                    CASE WHEN (agente_id=60) THEN 'Simoca' ELSE 
+                      CASE WHEN (agente_id=59) THEN 'Aguilares' ELSE null END END END as agencia,
+                    count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as no, 
+                    count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as si,
+                    count(*) as total
+            FROM analisis_rsds WHERE analizado = true AND agente_id IN (58, 59, 60)
+            GROUP BY agente_id
+            ORDER BY total;"
+    
+    @poragencia = ActiveRecord::Base.connection.execute(sql)
+    
+    @hash = []
+    @poragencia.values.each do |c|
+      @hash << { y: c[0].to_s, a: c[1].to_i, b: c[2].to_i }
+    end
+  end
 end

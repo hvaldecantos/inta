@@ -7,6 +7,7 @@ Inta::Application.routes.draw do
       get 'reporte_general'
       get 'reporte_histograma'
       get 'reporte_mapas'
+      get 'reporte_por_agencia'
   end
 
   authenticated :user do

@@ -106,6 +106,9 @@ class AnalisisRsdsController < ApplicationController
   end
 
   def reporte_histograma
+    sql = "SELECT count(*) FROM analisis_rsds WHERE analizado = true"
+    @total_de_muestras = ActiveRecord::Base.connection.execute(sql).values[0][0].to_i
+
     sql = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
              count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END),
              count(CASE WHEN (incidencia > 0 AND incidencia <= 25) THEN 1 ELSE null END),
@@ -115,6 +118,22 @@ class AnalisisRsdsController < ApplicationController
           FROM analisis_rsds;"
     
     @resultado = ActiveRecord::Base.connection.execute(sql)
+
+    sql = " SELECT comunas_municipios.nombre,
+                   count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as no, 
+                   count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as si, 
+                   count(*) as total
+            FROM analisis_rsds, comunas_municipios
+            WHERE analisis_rsds.comuna_municipio_id = comunas_municipios.id AND analizado = true
+            GROUP BY comuna_municipio_id, comunas_municipios.nombre
+            ORDER BY total;"
+    
+    @porcomunas = ActiveRecord::Base.connection.execute(sql)
+    
+    @hash = []
+    @porcomunas.values.each do |c|
+      @hash << { y: c[0].to_s, a: c[1].to_i, b: c[2].to_i }
+    end
   end
 
    def reporte_mapas

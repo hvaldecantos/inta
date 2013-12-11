@@ -1,27 +1,19 @@
 <%= render 'menu_reportes' %>
-
+<br><br>
 <table>
   <tr>
     <td>
-      <div>
         <div id="donutchart" style="height: 250px;"></div>
-        <p class="text-center">
-          <br>
-          Porcentajes de caña infectada en Tucumán<br>
-          sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
-      </div>
     </td>
     <td>
       <div id="por_agencia" style="height: 250px;"></div>
-        <p class="text-center">
-          <br>
-          Porcentajes de caña infectada en Tucumán<br>
-          sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
       </div>
     </td>
   </tr>
 </table>
-
+<p class="text-center"><br>
+Porcentajes de caña infectada en Tucumán<br>
+sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
 
 <script defer="defer" type="text/javascript">
   new Morris.Donut({

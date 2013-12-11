@@ -9,11 +9,12 @@ class Ability
     elsif user.has_role? :laboratorista
       can :manage, AnalisisRsd
       can :read, :all
-    elsif user.has_role? :jefecoordinador
-      can :read, :all
+    elsif user.has_role? :jefe_coordinador
+      can :manage, [AnalisisRsd, Productor, CaniaVariedad, Programa]
+      #can :read, :all
     elsif user.has_role? :coordinador
       can :read, :all
-    elsif user.has_role? :jefeagente
+    elsif user.has_role? :jefe_agente
       can :manage, [AnalisisRsd, Productor, CaniaVariedad]
       can :read, :all
     elsif user.has_role? :agente

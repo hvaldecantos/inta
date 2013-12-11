@@ -1,7 +1,7 @@
 class AnalisisRsdsController < ApplicationController
 
   load_and_authorize_resource
-  skip_authorize_resource :only => [:reporte_general, :reporte_histograma, :reporte_mapas]
+  skip_authorize_resource :only => [:reporte_general, :reporte_histograma, :reporte_mapas, :reporte_por_agencia]
 
   # GET /analisis_rsds
   # GET /analisis_rsds.json

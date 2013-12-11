@@ -2,11 +2,11 @@
 <h1>Menu</h1>
 <p>
   <% if can? :update, [:Role, :User, :Programa] %>
-    <li><%= link_to "Programas", programas_path %></li>
     <li><%= link_to "Roles", roles_path %></li>
     <li><%= link_to "Usuarios", users_path %></li>
   <% end %>
   <% if can? :read, AnalisisRsd %>
+    <li><%= link_to "Programas", programas_path %></li>
     <li><%= link_to "Analisis de RSD", analisis_rsds_path %></li>
   <% end %>
   <li><%= link_to "Productores", productores_path %></li>

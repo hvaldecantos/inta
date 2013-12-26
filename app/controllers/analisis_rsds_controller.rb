@@ -6,8 +6,8 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds
   # GET /analisis_rsds.json
   def index
-    @analisis_rsds = AnalisisRsd.paginate(:page => params[:page], :per_page => 20).order('fecha_ingreso DESC')
-
+    @analisis_rsds = AnalisisRsd.paginate(:page => params[:page], :per_page => 20).mi_vista(current_user.persona.id, session[:mi_vista]).order('fecha_ingreso DESC')
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @analisis_rsds }
@@ -18,7 +18,6 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds/1.json
   def show
     @analisis_rsd = AnalisisRsd.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @analisis_rsd }
@@ -93,20 +92,23 @@ class AnalisisRsdsController < ApplicationController
     sql1 = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
                   count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as si,
                   count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as no
-           FROM analisis_rsds;"
+           FROM analisis_rsds
+           WHERE analizado = true AND ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]});"
+    
     @resultado["general"] = ActiveRecord::Base.connection.execute(sql1)    
 
     sql2 = "SELECT  count(CASE WHEN (agente_id = 60) THEN 1 ELSE null END) as simoca,
                     count(CASE WHEN (agente_id = 58) THEN 1 ELSE null END) as monteros,
                     count(CASE WHEN (agente_id = 59) THEN 1 ELSE null END) as aguilares
-            FROM analisis_rsds;;"
+            FROM analisis_rsds
+            WHERE analizado = true AND ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]});"
     
     @resultado["cantidad_por_agencia"] = ActiveRecord::Base.connection.execute(sql2)
     
   end
 
   def reporte_histograma
-    sql = "SELECT count(*) FROM analisis_rsds WHERE analizado = true"
+    sql = "SELECT count(*) FROM analisis_rsds WHERE analizado = true AND ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]});"
     @total_de_muestras = ActiveRecord::Base.connection.execute(sql).values[0][0].to_i
 
     sql = "SELECT count(CASE WHEN (incidencia >= 0) THEN 1 ELSE null END) as total,
@@ -115,16 +117,19 @@ class AnalisisRsdsController < ApplicationController
              count(CASE WHEN (incidencia > 25 AND incidencia <= 50) THEN 1 ELSE null END),
              count(CASE WHEN (incidencia > 50 AND incidencia <= 75) THEN 1 ELSE null END),
              count(CASE WHEN (incidencia > 75 AND incidencia <= 100) THEN 1 ELSE null END) 
-          FROM analisis_rsds;"
+          FROM analisis_rsds
+          WHERE analizado = true AND 
+          ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]});"
     
     @resultado = ActiveRecord::Base.connection.execute(sql)
 
-    sql = " SELECT comunas_municipios.nombre,
-                   count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as no, 
-                   count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as si, 
-                   count(*) as total
+    sql = " SELECT comunas_municipios.nombre, " +
+                   "count(CASE WHEN (incidencia = 0) THEN 1 ELSE null END) as no, " +
+                   "count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as si, " +
+                   "count(*) as total
             FROM analisis_rsds, comunas_municipios
-            WHERE analisis_rsds.comuna_municipio_id = comunas_municipios.id AND analizado = true
+            WHERE analisis_rsds.comuna_municipio_id = comunas_municipios.id AND analizado = true AND 
+            ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]})
             GROUP BY comuna_municipio_id, comunas_municipios.nombre
             ORDER BY total;"
     
@@ -140,7 +145,8 @@ class AnalisisRsdsController < ApplicationController
   end
 
   def reporte_por_agencia
-    sql = "SELECT count(*) FROM analisis_rsds WHERE analizado = true AND agente_id IN (58, 59, 60);"
+    sql = "SELECT count(*) FROM analisis_rsds WHERE analizado = true AND agente_id IN (58, 59, 60)
+                           AND ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]});"
     @total_de_muestras = ActiveRecord::Base.connection.execute(sql).values[0][0].to_i
 
     sql = " SELECT CASE WHEN (agente_id=58) THEN 'Monteros' ELSE
@@ -150,6 +156,7 @@ class AnalisisRsdsController < ApplicationController
                     count(CASE WHEN (incidencia > 0) THEN 1 ELSE null END) as si,
                     count(*) as total
             FROM analisis_rsds WHERE analizado = true AND agente_id IN (58, 59, 60)
+            AND ((promotor_id = #{current_user.persona.id} OR agente_id = #{current_user.persona.id} OR laboratorista_id = #{current_user.persona.id}) or NOT #{session[:mi_vista]})
             GROUP BY agente_id
             ORDER BY total;"
     

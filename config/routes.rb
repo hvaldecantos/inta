@@ -15,6 +15,8 @@ Inta::Application.routes.draw do
   end
   root to: "paginas_estaticas#inicio"
 
+  get "/set_session_var", :to=>"user_session_vars#mi_vista"
+
   match '/inicio', to: 'paginas_estaticas#inicio'
   match '/contacto', to: 'paginas_estaticas#contacto'
   match '/ayuda', to: 'paginas_estaticas#ayuda'

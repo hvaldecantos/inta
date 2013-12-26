@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::DeleteRestrictionError do |exception|
     redirect_to :back, :alert => exception.message
   end
+
+  protected
+    def after_sign_in_path_for(resource)
+      session[:mi_vista] = false
+      root_path
+    end
 end

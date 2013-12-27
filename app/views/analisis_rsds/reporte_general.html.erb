@@ -20,7 +20,7 @@ sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
     element: 'donutchart',
     data: [
       {label: "Sana", value: <%= @resultado["general"].values[0][1].to_i %>},
-      {label: "Infecada", value: <%= @resultado["general"].values[0][2].to_i %>}
+      {label: "Infectada", value: <%= @resultado["general"].values[0][2].to_i %>}
     ]
   });
 </script>

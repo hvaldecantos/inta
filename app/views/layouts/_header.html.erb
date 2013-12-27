@@ -16,7 +16,7 @@
     <nav>
       <ul class="nav pull-right">
         <% if user_signed_in? %>
-          <li> <a class="checkbox">Mi vista<%= check_box_tag('mi_vista', '1', session[:mi_vista].to_bool, :onclick => 'set_session_var_mi_vista();') %></a></li>
+          <li> <a class="checkbox">Mi vista<%= check_box_tag('mi_vista', '1', session[:mi_vista].to_s.to_bool, :onclick => 'set_session_var_mi_vista();') %></a></li>
         <% end %>
         <li><%= link_to "Inicio", root_path %></li>
         <li><%= link_to "Ayuda", ayuda_path %></li>

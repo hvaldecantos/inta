@@ -51,6 +51,10 @@ class AnalisisRsd < ActiveRecord::Base
   validate :fecha_analisis_fecha_extraccion
   validate :fecha_analisis_si_analisado
 
+  scope :mi_vista, lambda { |persona_id, mi_vista| 
+    {:conditions => "(promotor_id = #{persona_id} OR agente_id = #{persona_id} OR laboratorista_id = #{persona_id}) OR NOT #{mi_vista}"}
+  }
+
   def fecha_analisis_si_analisado
     if analizado == true && fecha_analisis.nil?
       errors.add(:fecha_analisis, ": si se hizo el análisis, debe ingresar la fecha del análisis.")

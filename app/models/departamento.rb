@@ -15,4 +15,6 @@ class Departamento < ActiveRecord::Base
   has_many :comunas_municipios
   has_many :parajes
   has_many :analisis_rsds
+  has_many :productores
+
 end

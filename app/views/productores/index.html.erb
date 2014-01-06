@@ -5,7 +5,7 @@
   <tr>
     <th>Nombre</th>
     <th>Apellido</th>
-    <th>Dni</th>
+    <th>DNI</th>
     <th>Departamento</th>
     <th>Comuna municipio</th>
     <th>Agencia</th>
@@ -20,8 +20,8 @@
     <td><%= productor.nombre %></td>
     <td><%= productor.apellido %></td>
     <td><%= productor.dni %></td>
-    <td><%= productor.departamento_id %></td>
-    <td><%= productor.comuna_municipio_id %></td>
+    <td><%= productor.departamento.nombre %></td>
+    <td><%= productor.comuna_municipio.nombre %></td>
     <td><%= productor.agencia %></td>
     <td><%= productor.email_extensionista %></td>
     <td><%= link_to 'Mostrar', productor %></td>

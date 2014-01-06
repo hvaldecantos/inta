@@ -11,19 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127232645) do
+ActiveRecord::Schema.define(:version => 20140102220121) do
 
-  create_table "agencias", :force => true do |t|
-    t.integer  "codigo"
-    t.string   "nombre"
-    t.string   "domicilio"
-    t.string   "telefono_fijo"
-    t.text     "telefono_celular"
-    t.string   "email"
-    t.integer  "comuna_municipio_id"
-    t.datetime "created_at",                                                   :null => false
-    t.datetime "updated_at",                                                   :null => false
-    t.spatial  "the_geom",            :limit => {:srid=>0, :type=>"geometry"}
+  create_table "agencias", :id => false, :force => true do |t|
+    t.integer "id",                                                              :null => false
+    t.integer "codigo"
+    t.string  "nombre"
+    t.string  "domicilio"
+    t.string  "telefono_fijo"
+    t.string  "telefono_celular"
+    t.string  "email"
+    t.integer "comuna_municipio_id"
+    t.spatial "the_geom",            :limit => {:srid=>22173, :type=>"polygon"}
   end
 
   create_table "analisis_rsds", :force => true do |t|
@@ -75,14 +74,14 @@ ActiveRecord::Schema.define(:version => 20131127232645) do
     t.string  "fuente"
     t.integer "agencia_id"
     t.integer "departamento_id"
-    t.integer "id",                   :null => false
+    t.integer "id",                                                                     :null => false
     t.spatial "the_geom",             :limit => {:srid=>22173, :type=>"multi_polygon"}
   end
 
   create_table "departamentos", :id => false, :force => true do |t|
     t.integer "provincia_id"
     t.integer "id_base"
-    t.integer "id",           :null => false
+    t.integer "id",                                                             :null => false
     t.string  "nombre"
     t.string  "cabecera"
     t.spatial "the_geom",     :limit => {:srid=>22173, :type=>"multi_polygon"}
@@ -92,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20131127232645) do
     t.string  "nombre"
     t.integer "provincia_id"
     t.float   "pobla_2001"
-    t.integer "id",                  :null => false
+    t.integer "id",                                                            :null => false
     t.spatial "the_geom",            :limit => {:srid=>22173, :type=>"point"}
     t.integer "departamento_id"
     t.integer "id_base"
@@ -100,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20131127232645) do
   end
 
   create_table "parajes", :id => false, :force => true do |t|
-    t.integer "id",                  :null => false
+    t.integer "id",                                                            :null => false
     t.string  "nombre"
     t.integer "localidad_id"
     t.string  "tipo"
@@ -134,8 +133,8 @@ ActiveRecord::Schema.define(:version => 20131127232645) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "type"
     t.integer  "proicsa_agente_id"
     t.integer  "persona_id"

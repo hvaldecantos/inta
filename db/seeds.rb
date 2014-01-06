@@ -25,3 +25,12 @@ t=Thread.new do
 end
 t.join
 puts '.... Done'
+
+# agencias
+puts 'Copying data with Geospatial info to Agencias table'
+conf = Rails.configuration.database_configuration[Rails.env]
+t=Thread.new do
+  system("psql -U #{conf['username']} -W -h localhost #{conf['database']} < ./db/sql/20140102_agencias_geospatial_data.sql")
+end
+t.join
+puts '.... Done'

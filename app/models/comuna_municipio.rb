@@ -17,4 +17,5 @@
 class ComunaMunicipio < ActiveRecord::Base
   belongs_to :departamento
   has_many :analisis_rsds
+  has_many :productores
 end

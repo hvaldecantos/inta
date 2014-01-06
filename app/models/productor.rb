@@ -21,6 +21,8 @@ class Productor < ActiveRecord::Base
   validates_uniqueness_of :dni, :allow_nil => true
 
   has_many :analisis_rsds
+  belongs_to :departamento
+  belongs_to :comuna_municipio
 
   def apellido_nombre
     nombre_completo = ""

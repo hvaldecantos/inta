@@ -9,16 +9,27 @@
     <%= f.text_field :apellido %>
   </div>
   <div class="field">
-    <%= f.label :dni %>
+    <%= f.label :Dni %>
     <%= f.text_field :dni %>
   </div>
   <div class="field">
-    <%= f.label :departamento_id %>
-    <%= f.number_field :departamento_id %>
+<%= f.label :departamento_id %>
+<%= f.collection_select :departamento_id,
+  Departamento.find(:all,:order => 'nombre'),
+  :id,:nombre,
+  {:prompt => "Seleccione una opci&oacute;n..."} %>
+
+
+    
+    <%#= f.number_field :departamento_id %>
   </div>
   <div class="field">
     <%= f.label :comuna_municipio_id %>
-    <%= f.number_field :comuna_municipio_id %>
+<%= f.collection_select :comuna_municipio_id,
+  ComunaMunicipio.find(:all,:order => 'nombre'),
+  :id,:nombre,
+  {:prompt => "Seleccione una opci&oacute;n..."} %>
+
   </div>
   <div class="field">
     <%= f.label :agencia %>

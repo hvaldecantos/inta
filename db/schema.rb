@@ -13,8 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20140102220121) do
 
-  create_table "agencias", :id => false, :force => true do |t|
-    t.integer "id",                                                              :null => false
+  create_table "agencias", :force => true do |t|
     t.integer "codigo"
     t.string  "nombre"
     t.string  "domicilio"

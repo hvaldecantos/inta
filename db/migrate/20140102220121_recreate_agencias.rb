@@ -12,9 +12,5 @@ def sql_script file_name
     execute sql_script "./db/sql/20140102_agencias_drop.sql"
     execute sql_script "./db/sql/20140102_agencias_geospatial_create.sql"
   end
-
-  def down
-    remove_column :agencias, :the_geom
-  end
-
+  
 end

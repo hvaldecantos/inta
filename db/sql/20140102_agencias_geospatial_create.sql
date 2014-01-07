@@ -7,7 +7,7 @@
 --
 
 CREATE TABLE agencias (
-    id integer NOT NULL,
+    id serial NOT NULL,
     codigo integer,
     nombre character varying(255),
     domicilio character varying(255),

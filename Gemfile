@@ -38,6 +38,9 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  
+  gem 'morrisjs-rails', '~> 0.4.3'
+  gem 'raphael-rails', '~> 2.1.2'
 end
 
 gem 'jquery-rails'

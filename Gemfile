@@ -41,6 +41,7 @@ group :assets do
   
   gem 'morrisjs-rails', '~> 0.4.3'
   gem 'raphael-rails', '~> 2.1.2'
+  gem 'jquery-ui-rails', '~> 4.1.1'
 end
 
 gem 'jquery-rails'

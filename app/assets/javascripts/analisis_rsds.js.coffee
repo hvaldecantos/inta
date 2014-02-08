@@ -3,7 +3,12 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  
+  $('#analisis_rsds').dataTable
+    sPaginationType: "full_numbers"
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#analisis_rsds').data('source')
+
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'
   });

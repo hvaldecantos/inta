@@ -5,12 +5,9 @@ class ProductoresController < ApplicationController
   # GET /productores
   # GET /productores.json
   def index
-    @productores = Productor.paginate(:page => params[:page], :per_page => 20).order('apellido, nombre DESC')
-    #@productores = Productor.all
-
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @productores }
+      format.json { render json: ProductoresDatatable.new(view_context) }
     end
   end
 

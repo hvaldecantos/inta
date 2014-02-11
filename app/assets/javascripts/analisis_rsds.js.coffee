@@ -9,6 +9,7 @@ jQuery ->
     bServerSide: true
     sAjaxSource: $('#analisis_rsds').data('source')
     oLanguage: spanish()
+    aoColumns: [ null, null, null, null, null, null, null, null, null, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true} ]
     
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'

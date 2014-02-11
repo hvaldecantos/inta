@@ -9,3 +9,4 @@ jQuery ->
     bServerSide: true
     sAjaxSource: $('#productores').data('source')
     oLanguage: spanish()
+    aoColumns: [ null, null, null, null, null, null, null, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true} ]

@@ -6,3 +6,4 @@ jQuery ->
   $('#cania_variedades').dataTable
     sPaginationType: "full_numbers"
     oLanguage: spanish()
+    aoColumns: [ null, null, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true} ]

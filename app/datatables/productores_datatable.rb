@@ -1,4 +1,8 @@
+require "#{Rails.root}/app/helpers/application_helper.rb"
+
 class ProductoresDatatable
+  include ApplicationHelper
+
   delegate :params, :h, :link_to, :edit_productor_path, :l, to: :@view
 
   def initialize(view)
@@ -17,19 +21,20 @@ class ProductoresDatatable
 private
 
   def data
-    productores.map do |proctuctor|
-      [ proctuctor.nombre,
-        proctuctor.apellido,
-        proctuctor.dni,
-        proctuctor.departamento.nombre,
-        proctuctor.comuna_municipio.nombre,
-        proctuctor.agencia,
-        proctuctor.email_extensionista,
-        link_to('Mostrar', proctuctor),
-        link_to('Editar', edit_productor_path(proctuctor)),
-        link_to('Borrar', proctuctor, method: :delete, data: { confirm: 'Esta seguro?' })
-      ]
+    data = []
+    productores.map do |productor|
+      a = []
+      a << productor.nombre
+      a << productor.apellido
+      a << productor.dni
+      a << productor.departamento.nombre
+      a << productor.comuna_municipio.nombre
+      a << productor.agencia
+      a << productor.email_extensionista
+      a << mostrar_editar_borrar_data(@view, productor)
+      data << a.flatten
     end
+    data
   end
 
   def productores

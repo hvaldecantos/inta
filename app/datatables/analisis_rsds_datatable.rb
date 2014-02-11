@@ -1,6 +1,8 @@
-
+require "#{Rails.root}/app/helpers/application_helper.rb"
 
 class AnalisisRsdsDatatable
+  include ApplicationHelper
+  
   delegate :params, :h, :link_to, :edit_analisis_rsd_path, :l, to: :@view
 
   def initialize(view)
@@ -19,21 +21,22 @@ class AnalisisRsdsDatatable
 private
 
   def data
-    analisis_rsds.map do |analisis_rsd|
-      [ (l(analisis_rsd.fecha_ingreso) unless analisis_rsd.fecha_ingreso.nil?),
-        (l(analisis_rsd.fecha_analisis) unless analisis_rsd.fecha_analisis.nil?),
-        (analisis_rsd.cania_variedad.nombre unless analisis_rsd.cania_variedad.nil?),
-        analisis_rsd.procedencia_id,
-        analisis_rsd.agente.apellido_nombre,
-        analisis_rsd.promotor.apellido_nombre,
-        analisis_rsd.laboratorista.apellido_nombre,
-        analisis_rsd.incidencia,
-        analisis_rsd.analizado,
-        link_to('Mostrar', analisis_rsd),
-        link_to('Editar', edit_analisis_rsd_path(analisis_rsd)),
-        link_to('Borrar', analisis_rsd, method: :delete, data: { confirm: 'Esta seguro?' })
-      ]
+    data = []
+    analisis_rsds.each do |analisis_rsd|
+      a = []
+      a << (l(analisis_rsd.fecha_ingreso) unless analisis_rsd.fecha_ingreso.nil?)
+      a << (l(analisis_rsd.fecha_analisis) unless analisis_rsd.fecha_analisis.nil?)
+      a << (analisis_rsd.cania_variedad.nombre unless analisis_rsd.cania_variedad.nil?)
+      a << analisis_rsd.procedencia_id
+      a << analisis_rsd.agente.apellido_nombre
+      a << analisis_rsd.promotor.apellido_nombre
+      a << analisis_rsd.laboratorista.apellido_nombre
+      a << analisis_rsd.incidencia
+      a << analisis_rsd.analizado
+      a << mostrar_editar_borrar_data(@view, analisis_rsd)
+      data << a.flatten
     end
+    data
   end
 
   def analisis_rsds

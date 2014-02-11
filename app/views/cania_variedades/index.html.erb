@@ -6,19 +6,19 @@
   <tr>
     <th>Nombre</th>
     <th>Descripcion</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <%= mostrar_editar_borrar_headers CaniaVariedad %>
   </tr>
 </thead>
 <tbody>
+
 <% @cania_variedades.each do |cania_variedad| %>
+  <% data = mostrar_editar_borrar_data(@view, cania_variedad) %>
   <tr>
     <td><%= cania_variedad.nombre %></td>
     <td><%= cania_variedad.descripcion %></td>
-    <td><%= link_to 'Mostrar', cania_variedad %></td>
-    <td><%= link_to 'Editar', edit_cania_variedad_path(cania_variedad) %></td>
-    <td><%= link_to 'Borrar', cania_variedad, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+    <td><%= data[0] %></td>
+    <td><%= data[1] %></td>
+    <td><%= data[2] %></td>
   </tr>
 <% end %>
 </tbody>

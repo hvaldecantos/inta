@@ -6,7 +6,7 @@ class CaniaVariedadesController < ApplicationController
   # GET /cania_variedades.json
   def index
     @cania_variedades = CaniaVariedad.all
-
+    @view = view_context
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cania_variedades }

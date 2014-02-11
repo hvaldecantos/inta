@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  $('#cania_variedades').dataTable()
+  $('#cania_variedades').dataTable
+    sPaginationType: "full_numbers"
+    oLanguage: spanish()

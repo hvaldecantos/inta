@@ -8,7 +8,8 @@ jQuery ->
     bProcessing: true
     bServerSide: true
     sAjaxSource: $('#analisis_rsds').data('source')
-
+    oLanguage: spanish()
+    
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'
   });

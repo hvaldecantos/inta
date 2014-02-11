@@ -2,9 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-jQuery ->
+jQuery ->  
   $('#productores').dataTable
     sPaginationType: "full_numbers"
     bProcessing: true
     bServerSide: true
     sAjaxSource: $('#productores').data('source')
+    oLanguage: spanish()

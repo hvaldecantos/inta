@@ -20,7 +20,7 @@ module ApplicationHelper
     icon = "<span class='glyphicon :glyphicon'></span>"
     data = []
     data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-zoom-in").html_safe, an_object)
-    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-edit").html_safe, a_view.edit_analisis_rsd_path(an_object)) unless @view.cannot?(:update, an_object)
+    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-edit").html_safe, eval("a_view.edit_#{an_object.class.to_s.underscore}_path(an_object)")) unless @view.cannot?(:update, an_object)
     data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-remove").html_safe, an_object, method: :delete, data: { confirm: 'Esta seguro?' }) unless @view.cannot?(:destroy, an_object)
     data
   end

@@ -6,11 +6,9 @@ class AnalisisRsdsController < ApplicationController
   # GET /analisis_rsds
   # GET /analisis_rsds.json
   def index
-    @analisis_rsds = AnalisisRsd.paginate(:page => params[:page], :per_page => 20).mi_vista(current_user.persona.id, cookies[:mi_vista]).order('fecha_ingreso DESC')
-    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @analisis_rsds }
+      format.json { render json: AnalisisRsdsDatatable.new(view_context)}
     end
   end
 

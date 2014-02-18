@@ -1,23 +1,19 @@
 <%= render 'menu_reportes' %>
 <br><br>
-<table>
-  <tr>
-    <td>
-        <div id="donutchart" style="height: 250px;"></div>
-    </td>
-    <td>
-      <div id="por_agencia" style="height: 250px;"></div>
-      </div>
-    </td>
-  </tr>
-</table>
-<p class="text-center"><br>
-Porcentajes de caña infectada en Tucumán<br>
-sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
+
+<div class="text-center">
+  <div style="float:left; width:50%;"><h4>Muestras Infectadas y Sanas</h4></div>
+  <div style="float:left; width:50%;"><h4>Cantidad de Muestras por Agencias</h4></div>
+  <BR>
+  <div style="float:left; width:50%;" id="muestras_infectadas_sanas"></div>
+  <div style="float:left; width:50%;" id="muestras_por_agencia"></div>
+  <p class="text-center"><br>Caña de azúcar infectada en Tucumán<br>
+  sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
+</div>
 
 <script defer="defer" type="text/javascript">
   new Morris.Donut({
-    element: 'donutchart',
+    element: 'muestras_infectadas_sanas',
     data: [
       {label: "Sana", value: <%= @resultado["general"].values[0][1].to_i %>},
       {label: "Infectada", value: <%= @resultado["general"].values[0][2].to_i %>}
@@ -27,7 +23,7 @@ sobre un total de <%= @resultado["general"].values[0][0] %> muestras</p>
 
 <script defer="defer" type="text/javascript">
   new Morris.Donut({
-    element: 'por_agencia',
+    element: 'muestras_por_agencia',
     data: [
       {label: "Simoca", value: <%= @resultado["cantidad_por_agencia"].values[0][0].to_i %>},
       {label: "Monteros", value: <%= @resultado["cantidad_por_agencia"].values[0][1].to_i %>},

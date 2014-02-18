@@ -1,7 +1,8 @@
 <% provide(:title, 'Listado analisis RSD')%>
 <h2>Listado analisis RSD ( <%= link_to 'Reportes', analisis_rsd_reporte_general_path(0) %> )</h2>
 
-<table class="table table-striped table-condensed">
+<table id='analisis_rsds' class="table table-striped table-condensed" data-source="<%= analisis_rsds_url(format: "json") %>">
+<thead>
   <tr>
     <th>Fecha ingreso</th>
     <th>Fecha analisis</th>
@@ -16,26 +17,10 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @analisis_rsds.each do |analisis_rsd| %>
-  <tr>
-    <td><%= l(analisis_rsd.fecha_ingreso) unless analisis_rsd.fecha_ingreso.nil? %></td>
-    <td><%= l(analisis_rsd.fecha_analisis) unless analisis_rsd.fecha_analisis.nil? %></td>
-    <td><%= analisis_rsd.cania_variedad.nombre unless analisis_rsd.cania_variedad.nil? %></td>
-    <td><%= analisis_rsd.procedencia_id %></td>
-    <td><%= analisis_rsd.agente.apellido_nombre %></td>
-    <td><%= analisis_rsd.promotor.apellido_nombre %></td>
-    <td><%= analisis_rsd.laboratorista.apellido_nombre %></td>
-    <td><%= analisis_rsd.incidencia %></td>
-    <td><%= analisis_rsd.analizado %></td>
-    <td><%= link_to 'Mostrar', analisis_rsd %></td>
-    <td><%= link_to 'Editar', edit_analisis_rsd_path(analisis_rsd) %></td>
-    <td><%= link_to 'Borrar', analisis_rsd, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
-  </tr>
-<% end %>
+</thead>
+<tbody>
+</tbody>
 </table>
-
-<%= will_paginate @analisis_rsds %>
 
 <br />
 

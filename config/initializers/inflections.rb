@@ -29,4 +29,5 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'proicsa_coordinador', 'proicsa_coordinadores'
   inflect.irregular 'ProicsaJefeCoordinador', 'ProicsaJefeCoordinadores'
   inflect.irregular 'proicsa_jefe_coordinador', 'proicsa_jefe_coordinadores'
+  inflect.irregular 'promotor', 'promotores'
 end

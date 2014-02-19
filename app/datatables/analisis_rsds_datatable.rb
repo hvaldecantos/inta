@@ -45,6 +45,7 @@ private
 
   def fetch_analisis_rsds
     analisis_rsds = AnalisisRsd.joins(:agente, :promotor, :laboratorista, :cania_variedad).
+                                mi_vista(@view.current_user.persona.id, @view.cookies[:mi_vista]).
                                 order("#{sort_column} #{sort_direction}")
 
     analisis_rsds = analisis_rsds.page(page).per_page(per_page)

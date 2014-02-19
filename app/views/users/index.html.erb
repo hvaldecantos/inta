@@ -1,28 +1,18 @@
 <% provide(:title, 'Listado de Usuarios') %>
 <h2>Listado de Usuarios</h2>
 
-<table class="table table-striped table-condensed">
-  <tr>
-    <th>Email</th>
-    <th>Nombre</th>
-    <th>Ultimo acceso</th>
-    <th>Cant. acceso</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <% @usuarios.each do |usuario| %>
+<table id="users" class="table table-striped table-condensed">
+  <thead>
     <tr>
-      <td><%= usuario.email %></td>
-      <td><%= usuario.persona.nombre %></td>
-      <td><%= usuario.last_sign_in_at %></td>
-      <td><%= usuario.sign_in_count %></td>
-      <td><%= link_to 'Mostrar', usuario %></td>
-      <td><%= link_to 'Editar', edit_user_path(usuario) %></td>
-      <td><%= link_to 'Borrar', usuario, :confirm => '¿Esta seguro?', :method => :delete %></td>
+      <th>Email</th>
+      <th>Nombre</th>
+      <th>Ultimo acceso</th>
+      <th>Cant. acceso</th>
+      <%= mostrar_editar_borrar_headers User %>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+  </tbody>
 </table>
 
 <br />

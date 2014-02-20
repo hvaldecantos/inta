@@ -1,0 +1,95 @@
+<%= form_for(@analisis_prezafra) do |f| %>
+  <%= render 'shared/form_error_messages', object: f.object %>
+  
+  <div class="field">
+    <%= f.label :identificacion %><br />
+    <%= f.text_field :identificacion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_inicio %><br />
+    <%= f.date_select :fecha_inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_extraccion %><br />
+    <%= f.date_select :fecha_extraccion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_ingreso %><br />
+    <%= f.date_select :fecha_ingreso %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_analisis %><br />
+    <%= f.date_select :fecha_analisis %>
+  </div>
+  <div class="field">
+    <%= f.label :productor_id %><br />
+    <%= f.number_field :productor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :parcela_id %><br />
+    <%= f.number_field :parcela_id %>
+  </div>
+  <div class="field">
+    <%= f.label :agente_id %><br />
+    <%= f.number_field :agente_id %>
+  </div>
+  <div class="field">
+    <%= f.label :promotor_id %><br />
+    <%= f.number_field :promotor_id %>
+  </div>
+  <div class="field">
+    <%= f.label :laboratorista_id %><br />
+    <%= f.number_field :laboratorista_id %>
+  </div>
+  <div class="field">
+    <%= f.label :latlon %><br />
+    <%= f.text_field :latlon %>
+  </div>
+  <div class="field">
+    <%= f.label :peso_muestra %><br />
+    <%= f.text_field :peso_muestra %>
+  </div>
+  <div class="field">
+    <%= f.label :peso_tallo %><br />
+    <%= f.text_field :peso_tallo %>
+  </div>
+  <div class="field">
+    <%= f.label :variedad_id %><br />
+    <%= f.number_field :variedad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :brix_pct %><br />
+    <%= f.text_field :brix_pct %>
+  </div>
+  <div class="field">
+    <%= f.label :lectura_polar %><br />
+    <%= f.text_field :lectura_polar %>
+  </div>
+  <div class="field">
+    <%= f.label :pol_pct_jugo %><br />
+    <%= f.text_field :pol_pct_jugo %>
+  </div>
+  <div class="field">
+    <%= f.label :pureza_pct %><br />
+    <%= f.text_field :pureza_pct %>
+  </div>
+  <div class="field">
+    <%= f.label :pol_pct_cania %><br />
+    <%= f.text_field :pol_pct_cania %>
+  </div>
+  <div class="field">
+    <%= f.label :rto_pct %><br />
+    <%= f.text_field :rto_pct %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br />
+    <%= f.text_field :estado %>
+  </div>
+  <div class="field">
+    <%= f.label :observaciones %><br />
+    <%= f.text_field :observaciones %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

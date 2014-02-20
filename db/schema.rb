@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140102220121) do
+ActiveRecord::Schema.define(:version => 20140220010808) do
 
   create_table "agencias", :force => true do |t|
     t.integer "codigo"
@@ -22,6 +22,33 @@ ActiveRecord::Schema.define(:version => 20140102220121) do
     t.string  "email"
     t.integer "comuna_municipio_id"
     t.spatial "the_geom",            :limit => {:srid=>22173, :type=>"polygon"}
+  end
+
+  create_table "analisis_prezafras", :force => true do |t|
+    t.string   "identificacion"
+    t.date     "fecha_inicio"
+    t.date     "fecha_extraccion"
+    t.date     "fecha_ingreso"
+    t.date     "fecha_analisis"
+    t.integer  "productor_id"
+    t.integer  "parcela_id"
+    t.integer  "agente_id"
+    t.integer  "promotor_id"
+    t.integer  "laboratorista_id"
+    t.spatial  "latlon",           :limit => {:srid=>4326, :type=>"point", :geographic=>true}
+    t.float    "peso_muestra"
+    t.float    "peso_tallo"
+    t.integer  "variedad_id"
+    t.float    "brix_pct"
+    t.float    "lectura_polar"
+    t.float    "pol_pct_jugo"
+    t.float    "pureza_pct"
+    t.float    "pol_pct_cania"
+    t.float    "rto_pct"
+    t.string   "estado"
+    t.string   "observaciones"
+    t.datetime "created_at",                                                                   :null => false
+    t.datetime "updated_at",                                                                   :null => false
   end
 
   create_table "analisis_rsds", :force => true do |t|

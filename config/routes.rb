@@ -10,6 +10,8 @@ Inta::Application.routes.draw do
       get 'reporte_por_agencia'
   end
 
+  resources :analisis_prezafras
+
   authenticated :user do
     root to: 'paginas_estaticas#menu'
   end

@@ -1,0 +1,65 @@
+<h1>Listing analisis_prezafras</h1>
+
+<table>
+  <tr>
+    <th>Identificacion</th>
+    <th>Fecha inicio</th>
+    <th>Fecha extraccion</th>
+    <th>Fecha ingreso</th>
+    <th>Fecha analisis</th>
+    <th>Productor</th>
+    <th>Parcela</th>
+    <th>Agente</th>
+    <th>Promotor</th>
+    <th>Laboratorista</th>
+    <th>Latlon</th>
+    <th>Peso muestra</th>
+    <th>Peso tallo</th>
+    <th>Variedad</th>
+    <th>Brix pct</th>
+    <th>Lectura polar</th>
+    <th>Pol pct jugo</th>
+    <th>Pureza pct</th>
+    <th>Pol pct cania</th>
+    <th>Rto pct</th>
+    <th>Estado</th>
+    <th>Observaciones</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @analisis_prezafras.each do |analisis_prezafra| %>
+  <tr>
+    <td><%= analisis_prezafra.identificacion %></td>
+    <td><%= analisis_prezafra.fecha_inicio %></td>
+    <td><%= analisis_prezafra.fecha_extraccion %></td>
+    <td><%= analisis_prezafra.fecha_ingreso %></td>
+    <td><%= analisis_prezafra.fecha_analisis %></td>
+    <td><%= analisis_prezafra.productor_id %></td>
+    <td><%= analisis_prezafra.parcela_id %></td>
+    <td><%= analisis_prezafra.agente_id %></td>
+    <td><%= analisis_prezafra.promotor_id %></td>
+    <td><%= analisis_prezafra.laboratorista_id %></td>
+    <td><%= analisis_prezafra.latlon %></td>
+    <td><%= analisis_prezafra.peso_muestra %></td>
+    <td><%= analisis_prezafra.peso_tallo %></td>
+    <td><%= analisis_prezafra.variedad_id %></td>
+    <td><%= analisis_prezafra.brix_pct %></td>
+    <td><%= analisis_prezafra.lectura_polar %></td>
+    <td><%= analisis_prezafra.pol_pct_jugo %></td>
+    <td><%= analisis_prezafra.pureza_pct %></td>
+    <td><%= analisis_prezafra.pol_pct_cania %></td>
+    <td><%= analisis_prezafra.rto_pct %></td>
+    <td><%= analisis_prezafra.estado %></td>
+    <td><%= analisis_prezafra.observaciones %></td>
+    <td><%= link_to 'Show', analisis_prezafra %></td>
+    <td><%= link_to 'Edit', edit_analisis_prezafra_path(analisis_prezafra) %></td>
+    <td><%= link_to 'Destroy', analisis_prezafra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Analisis prezafra', new_analisis_prezafra_path %>

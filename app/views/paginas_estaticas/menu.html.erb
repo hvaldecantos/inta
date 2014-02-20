@@ -9,6 +9,9 @@
     <li><%= link_to "Programas", programas_path %></li>
     <li><%= link_to "Analisis de RSD", analisis_rsds_path %></li>
   <% end %>
+  <% if can? :read, AnalisisPrezafra %>
+    <li><%= link_to "Analisis Prezafra", analisis_prezafras_path %></li>
+  <% end %>
   <li><%= link_to "Productores", productores_path %></li>
   <li><%= link_to "Variedades de Caña de Azúcar", cania_variedades_path %></li>
 </p>

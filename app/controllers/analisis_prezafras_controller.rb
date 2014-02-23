@@ -5,7 +5,7 @@ class AnalisisPrezafrasController < ApplicationController
     @analisis_prezafras = AnalisisPrezafra.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render  resolve_view }
       format.json { render json: @analisis_prezafras }
     end
   end
@@ -80,4 +80,13 @@ class AnalisisPrezafrasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def resolve_view
+      view_name = action_name
+      if(current_user.has_role?(:laboratorista) and (action_name == "index")) then
+        view_name = "#{action_name}_laboratorista"
+      end
+    end
 end

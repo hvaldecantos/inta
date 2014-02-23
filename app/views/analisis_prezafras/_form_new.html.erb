@@ -1,0 +1,40 @@
+<%= form_for(@analisis_prezafra) do |f| %>
+  <%= render 'shared/form_error_messages', object: f.object %>
+  
+  <table class="table">
+    <tr>
+      <td>
+        <div class="field">
+          <%= f.label :fecha_inicio %>
+          <%= f.text_field :fecha_inicio, value: l(Date.today), :readonly => true %>
+        </div>
+        <div class="field">
+          <%= f.label :productor_id %>
+          <%= f.collection_select(:productor_id, Productor.order('apellido ASC').all, :id, :apellido_nombre, :include_blank => true)%>
+        </div>
+        <div class="field">
+          <%= f.label :agente_id %>
+          <%= f.select(:agente_id, ProicsaAgente.all_for_select_id_persona, :selected => current_user.persona.id, include_blank: true)%>
+        </div>
+        <div class="field">
+          <%= f.label :promotor_id %>
+          <%= f.select(:promotor_id, ProicsaExtensionista.all_for_select_id_persona, :selected => current_user.persona.id, include_blank: true)%>
+        </div>
+      </td>
+      <td>
+        <div class="field">
+          <%= f.label :estado %>
+          <%= f.text_field :estado, value: "Iniciado", disabled: true  %>
+        </div>
+        <div class="field">
+          <%= f.label :observaciones %>
+          <%= f.text_area(:observaciones, size: "20x5") %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+<% end %>

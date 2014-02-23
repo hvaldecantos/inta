@@ -2,91 +2,87 @@
   <%= render 'shared/form_error_messages', object: f.object %>
   
   <div class="field">
-    <%= f.label :identificacion %><br />
-    <%= f.text_field :identificacion %>
+    <%= f.label :fecha_inicio %>
+    <%= f.text_field :fecha_inicio, value: l(Date.today), :readonly => true %>
   </div>
   <div class="field">
-    <%= f.label :fecha_inicio %><br />
-    <%= f.date_select :fecha_inicio %>
+    <%= f.label :fecha_extraccion %>
+    <%= f.text_field :fecha_extraccion, class: "datepicker"  %>
   </div>
   <div class="field">
-    <%= f.label :fecha_extraccion %><br />
-    <%= f.date_select :fecha_extraccion %>
+    <%= f.label :fecha_ingreso %>
+    <%= f.text_field :fecha_ingreso, class: "datepicker"  %>
   </div>
   <div class="field">
-    <%= f.label :fecha_ingreso %><br />
-    <%= f.date_select :fecha_ingreso %>
+    <%= f.label :fecha_analisis %>
+    <%= f.text_field :fecha_analisis, class: "datepicker"  %>
   </div>
   <div class="field">
-    <%= f.label :fecha_analisis %><br />
-    <%= f.date_select :fecha_analisis %>
+    <%= f.label :productor_id %>
+    <%= f.collection_select(:productor_id, Productor.order('apellido ASC').all, :id, :apellido_nombre, :include_blank => true)%>
   </div>
   <div class="field">
-    <%= f.label :productor_id %><br />
-    <%= f.number_field :productor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :parcela_id %><br />
+    <%= f.label :parcela_id %>
     <%= f.number_field :parcela_id %>
   </div>
   <div class="field">
-    <%= f.label :agente_id %><br />
-    <%= f.number_field :agente_id %>
+    <%= f.label :agente_id %>
+    <%= f.select(:agente_id, ProicsaAgente.all_for_select_id_persona, include_blank: true)%>
   </div>
   <div class="field">
-    <%= f.label :promotor_id %><br />
-    <%= f.number_field :promotor_id %>
+    <%= f.label :promotor_id %>
+    <%= f.select(:promotor_id, ProicsaExtensionista.all_for_select_id_persona, include_blank: true)%>
   </div>
   <div class="field">
-    <%= f.label :laboratorista_id %><br />
-    <%= f.number_field :laboratorista_id %>
+    <%= f.label :laboratorista_id %>
+    <%= f.select(:laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, include_blank: true)%>
   </div>
   <div class="field">
-    <%= f.label :latlon %><br />
+    <%= f.label :latlon %>
     <%= f.text_field :latlon %>
   </div>
   <div class="field">
-    <%= f.label :peso_muestra %><br />
+    <%= f.label :peso_muestra %>
     <%= f.text_field :peso_muestra %>
   </div>
   <div class="field">
-    <%= f.label :peso_tallo %><br />
+    <%= f.label :peso_tallo %>
     <%= f.text_field :peso_tallo %>
   </div>
   <div class="field">
-    <%= f.label :variedad_id %><br />
-    <%= f.number_field :variedad_id %>
+    <%= f.label :variedad_id %>
+    <%= f.collection_select :variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :brix_pct %><br />
+    <%= f.label :brix_pct %>
     <%= f.text_field :brix_pct %>
   </div>
   <div class="field">
-    <%= f.label :lectura_polar %><br />
+    <%= f.label :lectura_polar %>
     <%= f.text_field :lectura_polar %>
   </div>
   <div class="field">
-    <%= f.label :pol_pct_jugo %><br />
+    <%= f.label :pol_pct_jugo %>
     <%= f.text_field :pol_pct_jugo %>
   </div>
   <div class="field">
-    <%= f.label :pureza_pct %><br />
+    <%= f.label :pureza_pct %>
     <%= f.text_field :pureza_pct %>
   </div>
   <div class="field">
-    <%= f.label :pol_pct_cania %><br />
+    <%= f.label :pol_pct_cania %>
     <%= f.text_field :pol_pct_cania %>
   </div>
   <div class="field">
-    <%= f.label :rto_pct %><br />
+    <%= f.label :rto_pct %>
     <%= f.text_field :rto_pct %>
   </div>
   <div class="field">
-    <%= f.label :estado %><br />
-    <%= f.text_field :estado %>
+    <%= f.label :estado %>
+    <%= f.select(:estado, AnalisisPrezafra.estados)%>
   </div>
   <div class="field">
-    <%= f.label :observaciones %><br />
+    <%= f.label :observaciones %>
     <%= f.text_field :observaciones %>
   </div>
   <div class="actions">

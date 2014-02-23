@@ -1,10 +1,11 @@
-<h1>Listing analisis_prezafras</h1>
+<% provide(:title, 'Listado Análisis Prezafra')%>
+<h2>Listado Análisis Prezafra</h2>
 
-<table>
+<table class="table table-striped table-condensed">
   <tr>
-    <th>Identificacion</th>
+    <th>ID</th>
     <th>Fecha inicio</th>
-    <th>Fecha extraccion</th>
+    <th>Fecha extracción</th>
     <th>Fecha ingreso</th>
     <th>Fecha analisis</th>
     <th>Productor</th>
@@ -12,18 +13,11 @@
     <th>Agente</th>
     <th>Promotor</th>
     <th>Laboratorista</th>
-    <th>Latlon</th>
-    <th>Peso muestra</th>
-    <th>Peso tallo</th>
     <th>Variedad</th>
-    <th>Brix pct</th>
+    <th>Brix(%)</th>
     <th>Lectura polar</th>
-    <th>Pol pct jugo</th>
-    <th>Pureza pct</th>
-    <th>Pol pct cania</th>
-    <th>Rto pct</th>
+    <th>Rto(%)</th>
     <th>Estado</th>
-    <th>Observaciones</th>
     <th></th>
     <th></th>
     <th></th>
@@ -32,34 +26,27 @@
 <% @analisis_prezafras.each do |analisis_prezafra| %>
   <tr>
     <td><%= analisis_prezafra.identificacion %></td>
-    <td><%= analisis_prezafra.fecha_inicio %></td>
-    <td><%= analisis_prezafra.fecha_extraccion %></td>
-    <td><%= analisis_prezafra.fecha_ingreso %></td>
-    <td><%= analisis_prezafra.fecha_analisis %></td>
-    <td><%= analisis_prezafra.productor_id %></td>
+    <td><%= l(analisis_prezafra.fecha_inicio) %></td>
+    <td><%= (l(analisis_prezafra.fecha_extraccion) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
+    <td><%= (l(analisis_prezafra.fecha_ingreso) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
+    <td><%= (l(analisis_prezafra.fecha_analisis) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
+    <td><%= analisis_prezafra.productor.apellido_nombre unless analisis_prezafra.productor_id.nil? %></td>
     <td><%= analisis_prezafra.parcela_id %></td>
-    <td><%= analisis_prezafra.agente_id %></td>
-    <td><%= analisis_prezafra.promotor_id %></td>
-    <td><%= analisis_prezafra.laboratorista_id %></td>
-    <td><%= analisis_prezafra.latlon %></td>
-    <td><%= analisis_prezafra.peso_muestra %></td>
-    <td><%= analisis_prezafra.peso_tallo %></td>
-    <td><%= analisis_prezafra.variedad_id %></td>
+    <td><%= analisis_prezafra.agente.apellido_nombre unless analisis_prezafra.agente_id.nil? %></td>
+    <td><%= analisis_prezafra.promotor.apellido_nombre unless analisis_prezafra.promotor_id.nil? %></td>
+    <td><%= analisis_prezafra.laboratorista.apellido_nombre unless analisis_prezafra.laboratorista_id.nil? %></td>
+    <td><%= (analisis_prezafra.cania_variedad.nombre unless analisis_prezafra.cania_variedad.nil?) %></td>
     <td><%= analisis_prezafra.brix_pct %></td>
     <td><%= analisis_prezafra.lectura_polar %></td>
-    <td><%= analisis_prezafra.pol_pct_jugo %></td>
-    <td><%= analisis_prezafra.pureza_pct %></td>
-    <td><%= analisis_prezafra.pol_pct_cania %></td>
     <td><%= analisis_prezafra.rto_pct %></td>
     <td><%= analisis_prezafra.estado %></td>
-    <td><%= analisis_prezafra.observaciones %></td>
-    <td><%= link_to 'Show', analisis_prezafra %></td>
-    <td><%= link_to 'Edit', edit_analisis_prezafra_path(analisis_prezafra) %></td>
-    <td><%= link_to 'Destroy', analisis_prezafra, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', analisis_prezafra %></td>
+    <td><%= link_to 'Editar', edit_analisis_prezafra_path(analisis_prezafra) %></td>
+    <td><%= link_to 'Borrar', analisis_prezafra, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Analisis prezafra', new_analisis_prezafra_path %>
+<%= link_to 'Nuevo Análisis Prezafra', new_analisis_prezafra_path %>

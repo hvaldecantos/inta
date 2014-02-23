@@ -1,34 +1,84 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Análisis Prezafra ') %>
 
-<p>
-  <b>Identificacion:</b>
-  <%= @analisis_prezafra.identificacion %>
-</p>
+<blockquote>
+  <h2>Análisis Prezafra</h2>
+  <h2><small><%= @analisis_prezafra.identificacion %></small></h2>
+</blockquote>
 
-<p>
-  <b>Fecha inicio:</b>
-  <%= @analisis_prezafra.fecha_inicio %>
-</p>
-
-<p>
-  <b>Fecha extraccion:</b>
-  <%= @analisis_prezafra.fecha_extraccion %>
-</p>
-
-<p>
-  <b>Fecha ingreso:</b>
-  <%= @analisis_prezafra.fecha_ingreso %>
-</p>
-
-<p>
-  <b>Fecha analisis:</b>
-  <%= @analisis_prezafra.fecha_analisis %>
-</p>
-
-<p>
-  <b>Productor:</b>
-  <%= @analisis_prezafra.productor_id %>
-</p>
+<table class="table table-bordered">
+  <tr>
+    <td>
+      <b>Fecha inicio:</b>
+      <%= (l(@analisis_prezafra.fecha_inicio) unless @analisis_prezafra.fecha_inicio.nil?) %>
+    </td>
+    <td>
+      <b>Fecha extraccion:</b>
+      <%= (l(@analisis_prezafra.fecha_extraccion) unless @analisis_prezafra.fecha_extraccion.nil?) %>
+    </td>
+    <td>
+      <b>Fecha ingreso:</b>
+      <%= (l(@analisis_prezafra.fecha_ingreso) unless @analisis_prezafra.fecha_ingreso.nil?) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Productor:</b>
+      <%= @analisis_prezafra.productor.apellido_nombre unless @analisis_prezafra.productor_id.nil? %>
+    </td>
+    <td>
+      <b>Agente:</b>
+      <%= @analisis_prezafra.agente.apellido_nombre unless @analisis_prezafra.agente_id.nil? %>
+    </td>
+    <td>
+      <b>Promotor:</b>
+      <%= @analisis_prezafra.promotor.apellido_nombre unless @analisis_prezafra.promotor_id.nil? %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Peso muestra:</b><%= @analisis_prezafra.peso_muestra %>
+    </td>
+    <td>
+      <b>Peso tallo (g):</b><%= @analisis_prezafra.peso_tallo %>
+    </td>
+    <td>
+      <b>Variedad:</b> <%= @analisis_prezafra.cania_variedad.nombre unless @analisis_prezafra.cania_variedad.nil? %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Brix (%):</b><%= @analisis_prezafra.brix_pct %>
+    </td>
+    <td>
+      <b>Lectura polar:</b><%= @analisis_prezafra.lectura_polar %>
+    </td>
+    <td>
+      <b>Pol % jugo:</b><%= @analisis_prezafra.pol_pct_jugo %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Pureza (%):</b><%= @analisis_prezafra.pureza_pct %>
+    </td>
+    <td>
+      <b>Pol % cania:</b><%= @analisis_prezafra.pol_pct_cania %>
+    </td>
+    <td>
+      <b>Rto (%):</b><%= @analisis_prezafra.rto_pct %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <b>Laboratorista:</b><%= @analisis_prezafra.laboratorista.apellido_nombre unless @analisis_prezafra.laboratorista_id.nil? %>
+    </td>
+    <td>
+      <b>Estado:</b><%= @analisis_prezafra.estado %>
+    </td>
+    <td>
+      <b>Observaciones:</b><%= simple_format h @analisis_prezafra.observaciones %>
+    </td>
+  </tr>
+</table>
 
 <p>
   <b>Parcela:</b>
@@ -36,80 +86,11 @@
 </p>
 
 <p>
-  <b>Agente:</b>
-  <%= @analisis_prezafra.agente_id %>
-</p>
-
-<p>
-  <b>Promotor:</b>
-  <%= @analisis_prezafra.promotor_id %>
-</p>
-
-<p>
-  <b>Laboratorista:</b>
-  <%= @analisis_prezafra.laboratorista_id %>
-</p>
-
-<p>
   <b>Latlon:</b>
   <%= @analisis_prezafra.latlon %>
 </p>
 
-<p>
-  <b>Peso muestra:</b>
-  <%= @analisis_prezafra.peso_muestra %>
-</p>
+<br>
 
-<p>
-  <b>Peso tallo:</b>
-  <%= @analisis_prezafra.peso_tallo %>
-</p>
-
-<p>
-  <b>Variedad:</b>
-  <%= @analisis_prezafra.variedad_id %>
-</p>
-
-<p>
-  <b>Brix pct:</b>
-  <%= @analisis_prezafra.brix_pct %>
-</p>
-
-<p>
-  <b>Lectura polar:</b>
-  <%= @analisis_prezafra.lectura_polar %>
-</p>
-
-<p>
-  <b>Pol pct jugo:</b>
-  <%= @analisis_prezafra.pol_pct_jugo %>
-</p>
-
-<p>
-  <b>Pureza pct:</b>
-  <%= @analisis_prezafra.pureza_pct %>
-</p>
-
-<p>
-  <b>Pol pct cania:</b>
-  <%= @analisis_prezafra.pol_pct_cania %>
-</p>
-
-<p>
-  <b>Rto pct:</b>
-  <%= @analisis_prezafra.rto_pct %>
-</p>
-
-<p>
-  <b>Estado:</b>
-  <%= @analisis_prezafra.estado %>
-</p>
-
-<p>
-  <b>Observaciones:</b>
-  <%= @analisis_prezafra.observaciones %>
-</p>
-
-
-<%= link_to 'Edit', edit_analisis_prezafra_path(@analisis_prezafra) %> |
-<%= link_to 'Back', analisis_prezafras_path %>
+<%= link_to 'Editar', edit_analisis_prezafra_path(@analisis_prezafra) %> |
+<%= link_to 'Listado Análisis Prezafra', analisis_prezafras_path %>

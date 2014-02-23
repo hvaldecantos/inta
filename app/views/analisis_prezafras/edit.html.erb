@@ -1,6 +1,10 @@
-<h1>Editing analisis_prezafra</h1>
+<% provide(:title, 'Edición Análisis Prezafra') %>
+<blockquote>
+  <h2>Edición Análisis Prezafra</h2>
+  <h2><small><%= @analisis_prezafra.identificacion %></small></h2>
+</blockquote>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @analisis_prezafra %> |
-<%= link_to 'Back', analisis_prezafras_path %>
+<%= link_to 'Mostrar', @analisis_prezafra %> |
+<%= link_to 'Listado Análisis Prezafra', analisis_prezafras_path %>

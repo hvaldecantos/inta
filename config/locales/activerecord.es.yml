@@ -17,6 +17,15 @@ es:
       analisis_rsd:
         anio_plantacion : "Año Plantación"
         cania_variedad_id: "Variedad de Caña"
+      analisis_prezafra:
+        fecha_analisis: "Fecha análisis"
+        peso_tallo: "Peso tallo (g)"
+        cania_variedad_id: "Variedad de Caña"
+        brix_pct: Brix %
+        pol_pct_jugo: Pol % Jugo
+        pureza_pct: Pureza %
+        pol_pct_cania: Pol % Caña
+        rto_pct: RTO %
     errors:
       models:
         role:

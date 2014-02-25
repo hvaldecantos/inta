@@ -1,0 +1,77 @@
+<%= form_for(@analisis_prezafra) do |f| %>
+  <%= render 'shared/form_error_messages', object: f.object %>
+  
+  <div>
+    <div style="float:left; width:33%;">
+      <div class="field">
+        <%= f.label :fecha_inicio %>
+        <%= f.text_field :fecha_inicio, value: l(Date.today), :readonly => true, tabindex: 1 %>
+      </div>
+      <div class="field">
+        <%= f.label :peso_muestra %>
+        <%= f.text_field :peso_muestra, tabindex: 4 %>
+      </div>
+      <div class="field">
+        <%= f.label :brix_pct %>
+        <%= f.text_field :brix_pct, tabindex: 7 %>
+      </div>
+      <div class="field">
+        <%= f.label :pureza_pct %>
+        <%= f.text_field :pureza_pct, tabindex: 10 %>
+      </div>
+      <div class="field">
+        <%= f.label :laboratorista_id %>
+        <%= f.select :laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, {include_blank: true }, {tabindex: 13 } %>
+      </div>
+    </div>
+    <div style="float:left; width:33%;">
+      <div class="field">
+        <%= f.label :fecha_ingreso %>
+        <%= f.text_field :fecha_ingreso, class: "datepicker", tabindex: 2  %>
+      </div>
+      <div class="field">
+        <%= f.label :peso_tallo %>
+        <%= f.text_field :peso_tallo, tabindex: 5 %>
+      </div>
+      <div class="field">
+        <%= f.label :lectura_polar %>
+        <%= f.text_field :lectura_polar, tabindex: 8 %>
+      </div>
+      <div class="field">
+        <%= f.label :pol_pct_cania %>
+        <%= f.text_field :pol_pct_cania, tabindex: 11 %>
+      </div>
+      <div class="field">
+        <%= f.label :estado %>
+        <%= f.select :estado, AnalisisPrezafra.estados, {}, {tabindex: 14} %>
+      </div>
+      <br><br>
+      <div class="actions">
+        <%= f.submit tabindex: 16 %>
+      </div>
+    </div>
+    <div style="float:left; width:33%;">
+      <div class="field">
+        <%= f.label :fecha_analisis %>
+        <%= f.text_field :fecha_analisis, class: "datepicker", tabindex: 3  %>
+      </div>
+      <div class="field">
+        <%= f.label :cania_variedad_id %>
+        <%= f.collection_select :cania_variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, { :include_blank => true}, {tabindex: 6} %>
+      </div>
+      <div class="field">
+        <%= f.label :pol_pct_jugo %>
+        <%= f.text_field :pol_pct_jugo, tabindex: 9 %>
+      </div>
+      <div class="field">
+        <%= f.label :rto_pct %>
+        <%= f.text_field :rto_pct, tabindex: 12 %>
+      </div>
+      <div class="field">
+        <%= f.label :observaciones %>
+        <%= f.text_area :observaciones, size: "20x5", tabindex: 15 %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

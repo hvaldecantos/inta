@@ -1,91 +1,57 @@
 <%= form_for(@analisis_prezafra) do |f| %>
   <%= render 'shared/form_error_messages', object: f.object %>
   
-  <div class="field">
-    <%= f.label :fecha_inicio %>
-    <%= f.text_field :fecha_inicio, value: l(Date.today), :readonly => true %>
+  <div>
+    <div style="float:left; width:33%;">
+      <div class="field">
+        <%= f.label :fecha_inicio %>
+        <%= f.text_field :fecha_inicio, value: l(Date.today), :readonly => true, tabindex: 1 %>
+      </div>
+      <div class="field">
+        <%= f.label :agente_id %>
+        <%= f.select :agente_id, ProicsaAgente.all_for_select_id_persona, {include_blank: true}, {tabindex: 4}%>
+      </div>
+      <div class="field">
+        <%= f.label :latlon %>
+        <%= f.text_field :latlon, tabindex: 7 %>
+      </div>
+      <div class="field">
+        <%= f.label :parcela_id %>
+        <%= f.number_field :parcela_id, tabindex: 10 %>
+      </div>
+    </div>
+    <div style="float:left; width:33%;">
+      <div class="field">
+        <%= f.label :fecha_extraccion %>
+        <%= f.text_field :fecha_extraccion, class: "datepicker", tabindex: 2  %>
+      </div>
+      <div class="field">
+        <%= f.label :promotor_id %>
+        <%= f.select :promotor_id, ProicsaExtensionista.all_for_select_id_persona, {include_blank: true}, {tabindex: 5}%>
+      </div>
+      <div class="field">
+        <%= f.label :estado %>
+        <%= f.select :estado, AnalisisPrezafra.estados, {}, {tabindex: 8} %>
+      </div>
+      <br><br>
+      <div class="actions">
+        <%= f.submit tabindex: 11 %>
+      </div>
+    </div>
+    <div style="float:left; width:33%;">
+      <div class="field">
+        <%= f.label :productor_id %>
+        <%= f.collection_select :productor_id, Productor.order('apellido ASC').all, :id, :apellido_nombre, {:include_blank => true}, {tabindex: 3 }%>
+      </div>
+      <div class="field">
+        <%= f.label :cania_variedad_id %>
+        <%= f.collection_select :cania_variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, { :include_blank => true}, {tabindex: 6} %>
+      </div>
+      <div class="field">
+        <%= f.label :observaciones %>
+        <%= f.text_area :observaciones, size: "20x5", tabindex: 9 %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :fecha_extraccion %>
-    <%= f.text_field :fecha_extraccion, class: "datepicker"  %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_ingreso %>
-    <%= f.text_field :fecha_ingreso, class: "datepicker"  %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_analisis %>
-    <%= f.text_field :fecha_analisis, class: "datepicker"  %>
-  </div>
-  <div class="field">
-    <%= f.label :productor_id %>
-    <%= f.collection_select(:productor_id, Productor.order('apellido ASC').all, :id, :apellido_nombre, :include_blank => true)%>
-  </div>
-  <div class="field">
-    <%= f.label :parcela_id %>
-    <%= f.number_field :parcela_id %>
-  </div>
-  <div class="field">
-    <%= f.label :agente_id %>
-    <%= f.select(:agente_id, ProicsaAgente.all_for_select_id_persona, include_blank: true)%>
-  </div>
-  <div class="field">
-    <%= f.label :promotor_id %>
-    <%= f.select(:promotor_id, ProicsaExtensionista.all_for_select_id_persona, include_blank: true)%>
-  </div>
-  <div class="field">
-    <%= f.label :laboratorista_id %>
-    <%= f.select(:laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, include_blank: true)%>
-  </div>
-  <div class="field">
-    <%= f.label :latlon %>
-    <%= f.text_field :latlon %>
-  </div>
-  <div class="field">
-    <%= f.label :peso_muestra %>
-    <%= f.text_field :peso_muestra %>
-  </div>
-  <div class="field">
-    <%= f.label :peso_tallo %>
-    <%= f.text_field :peso_tallo %>
-  </div>
-  <div class="field">
-    <%= f.label :cania_variedad_id %>
-    <%= f.collection_select :cania_variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :brix_pct %>
-    <%= f.text_field :brix_pct %>
-  </div>
-  <div class="field">
-    <%= f.label :lectura_polar %>
-    <%= f.text_field :lectura_polar %>
-  </div>
-  <div class="field">
-    <%= f.label :pol_pct_jugo %>
-    <%= f.text_field :pol_pct_jugo %>
-  </div>
-  <div class="field">
-    <%= f.label :pureza_pct %>
-    <%= f.text_field :pureza_pct %>
-  </div>
-  <div class="field">
-    <%= f.label :pol_pct_cania %>
-    <%= f.text_field :pol_pct_cania %>
-  </div>
-  <div class="field">
-    <%= f.label :rto_pct %>
-    <%= f.text_field :rto_pct %>
-  </div>
-  <div class="field">
-    <%= f.label :estado %>
-    <%= f.select(:estado, AnalisisPrezafra.estados)%>
-  </div>
-  <div class="field">
-    <%= f.label :observaciones %>
-    <%= f.text_field :observaciones %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

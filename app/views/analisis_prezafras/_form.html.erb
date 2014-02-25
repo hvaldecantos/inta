@@ -50,8 +50,8 @@
     <%= f.text_field :peso_tallo %>
   </div>
   <div class="field">
-    <%= f.label :variedad_id %>
-    <%= f.collection_select :variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+    <%= f.label :cania_variedad_id %>
+    <%= f.collection_select :cania_variedad_id, CaniaVariedad.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :brix_pct %>

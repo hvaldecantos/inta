@@ -35,7 +35,6 @@ class AnalisisPrezafrasController < ApplicationController
   # GET /analisis_prezafras/1/edit
   def edit
     @analisis_prezafra = AnalisisPrezafra.find(params[:id])
-    resolve_form_partial
   end
 
   # POST /analisis_prezafras
@@ -91,10 +90,4 @@ class AnalisisPrezafrasController < ApplicationController
       end
     end
 
-    def resolve_form_partial
-      @form_partial = "form"
-      if current_user.has_role?(:laboratorista) then
-        @form_partial = "form_edit_laboratorista"
-      end
-    end
 end

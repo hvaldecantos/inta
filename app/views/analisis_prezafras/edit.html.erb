@@ -4,7 +4,7 @@
   <h2><small><%= @analisis_prezafra.identificacion %></small></h2>
 </blockquote>
 
-<%= render @form_partial %>
+<%= render current_user.has_role?(:laboratorista) ? "form_edit_laboratorista" : "form" %>
 
 <%= link_to 'Mostrar', @analisis_prezafra %> |
 <%= link_to 'Listado Análisis Prezafra', analisis_prezafras_path %>

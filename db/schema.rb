@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140225010413) do
+ActiveRecord::Schema.define(:version => 20140226003742) do
 
   create_table "agencias", :force => true do |t|
     t.integer "codigo"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20140225010413) do
     t.integer  "agente_id"
     t.integer  "promotor_id"
     t.integer  "laboratorista_id"
-    t.spatial  "latlon",           :limit => {:srid=>4326, :type=>"point", :geographic=>true}
+    t.spatial  "lonlat",            :limit => {:srid=>4326, :type=>"point", :geographic=>true}
     t.float    "peso_muestra"
     t.float    "peso_tallo"
     t.integer  "cania_variedad_id"

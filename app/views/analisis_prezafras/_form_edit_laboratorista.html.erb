@@ -5,7 +5,7 @@
     <div style="float:left; width:33%;">
       <div class="field">
         <%= f.label :fecha_inicio %>
-        <%= f.text_field :fecha_inicio, value: l(Date.today), :readonly => true, tabindex: 1 %>
+        <%= f.text_field :fecha_inicio, value: (l(@analisis_prezafra.fecha_inicio) || l(Date.today)), :readonly => true, tabindex: 1 %>
       </div>
       <div class="field">
         <%= f.label :peso_muestra %>
@@ -27,7 +27,7 @@
     <div style="float:left; width:33%;">
       <div class="field">
         <%= f.label :fecha_ingreso %>
-        <%= f.text_field :fecha_ingreso, class: "datepicker", tabindex: 2  %>
+        <%= f.text_field :fecha_ingreso, value: (l(@analisis_prezafra.fecha_ingreso) unless @analisis_prezafra.fecha_ingreso.nil?), class: "datepicker", tabindex: 2  %>
       </div>
       <div class="field">
         <%= f.label :peso_tallo %>
@@ -53,7 +53,7 @@
     <div style="float:left; width:33%;">
       <div class="field">
         <%= f.label :fecha_analisis %>
-        <%= f.text_field :fecha_analisis, class: "datepicker", tabindex: 3  %>
+        <%= f.text_field :fecha_analisis, value: (l(@analisis_prezafra.fecha_analisis) unless @analisis_prezafra.fecha_analisis.nil?), class: "datepicker", tabindex: 3  %>
       </div>
       <div class="field">
         <%= f.label :cania_variedad_id %>

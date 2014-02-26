@@ -10,7 +10,35 @@ class AnalisisPrezafra < ActiveRecord::Base
   after_create :generar_ticket
   after_create :establecer_identificacion
   before_save :establecer_fecha_inicio
-  
+
+  attr_accessor :longitude, :latitude
+  attr_accessible :longitude, :latitude
+
+  validates :longitude, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }, allow_blank: true
+  validates :latitude, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }, allow_blank: true
+
+  before_save :update_lonlat
+  after_initialize :load_up_longitude_latitude
+
+  def load_up_longitude_latitude
+    if not lonlat.nil?
+      self.longitude = lonlat.lon
+      self.latitude = lonlat.lat
+    end
+  end
+
+  def update_lonlat
+    if longitude.present? || latitude.present?
+      long = longitude || self.lonlat.longitude
+      lat = latitude || self.lonlat.latitude
+      self.lonlat = RGeo::Geographic.spherical_factory(srid: 4326).point(long, lat)
+    end
+  end
+
+  def longitud_latitud
+    "#{lonlat.lon} #{lonlat.lat}" unless lonlat.nil?
+  end
+
   def self.estados
     %w(Iniciado Ingresado Analizado Entregado)
   end

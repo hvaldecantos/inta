@@ -80,17 +80,10 @@
   </tr>
 </table>
 
+Lat Lon: <%= "[#{@analisis_prezafra.latitude}  #{@analisis_prezafra.longitude}]" %>
 <p>
-  <b>Parcela:</b>
-  <%= @analisis_prezafra.parcela_id %>
+  Parcela: <%= @analisis_prezafra.parcela_id %>
 </p>
-
-<p>
-  <b>Lonitud latitud:</b>
-  <%= @analisis_prezafra.lonlat %>
-</p>
-
 <br>
-
 <%= link_to 'Editar', edit_analisis_prezafra_path(@analisis_prezafra) %> |
 <%= link_to 'Listado Análisis Prezafra', analisis_prezafras_path %>

@@ -12,8 +12,8 @@
         <%= f.select :agente_id, ProicsaAgente.all_for_select_id_persona, {include_blank: true}, {tabindex: 4}%>
       </div>
       <div class="field">
-        <%= f.label :lonlat %>
-        <%= f.text_field :lonlat, tabindex: 7 %>
+        <%= f.label :latitude, "Latitud" %>
+        <%= f.text_field :latitude, tabindex: 7 %>
       </div>
       <div class="field">
         <%= f.label :parcela_id %>
@@ -30,8 +30,8 @@
         <%= f.select :promotor_id, ProicsaExtensionista.all_for_select_id_persona, {include_blank: true}, {tabindex: 5}%>
       </div>
       <div class="field">
-        <%= f.label :estado %>
-        <%= f.select :estado, AnalisisPrezafra.estados, {}, {tabindex: 8} %>
+        <%= f.label :longitude, "Longiud" %>
+        <%= f.text_field :longitude, tabindex: 7 %>
       </div>
       <br><br>
       <div class="actions">

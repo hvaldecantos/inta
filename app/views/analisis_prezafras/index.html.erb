@@ -28,8 +28,8 @@
     <td><%= analisis_prezafra.identificacion %></td>
     <td><%= l(analisis_prezafra.fecha_inicio) %></td>
     <td><%= (l(analisis_prezafra.fecha_extraccion) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
-    <td><%= (l(analisis_prezafra.fecha_ingreso) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
-    <td><%= (l(analisis_prezafra.fecha_analisis) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
+    <td><%= (l(analisis_prezafra.fecha_ingreso) unless analisis_prezafra.fecha_ingreso.nil?) %></td>
+    <td><%= (l(analisis_prezafra.fecha_analisis) unless analisis_prezafra.fecha_analisis.nil?) %></td>
     <td><%= analisis_prezafra.productor.apellido_nombre unless analisis_prezafra.productor_id.nil? %></td>
     <td><%= analisis_prezafra.parcela_id %></td>
     <td><%= analisis_prezafra.agente.apellido_nombre unless analisis_prezafra.agente_id.nil? %></td>

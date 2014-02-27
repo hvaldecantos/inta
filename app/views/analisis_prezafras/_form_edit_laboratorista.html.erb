@@ -21,7 +21,7 @@
       </div>
       <div class="field">
         <%= f.label :laboratorista_id %>
-        <%= f.select :laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, {include_blank: true }, {tabindex: 13 } %>
+        <%= f.select :laboratorista_id, ProicsaLaboratorista.all_for_select_id_persona, {:selected => (@analisis_prezafra.laboratorista_id || current_user.persona.id), include_blank: true }, {tabindex: 13 } %>
       </div>
     </div>
     <div style="float:left; width:33%;">

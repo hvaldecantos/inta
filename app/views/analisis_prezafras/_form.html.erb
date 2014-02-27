@@ -9,7 +9,7 @@
       </div>
       <div class="field">
         <%= f.label :agente_id %>
-        <%= f.select :agente_id, ProicsaAgente.all_for_select_id_persona, {include_blank: true}, {tabindex: 4}%>
+        <%= f.select :agente_id, ProicsaAgente.all_for_select_id_persona, {:selected => (@analisis_prezafra.agente_id || current_user.persona.id), include_blank: true}, {tabindex: 4}%>
       </div>
       <div class="field">
         <%= f.label :latitude, "Latitud" %>
@@ -27,7 +27,7 @@
       </div>
       <div class="field">
         <%= f.label :promotor_id %>
-        <%= f.select :promotor_id, ProicsaExtensionista.all_for_select_id_persona, {include_blank: true}, {tabindex: 5}%>
+        <%= f.select :promotor_id, ProicsaExtensionista.all_for_select_id_persona, {:selected => (@analisis_prezafra.promotor_id || current_user.persona.id), include_blank: true}, {tabindex: 5}%>
       </div>
       <div class="field">
         <%= f.label :longitude, "Longiud" %>

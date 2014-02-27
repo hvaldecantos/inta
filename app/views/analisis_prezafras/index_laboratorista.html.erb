@@ -3,6 +3,7 @@
 
 <table class="table table-striped table-condensed">
   <tr>
+    <th></th>
     <th>ID</th>
     <th>Fecha inicio</th>
     <th>Fecha extraccion</th>
@@ -25,17 +26,15 @@
 
 <% @analisis_prezafras.each do |analisis_prezafra| %>
   <tr>
+    <td><%= "*" unless analisis_prezafra.datos_incompletos? current_user %></td>
     <td><%= analisis_prezafra.identificacion %></td>
     <td><%= l(analisis_prezafra.fecha_inicio) %></td>
-
     <td><%= (l(analisis_prezafra.fecha_extraccion) unless analisis_prezafra.fecha_extraccion.nil?) %></td>
     <td><%= (l(analisis_prezafra.fecha_ingreso) unless analisis_prezafra.fecha_ingreso.nil?) %></td>
     <td><%= (l(analisis_prezafra.fecha_analisis) unless analisis_prezafra.fecha_analisis.nil?) %></td>
-
     <td><%= analisis_prezafra.agente.apellido_nombre unless analisis_prezafra.agente_id.nil? %></td>
     <td><%= analisis_prezafra.promotor.apellido_nombre unless analisis_prezafra.promotor_id.nil? %></td>
     <td><%= analisis_prezafra.laboratorista.apellido_nombre unless analisis_prezafra.laboratorista_id.nil? %></td>
-
     <td><%= analisis_prezafra.peso_muestra %></td>
     <td><%= analisis_prezafra.peso_tallo %></td>
     <td><%= (analisis_prezafra.cania_variedad.nombre unless analisis_prezafra.cania_variedad.nil?) %></td>

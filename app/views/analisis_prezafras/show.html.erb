@@ -5,12 +5,12 @@
   <h2><small><%= @analisis_prezafra.identificacion %></small></h2>
 </blockquote>
 
+<h3><small>
+  Fecha inicio: <%= (l(@analisis_prezafra.fecha_inicio) unless @analisis_prezafra.fecha_inicio.nil?) %>
+</h3></small>
+
 <table class="table table-bordered">
   <tr>
-    <td>
-      <b>Fecha inicio:</b>
-      <%= (l(@analisis_prezafra.fecha_inicio) unless @analisis_prezafra.fecha_inicio.nil?) %>
-    </td>
     <td>
       <b>Fecha extraccion:</b>
       <%= (l(@analisis_prezafra.fecha_extraccion) unless @analisis_prezafra.fecha_extraccion.nil?) %>
@@ -18,6 +18,10 @@
     <td>
       <b>Fecha ingreso:</b>
       <%= (l(@analisis_prezafra.fecha_ingreso) unless @analisis_prezafra.fecha_ingreso.nil?) %>
+    </td>
+    <td>
+      <b>Fecha análisis:</b>
+      <%= (l(@analisis_prezafra.fecha_analisis) unless @analisis_prezafra.fecha_analisis.nil?) %>
     </td>
   </tr>
   <tr>
@@ -80,10 +84,12 @@
   </tr>
 </table>
 
-Lat Lon: <%= "[#{@analisis_prezafra.latitude}  #{@analisis_prezafra.longitude}]" %>
-<p>
-  Parcela: <%= @analisis_prezafra.parcela_id %>
-</p>
+<h3><small>
+  Lat Lon: <%= "[#{@analisis_prezafra.latitude}  #{@analisis_prezafra.longitude}]" %>
+  <p>
+    Parcela: <%= @analisis_prezafra.parcela_id %>
+  </p>
+</h3></small>
 <br>
 <%= link_to 'Editar', edit_analisis_prezafra_path(@analisis_prezafra) %> |
 <%= link_to 'Listado Análisis Prezafra', analisis_prezafras_path %>

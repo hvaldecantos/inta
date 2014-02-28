@@ -7,7 +7,7 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :laboratorista
-      can :manage, AnalisisRsd
+      can :manage, [AnalisisRsd, AnalisisPrezafra]
       can :read, :all
     elsif user.has_role? :jefe_coordinador
       can :manage, [AnalisisRsd, Productor, CaniaVariedad, Programa]
@@ -15,13 +15,13 @@ class Ability
     elsif user.has_role? :coordinador
       can :read, :all
     elsif user.has_role? :jefe_agente
-      can :manage, [AnalisisRsd, Productor, CaniaVariedad]
+      can :manage, [AnalisisRsd, Productor, CaniaVariedad, AnalisisPrezafra]
       can :read, :all
     elsif user.has_role? :agente
-      can :manage, [AnalisisRsd, Productor, CaniaVariedad]
+      can :manage, [AnalisisRsd, Productor, CaniaVariedad, AnalisisPrezafra]
       can :read, :all
     elsif user.has_role? :extensionista
-      can :manage, [AnalisisRsd, Productor]
+      can :manage, [AnalisisRsd, Productor, AnalisisPrezafra]
       can :read, :all
     else
       can :read, :all

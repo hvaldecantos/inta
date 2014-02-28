@@ -1,4 +1,7 @@
 class AnalisisPrezafrasController < ApplicationController
+
+  load_and_authorize_resource
+  
   # GET /analisis_prezafras
   # GET /analisis_prezafras.json
   def index

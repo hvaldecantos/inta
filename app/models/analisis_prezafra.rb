@@ -17,8 +17,57 @@ class AnalisisPrezafra < ActiveRecord::Base
   validates :longitude, numericality: { greater_than_or_equal_to: -180, less_than_or_equal_to: 180 }, allow_blank: true
   validates :latitude, numericality: { greater_than_or_equal_to: -90, less_than_or_equal_to: 90 }, allow_blank: true
 
+  validate :fecha_extraccion_vs_fecha_inicio
+  validate :fecha_ingreso_vs_fecha_inicio
+  validate :fecha_analisis_vs_fecha_inicio
+  validate :fecha_ingreso_vs_fecha_extraccion
+  validate :fecha_analisis_vs_fecha_extraccion
+  validate :fecha_analisis_vs_fecha_ingreso
+
   before_save :update_lonlat
   after_initialize :load_up_longitude_latitude
+
+  def fecha_extraccion_vs_fecha_inicio
+    if fecha_extraccion.nil? then return end
+    if(fecha_extraccion < fecha_inicio) then
+      errors.add(:fecha_extraccion, "no puede ser anterior a la fecha de inicio #{I18n.localize(fecha_inicio)}.")
+    end
+  end
+
+  def fecha_ingreso_vs_fecha_inicio
+    if fecha_ingreso.nil? then return end
+    if(fecha_ingreso < fecha_inicio) then
+      errors.add(:fecha_ingreso, "no puede ser anterior a la fecha de inicio #{I18n.localize(fecha_inicio)}.")
+    end
+  end
+
+  def fecha_analisis_vs_fecha_inicio
+    if fecha_analisis.nil? then return end
+    if(fecha_analisis < fecha_inicio) then
+      errors.add(:fecha_analisis, "no puede ser anterior a la fecha de inicio #{I18n.localize(fecha_inicio)}.")
+    end
+  end
+
+  def fecha_ingreso_vs_fecha_extraccion
+    if fecha_ingreso.nil? ||  fecha_extraccion.nil? then return end
+    if(fecha_ingreso < fecha_extraccion) then
+      errors.add(:fecha_ingreso, "no puede ser anterior a la fecha de extracción #{I18n.localize(fecha_extraccion)}.")
+    end
+  end
+
+  def fecha_analisis_vs_fecha_extraccion
+    if fecha_analisis.nil? ||  fecha_extraccion.nil? then return end
+    if(fecha_analisis < fecha_extraccion) then
+      errors.add(:fecha_analisis, "no puede ser anterior a la fecha de extracción #{I18n.localize(fecha_extraccion)}.")
+    end
+  end
+
+  def fecha_analisis_vs_fecha_ingreso
+    if fecha_analisis.nil? ||  fecha_ingreso.nil? then return end
+    if(fecha_analisis < fecha_ingreso) then
+      errors.add(:fecha_analisis, "no puede ser anterior a la fecha de ingreso #{I18n.localize(fecha_ingreso)}.")
+    end
+  end
 
   def load_up_longitude_latitude
     if not lonlat.nil?

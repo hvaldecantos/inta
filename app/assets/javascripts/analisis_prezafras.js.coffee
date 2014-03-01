@@ -3,6 +3,22 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+  $('#analisis_prezafras').dataTable
+    sPaginationType: "full_numbers"
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#analisis_prezafras').data('source')
+    oLanguage: spanish()
+    aoColumns: [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true} ]
+
+  $('#analisis_prezafras_laboratoristas').dataTable
+    sPaginationType: "full_numbers"
+    bProcessing: true
+    bServerSide: true
+    sAjaxSource: $('#analisis_prezafras').data('source')
+    oLanguage: spanish()
+    aoColumns: [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true} ]
+
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'
   });

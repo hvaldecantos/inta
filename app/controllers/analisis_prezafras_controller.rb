@@ -5,12 +5,11 @@ class AnalisisPrezafrasController < ApplicationController
   # GET /analisis_prezafras
   # GET /analisis_prezafras.json
   def index
-    @analisis_prezafras = AnalisisPrezafra.all
-
     respond_to do |format|
-      format.html { render  resolve_view }
-      format.json { render json: @analisis_prezafras }
+      format.html { render resolve_view }
+      format.json { render json: resolve_datatable }
     end
+    resolve_view
   end
 
   # GET /analisis_prezafras/1
@@ -92,5 +91,15 @@ class AnalisisPrezafrasController < ApplicationController
         view_name = "#{action_name}_laboratorista"
       end
     end
+
+    def resolve_datatable
+      if(current_user.has_role?(:laboratorista) and (action_name == "index")) then
+        AnalisisPrezafrasLaboratoristaDatatable.new(view_context)
+      else
+        AnalisisPrezafrasDatatable.new(view_context)
+      end
+    end
+
+    
 
 end

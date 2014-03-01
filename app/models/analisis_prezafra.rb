@@ -110,13 +110,13 @@ class AnalisisPrezafra < ActiveRecord::Base
     self.fecha_inicio ||= Date.today
   end
 
-  def datos_incompletos? user
+  def datos_completos? user
     if user.has_role? :laboratorista then
-      not (fecha_ingreso.nil? || fecha_analisis.nil? || peso_muestra.nil? || peso_tallo.nil? || 
+      (fecha_ingreso.nil? || fecha_analisis.nil? || peso_muestra.nil? || peso_tallo.nil? || 
            cania_variedad_id.nil? || brix_pct.nil? || lectura_polar.nil? || laboratorista_id.nil? || 
            (estado!="Analizado" && estado!="Entregado") )
     else
-      not (fecha_extraccion.nil? || productor_id.nil? || promotor_id.nil? || lonlat.nil?)
+      (fecha_extraccion.nil? || productor_id.nil? || promotor_id.nil? || lonlat.nil?)
     end
   end
 

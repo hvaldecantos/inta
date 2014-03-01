@@ -24,7 +24,7 @@ private
     data = []
     analisis_prezafras.each do |analisis_prezafra|
       a = []
-      a << ("*" unless analisis_prezafra.datos_incompletos? @view.current_user)
+      a << ("<span class='glyphicon icon-ok'></span>".html_safe unless analisis_prezafra.datos_completos? @view.current_user)
       a << analisis_prezafra.identificacion
       a << l(analisis_prezafra.fecha_inicio)
       a << (l(analisis_prezafra.fecha_extraccion) unless analisis_prezafra.fecha_extraccion.nil?)
@@ -78,7 +78,8 @@ private
   end
 
   def sort_column
-    columns = ["((analisis_prezafras.fecha_extraccion is null) or (analisis_prezafras.productor_id is null) or (analisis_prezafras.promotor_id is null) or (analisis_prezafras.lonlat is null))",
+    columns = ["((analisis_prezafras.fecha_extraccion is null) or (analisis_prezafras.productor_id is null) or " +
+               "(analisis_prezafras.promotor_id is null) or (analisis_prezafras.lonlat is null))",
                "analisis_prezafras.identificacion",
                "analisis_prezafras.fecha_inicio",
                "analisis_prezafras.fecha_extraccion",

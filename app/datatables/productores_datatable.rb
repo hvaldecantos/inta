@@ -45,8 +45,8 @@ private
     productores = Productor.joins(:departamento, :comuna_municipio).order("#{sort_column} #{sort_direction}")
     productores = productores.page(page).per_page(per_page)
     if params[:sSearch].present?
-      productores = productores.joins(:departamento, :comuna_municipio).
-                      where("productores.nombre LIKE :search OR productores.apellido LIKE :search OR " +
+      productores = productores.where(
+                        "productores.nombre LIKE :search OR productores.apellido LIKE :search OR " +
                         "productores.dni LIKE :search OR " + 
                         "departamentos.nombre LIKE :search OR " +
                         "comunas_municipios.nombre LIKE :search OR " +

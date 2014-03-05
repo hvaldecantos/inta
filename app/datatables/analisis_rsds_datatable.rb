@@ -50,8 +50,8 @@ private
 
     analisis_rsds = analisis_rsds.page(page).per_page(per_page)
     if params[:sSearch].present?
-      analisis_rsds = analisis_rsds.joins(:agente, :promotor, :laboratorista, :cania_variedad).
-                      where("personas.nombre LIKE :search OR personas.apellido LIKE :search OR " +
+      analisis_rsds = analisis_rsds.where(
+                        "personas.nombre LIKE :search OR personas.apellido LIKE :search OR " +
                         "promotores_analisis_rsds.nombre LIKE :search OR promotores_analisis_rsds.apellido LIKE :search OR " +
                         "laboratorista_analisis_rsds.nombre LIKE :search OR laboratorista_analisis_rsds.apellido LIKE :search OR " +
                         "CAST(analisis_rsds.incidencia AS TEXT) like :search OR " +

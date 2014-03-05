@@ -24,3 +24,14 @@ function spanish(){
       }
     };
   }
+
+function add_mostrar_editar_borrar_to(columns_properties){
+  if($('#can_read').val()=='true')
+    columns_properties.push({bSortable: false, bVisible: true});
+  if($('#can_update').val()=='true')
+    columns_properties.push({bSortable: false, bVisible: true});
+  if($('#can_destroy').val()=='true')
+    columns_properties.push({bSortable: false, bVisible: true});
+    
+  return columns_properties;
+}

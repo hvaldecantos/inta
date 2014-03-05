@@ -9,7 +9,10 @@ module ApplicationHelper
   end
 
   def mostrar_editar_borrar_headers(a_model)
-    html = ""
+    html =  "<input type='hidden' id='can_read' value='#{can? :read, a_model}'>"
+    html += "<input type='hidden' id='can_update' value='#{can? :update, a_model}'>"
+    html += "<input type='hidden' id='can_destroy' value='#{can? :destroy, a_model}'>"
+
     html += "<th></th>" unless cannot? :read, a_model
     html += "<th></th>" unless cannot? :update, a_model
     html += "<th></th>" unless cannot? :destroy, a_model
@@ -19,9 +22,9 @@ module ApplicationHelper
   def mostrar_editar_borrar_data(a_view, an_object)
     icon = "<span class='glyphicon :glyphicon'></span>"
     data = []
-    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-zoom-in").html_safe, an_object)
-    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-edit").html_safe, eval("a_view.edit_#{an_object.class.to_s.underscore}_path(an_object)")) unless @view.cannot?(:update, an_object)
-    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-remove").html_safe, an_object, method: :delete, data: { confirm: 'Esta seguro?' }) unless @view.cannot?(:destroy, an_object)
+    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-zoom-in").html_safe, an_object) unless a_view.cannot?(:read, an_object)
+    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-edit").html_safe, eval("a_view.edit_#{an_object.class.to_s.underscore}_path(an_object)")) unless a_view.cannot?(:update, an_object)
+    data << a_view.link_to(icon.gsub(/:glyphicon/, "icon-remove").html_safe, an_object, method: :delete, data: { confirm: 'Esta seguro?' }) unless a_view.cannot?(:destroy, an_object)
     data
   end
 end

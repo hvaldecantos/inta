@@ -17,7 +17,7 @@ jQuery ->
     bServerSide: true
     sAjaxSource: $('#analisis_prezafras').data('source')
     oLanguage: spanish()
-    aoColumns: [ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true}, {bSortable: false, bVisible: true} ]
+    aoColumns: add_mostrar_editar_borrar_to([ null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'

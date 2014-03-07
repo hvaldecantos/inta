@@ -83,7 +83,27 @@ class AnalisisPrezafrasController < ApplicationController
     end
   end
 
+  def download_pdf
+    analisis_prezafra = AnalisisPrezafra.find(params[:id])
+    send_data generate_pdf(analisis_prezafra), 
+              filename: "#{analisis_prezafra.identificacion.tr(' ','_')}.pdf",
+              type: "application/pdf"
+  end
+
   private
+
+    def generate_pdf(analisis_prezafra)
+      Prawn::Document.new do
+        text "TICKET Analisis Prezafra", align: :center
+        text analisis_prezafra.identificacion, align: :center
+        text analisis_prezafra.productor.apellido_nombre unless analisis_prezafra.productor.nil?
+        text analisis_prezafra.agente.apellido_nombre unless analisis_prezafra.agente.nil?
+        text analisis_prezafra.promotor.apellido_nombre unless analisis_prezafra.promotor.nil?
+        text "Estado: #{analisis_prezafra.estado}"
+        text analisis_prezafra.observaciones
+        text "Fecha Inicio: #{analisis_prezafra.fecha_inicio}"
+      end.render
+    end
 
     def resolve_view
       view_name = action_name

@@ -7,6 +7,7 @@
 
 <h3><small>
   Fecha inicio: <%= (l(@analisis_prezafra.fecha_inicio) unless @analisis_prezafra.fecha_inicio.nil?) %>
+  <%= link_to 'Ticket Prezafra', analisis_prezafras_ticket_path(@analisis_prezafra) %>
 </h3></small>
 
 <table class="table table-bordered">

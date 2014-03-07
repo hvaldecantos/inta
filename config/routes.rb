@@ -39,6 +39,8 @@ Inta::Application.routes.draw do
     end
   end
 
+  get "analisis_prezafras/:id/ticket", to: "analisis_prezafras#download_pdf", as: "analisis_prezafras_ticket"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -69,7 +69,15 @@ class TicketPrezafra
           move_down 10
           text "Fecha de extracción: " + "." * 30, :align => :left, :size => 16
           move_down 10
-          text "Responsable: " + "." * 42, :align => :left, :size => 16
+
+          if analisis_prezafra.promotor.nil? then
+            text "Responsable: " + "." * 42, :align => :left, :size => 16
+          else
+            text "Responsable: ", :align => :left, :size => 16
+            text_box analisis_prezafra.promotor.apellido, :at => [90,100], :width => 200, :size => 12
+            text_box analisis_prezafra.promotor.nombre, :at => [90,90], :width => 200, :size => 12
+          end
+          
           move_down 20
         
           TicketPrezafra.firma 30, 60, 16, self
@@ -87,14 +95,32 @@ class TicketPrezafra
           move_down 15
           text "Comprobante de extracción y recepción de muestra", :align => :left, :style => :bold, :size => 20
           move_down 10
-          text "Fecha generación ticket: " + "." * 25, :align => :left, :size => 16
+          text "Fecha generación ticket: #{I18n.l(Date.today)} #{Time.now.to_formatted_s(:time)}", :align => :left, :size => 16
           move_down 10
           text "Fecha de extracción: " + "." * 30, :align => :left, :size => 16
           move_down 20
-          text "Responsable: " + "." * 42, :align => :left, :size => 16 
+          
+          if analisis_prezafra.promotor.nil? then
+            text "Responsable: " + "." * 42, :align => :left, :size => 16 
+          else
+            text "Responsable: ", :align => :left, :size => 16
+            text_box analisis_prezafra.promotor.apellido, :at => [90,232], :width => 200, :size => 12
+            text_box analisis_prezafra.promotor.nombre, :at => [90,222], :width => 200, :size => 12 
+          end
+          
           TicketPrezafra.firma_en_linea 280, cursor + 20, 16, self
           move_down 10
-          text "Productor: " + "." * 45, :align => :left, :size => 16 
+
+          if analisis_prezafra.productor.nil? then
+            text "Productor: " + "." * 46, :align => :left, :size => 16 
+          else
+            text "Productor: ", :align => :left, :size => 16
+            text_box analisis_prezafra.productor.apellido, :at => [90,202], :width => 200, :size => 12
+            text_box analisis_prezafra.productor.nombre, :at => [90,192], :width => 200, :size => 12 
+
+            texto = analisis_prezafra.productor.apellido_nombre 
+          end
+          
           TicketPrezafra.firma_en_linea 280, cursor + 20, 16, self
           move_down 20
           text "Variedad de caña de azúcar: " + "." * 18, :align => :left, :size => 16

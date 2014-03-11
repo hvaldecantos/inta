@@ -17,7 +17,7 @@ class Persona < ActiveRecord::Base
   attr_accessible :apellido, :dni, :nombre, :telefono_celular, :telefono_fijo, :profiles_attributes
 
   validates_presence_of :apellido, :nombre
-  validates_uniqueness_of :dni, :allow_nil => true
+  validates_uniqueness_of :dni, :allow_nil => true, :allow_blank => true
   
   belongs_to :user
   

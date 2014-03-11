@@ -23,7 +23,7 @@
     <div style="float:left; width:33%;">
       <div class="field">
         <%= f.label :fecha_extraccion %>
-        <%= f.text_field :fecha_extraccion, class: "datepicker", tabindex: 2  %>
+        <%= f.text_field :fecha_extraccion, :value => (l(@analisis_prezafra.fecha_extraccion) unless @analisis_prezafra.fecha_extraccion.nil?), class: "datepicker", tabindex: 2  %>
       </div>
       <div class="field">
         <%= f.label :promotor_id %>

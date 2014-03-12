@@ -10,7 +10,15 @@ jQuery ->
     sAjaxSource: $('#analisis_rsds').data('source')
     oLanguage: spanish()
     aoColumns: add_mostrar_editar_borrar_to([ null, null, null, null, null, null, null, null, null])
-    
+    fnServerParams: (aoData) ->
+      for form_element in $('#filter_form').serializeArray()
+        aoData.push
+          name: form_element.name
+          value: form_element.value
+  
+  $('#filterLink').click ->
+    $('#analisis_rsds').dataTable().fnDraw()    
+
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'
   });

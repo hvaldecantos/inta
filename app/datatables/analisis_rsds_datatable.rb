@@ -44,7 +44,7 @@ private
   end
 
   def fetch_analisis_rsds
-    analisis_rsds = AnalisisRsd.joins(:agente, :promotor, :laboratorista, :cania_variedad).
+    analisis_rsds = AnalisisRsd.includes(:agente, :promotor, :laboratorista, :cania_variedad).
                                 mi_vista(@view.current_user.persona.id, @view.cookies[:mi_vista]).
                                 where("TO_CHAR(fecha_ingreso, 'DD/MM/YYYY') LIKE :search", search: "%#{params[:filter]}%").
                                 order("#{sort_column} #{sort_direction}")

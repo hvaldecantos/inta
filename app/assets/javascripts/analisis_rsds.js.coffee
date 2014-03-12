@@ -11,13 +11,16 @@ jQuery ->
     oLanguage: spanish()
     aoColumns: add_mostrar_editar_borrar_to([ null, null, null, null, null, null, null, null, null])
     fnServerParams: (aoData) ->
-      for form_element in $('#filter_form').serializeArray()
-        aoData.push
-          name: form_element.name
-          value: form_element.value
+      aoData.push
+        name: $('#filter').attr('name')
+        value: $('#filter').val()
   
-  $('#filterLink').click ->
-    $('#analisis_rsds').dataTable().fnDraw()    
+  $('#filter_link').click ->
+    $('#analisis_rsds').dataTable().fnDraw()
+
+  $('#filter').keypress (e) ->
+    if(e.which == 13)
+      $('#analisis_rsds').dataTable().fnDraw()
 
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'

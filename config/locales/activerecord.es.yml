@@ -17,6 +17,8 @@ es:
       analisis_rsd:
         anio_plantacion : "Año Plantación"
         cania_variedad_id: "Variedad de Caña"
+        fecha_extraccion: "Fecha extracción"
+        fecha_analisis: "Fecha análisis"
       analisis_prezafra:
         fecha_analisis: "Fecha análisis"
         peso_tallo: "Peso tallo (g)"

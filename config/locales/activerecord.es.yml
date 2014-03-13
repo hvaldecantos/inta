@@ -28,6 +28,22 @@ es:
         rto_pct: RTO %
     errors:
       models:
+        analisis_rsd:
+          attributes:
+            comuna_municipio_id: 
+              blank: ': no puede estar vacio'
+            departamento_id:
+              blank: ': no puede estar vacio'
+            paraje_id:
+              blank: ': no puede estar vacio'
+            localidad_id:
+              blank: ': no puede estar vacio'
+            agente_id:
+              blank: ': no puede estar vacio'
+            promotor_id:
+              blank: ': no puede estar vacio'
+            laboratorista_id:
+              blank: ': no puede estar vacio'
         role:
           attributes:
             name:

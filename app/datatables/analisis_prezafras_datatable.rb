@@ -56,6 +56,7 @@ private
     analisis_prezafras = analisis_prezafras.page(page).per_page(per_page)
     if params[:sSearch].present?
       analisis_prezafras = analisis_prezafras.where(
+                        "identificacion LIKE :search OR " +
                         "personas.nombre LIKE :search OR personas.apellido LIKE :search OR " +
                         "productores.nombre LIKE :search OR productores.apellido LIKE :search OR " +
                         "promotores_analisis_prezafras.nombre LIKE :search OR promotores_analisis_prezafras.apellido LIKE :search OR " +

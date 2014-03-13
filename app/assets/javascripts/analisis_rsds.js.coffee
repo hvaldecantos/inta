@@ -7,7 +7,7 @@ jQuery ->
     sPaginationType: "full_numbers"
     bProcessing: true
     bServerSide: true
-    sDom: 'lf<"#date_filter">rtip'
+    sDom: 'l<"#date_filter">frtip'
     sAjaxSource: $('#analisis_rsds').data('source')
     oLanguage: spanish()
     aoColumns: add_mostrar_editar_borrar_to([ null, null, null, null, null, null, null, null, null])
@@ -16,7 +16,7 @@ jQuery ->
         name: $('#filter').attr('name')
         value: $('#filter').val()
   
-  $('<label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFecha ingreso: <input id="filter" type="text" style="width: 100px" name="filter"></label>').appendTo($('#date_filter'))
+  $('<label class="dataTables_length" style="margin-left:50px">Fecha ingreso: <input id="filter" type="text" style="width: 100px" name="filter"></label>').appendTo($('#date_filter'))
 
   $('#filter').change -> 
     $('#analisis_rsds').dataTable().fnDraw()

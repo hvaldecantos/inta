@@ -46,6 +46,10 @@ es:
               blank: ': no puede estar vacio'
             laboratorista_id:
               blank: ': no puede estar vacio'
+            productor:
+              blank: ': no puede estar vacio'
+            cania_variedad_id:
+              blank: ': no puede estar vacio'
         role:
           attributes:
             name:

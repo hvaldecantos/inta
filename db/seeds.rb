@@ -34,3 +34,11 @@ t=Thread.new do
 end
 t.join
 puts '.... Done'
+
+puts 'Update parajes table with comuna_municipio_id'
+conf = Rails.configuration.database_configuration[Rails.env]
+t=Thread.new do
+  system("psql -U #{conf['username']} -W -h localhost #{conf['database']} < ./db/sql/20140317_update_parajes_table_with_comuna_municipio_id.sql")
+end
+t.join
+puts '.... Done'

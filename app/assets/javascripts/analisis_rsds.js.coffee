@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+
   $('#analisis_rsds').dataTable
     sPaginationType: "full_numbers"
     bProcessing: true
@@ -27,6 +28,8 @@ jQuery ->
 
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'
+    dayNamesMin: [ 'Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa' ]
+    monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octobre", "Noviembre", "Deciembre" ]
   });
 
   $('.edit_analisis_rsd').submit ->

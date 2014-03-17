@@ -68,11 +68,13 @@ jQuery ->
 
   controlar_analizado = () ->
     if $('#analisis_rsd_analizado').is(':checked')
-      $("#analisis_rsd_fecha_analisis").parent().show()
-      $("#analisis_rsd_incidencia").parent().show()
+      $("#analisis_rsd_fecha_analisis").attr('disabled', false)
+      $("#analisis_rsd_incidencia").attr('disabled', false)
     else
-      $("#analisis_rsd_fecha_analisis").parent().hide()
-      $("#analisis_rsd_incidencia").parent().hide()
+      $("#analisis_rsd_fecha_analisis").attr('disabled', true)
+      $("#analisis_rsd_fecha_analisis").val("")
+      $("#analisis_rsd_incidencia").attr('disabled', true)
+      $("#analisis_rsd_incidencia").val("")
 
   selecionar_departamento = (id) ->
     id = Math.floor(id/10000)

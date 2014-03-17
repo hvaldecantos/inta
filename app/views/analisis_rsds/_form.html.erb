@@ -113,13 +113,13 @@
     <td>
       <div class="field">
         <%= f.label :incidencia %>
-        <%= f.text_field :incidencia %>
+        <%= f.text_field :incidencia, :disabled => true %>
       </div>
     </td>
     <td>
       <div class="field">
         <%= f.label :fecha_analisis %>
-        <%= f.text_field :fecha_analisis, :value => (l(@analisis_rsd.fecha_analisis) unless @analisis_rsd.fecha_analisis.nil?), class: "field datepicker" %>
+        <%= f.text_field :fecha_analisis, :value => (l(@analisis_rsd.fecha_analisis) unless @analisis_rsd.fecha_analisis.nil?), class: "field datepicker", :disabled => true %>
       </div>
     </td>
   </tr>

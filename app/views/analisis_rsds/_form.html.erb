@@ -65,13 +65,13 @@
     <td>
       <div class="field">
         <%= f.label :departamento_id %>
-        <%= f.collection_select :departamento_id, Departamento.order('nombre ASC').all, :id, :nombre, :include_blank => true %>
+        <%= f.collection_select :departamento_id, Departamento.order('nombre ASC').all, :id, :nombre, {:include_blank => true}, {:disabled => true} %>
       </div>
     </td>
     <td>
       <div class="field">
         <%= f.label :localidad_id %>
-        <%= f.grouped_collection_select :localidad_id, Departamento.order('nombre ASC').all, :localidades, :nombre, :id, :nombre, :include_blank => true %>
+        <%= f.grouped_collection_select :localidad_id, Departamento.order('nombre ASC').all, :localidades, :nombre, :id, :nombre, {:include_blank => true}, {:readonly => false} %>
       </div>  
     </td>
     <td>
@@ -98,7 +98,7 @@
     <td>
       <div class="field">
         <%= f.label :paraje_id %>
-        <%= f.grouped_collection_select :paraje_id, Departamento.order('nombre ASC').all, :parajes, :nombre, :id, :nombre, :include_blank => true %>
+        <%= f.grouped_collection_select :paraje_id, ComunaMunicipio.order('nombre ASC').all, :parajes, :nombre, :id, :nombre, :include_blank => true %>
       </div>
     </td>
   </tr>

@@ -29,6 +29,12 @@ jQuery ->
     dateFormat: 'dd/mm/yy'
   });
 
+  $('.edit_analisis_rsd').submit ->
+    $('#analisis_rsd_departamento_id').attr('disabled', false)
+
+  $('.new_analisis_rsd').submit ->
+    $('#analisis_rsd_departamento_id').attr('disabled', false)
+
   empty_option       = $('<option />').attr('value', '')
   localidades        = $('#analisis_rsd_localidad_id').html()
   comunas_municipios = $('#analisis_rsd_comuna_municipio_id').html()
@@ -47,18 +53,13 @@ jQuery ->
   cargar_dept_loc_com_par = () ->
     departamento = $('#analisis_rsd_departamento_id :selected').text()
     localidad_options = $(localidades).filter("optgroup[label='#{departamento}']").html()
-    comunamunicipio_options = $(comunas_municipios).filter("optgroup[label='#{departamento}']").html()
-    paraje_options = $(parajes).filter("optgroup[label='#{departamento}']").html()
+    comuna_municipio = $('#analisis_rsd_comuna_municipio_id :selected').text()
+    paraje_options = $(parajes).filter("optgroup[label='#{comuna_municipio}']").html()
     
     if localidad_options
       $('#analisis_rsd_localidad_id').html(localidad_options)
     else
       $('#analisis_rsd_localidad_id').empty()
-
-    if comunamunicipio_options
-      $('#analisis_rsd_comuna_municipio_id').html(comunamunicipio_options)
-    else
-      $('#analisis_rsd_comuna_municipio_id').empty()
 
     if paraje_options
       $('#analisis_rsd_paraje_id').html(paraje_options)
@@ -73,12 +74,17 @@ jQuery ->
       $("#analisis_rsd_fecha_analisis").parent().hide()
       $("#analisis_rsd_incidencia").parent().hide()
 
+  selecionar_departamento = (id) ->
+    id = Math.floor(id/10000)
+    $('#analisis_rsd_departamento_id').val(id)
+
   cargar_dept_loc_com_par()
   cargar_promotores()
   controlar_analizado()
 
-  $('#analisis_rsd_departamento_id').change -> 
-    cargar_dept_loc_com_par()    
+  $('#analisis_rsd_comuna_municipio_id').change ->
+    selecionar_departamento($('#analisis_rsd_comuna_municipio_id').val())
+    cargar_dept_loc_com_par()
 
   $('#analisis_rsd_agente_id').change -> 
     cargar_promotores()

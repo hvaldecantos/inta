@@ -13,5 +13,6 @@
 
 class Paraje < ActiveRecord::Base
   belongs_to :departamento
+  belongs_to :comuna_municipio
   has_many :analisis_rsds
 end

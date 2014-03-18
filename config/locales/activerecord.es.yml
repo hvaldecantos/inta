@@ -32,6 +32,8 @@ es:
       models:
         analisis_rsd:
           attributes:
+            fecha_ingreso: 
+              blank: ': no puede estar vacio'
             comuna_municipio_id: 
               blank: ': no puede estar vacio'
             departamento_id:

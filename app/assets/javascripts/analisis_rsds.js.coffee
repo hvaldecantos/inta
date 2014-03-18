@@ -11,7 +11,7 @@ jQuery ->
     sDom: 'l<"#date_filter">frtip'
     sAjaxSource: $('#analisis_rsds').data('source')
     oLanguage: spanish()
-    aoColumns: add_mostrar_editar_borrar_to([ null, null, null, null, null, null, null, null, null])
+    aoColumns: add_mostrar_editar_borrar_to([ null, null, null, null, null, null, null, null, null, null])
     fnServerParams: (aoData) ->
       aoData.push
         name: $('#filter').attr('name')

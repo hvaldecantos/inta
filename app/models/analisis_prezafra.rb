@@ -92,13 +92,13 @@ class AnalisisPrezafra < ActiveRecord::Base
     %w(Iniciado Ingresado Analizado Entregado)
   end
 
-  def AnalisisPrezafra.generar_identificador(numero)
+  def AnalisisPrezafra.generar_identificador(numero, fecha)
     numero = numero % 1000000
-    Date.today.to_s.gsub(/-/,'') + " " + ("%06d" % numero) + "PZ"
+    fecha.year.to_s.gsub(/-/,'') + ("%06d" % numero) + "PZ"
   end
 
   def establecer_identificacion
-    self.identificacion = AnalisisPrezafra.generar_identificador(self.id)
+    self.identificacion = AnalisisPrezafra.generar_identificador(self.id, self.fecha_inicio)
     self.save
   end
 

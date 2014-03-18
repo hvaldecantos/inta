@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226003742) do
+ActiveRecord::Schema.define(:version => 20140318012427) do
 
   create_table "agencias", :force => true do |t|
     t.integer "codigo"

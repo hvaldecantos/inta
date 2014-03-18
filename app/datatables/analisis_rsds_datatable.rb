@@ -24,6 +24,7 @@ private
     data = []
     analisis_rsds.each do |analisis_rsd|
       a = []
+      a << analisis_rsd.identificacion
       a << (l(analisis_rsd.fecha_ingreso) unless analisis_rsd.fecha_ingreso.nil?)
       a << (l(analisis_rsd.fecha_analisis) unless analisis_rsd.fecha_analisis.nil?)
       a << (analisis_rsd.cania_variedad.nombre unless analisis_rsd.cania_variedad.nil?)
@@ -44,13 +45,15 @@ private
   end
 
   def fetch_analisis_rsds
-    analisis_rsds = AnalisisRsd.joins(:agente, :promotor, :laboratorista, :cania_variedad).
+    analisis_rsds = AnalisisRsd.includes(:agente, :promotor, :laboratorista, :cania_variedad).
                                 mi_vista(@view.current_user.persona.id, @view.cookies[:mi_vista]).
+                                where("TO_CHAR(fecha_ingreso, 'DD/MM/YYYY') LIKE :search", search: "%#{params[:filter]}%").
                                 order("#{sort_column} #{sort_direction}")
 
     analisis_rsds = analisis_rsds.page(page).per_page(per_page)
     if params[:sSearch].present?
       analisis_rsds = analisis_rsds.where(
+                        "identificacion LIKE :search OR " +
                         "personas.nombre LIKE :search OR personas.apellido LIKE :search OR " +
                         "promotores_analisis_rsds.nombre LIKE :search OR promotores_analisis_rsds.apellido LIKE :search OR " +
                         "laboratorista_analisis_rsds.nombre LIKE :search OR laboratorista_analisis_rsds.apellido LIKE :search OR " +
@@ -83,7 +86,7 @@ private
   end
 
   def sort_direction
-    params[:sSortDir_0] == "desc" ? "desc" : "asc"
+    params[:sSortDir_0] == "desc" ? "asc" : "desc"
   end
 end
 

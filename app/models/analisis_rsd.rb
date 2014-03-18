@@ -29,7 +29,7 @@
 class AnalisisRsd < ActiveRecord::Base
   attr_accessible :agente_id, :analizado, :anio_plantacion, :comuna_municipio_id, :departamento_id, :fecha_analisis, :fecha_extraccion, :fecha_ingreso, :incidencia, :laboratorista_id, :localidad_id, :membrana, :paraje_id, :parcela_id, :procedencia_id, :productor_id, :promotor_id, :cania_variedad_id
 
-  validates_presence_of :comuna_municipio_id, :departamento_id, :paraje_id, :localidad_id, :agente_id, :promotor_id, :laboratorista_id
+  validates_presence_of :comuna_municipio_id, :departamento_id, :paraje_id, :localidad_id, :agente_id, :promotor_id, :laboratorista_id, :productor, :cania_variedad_id, :fecha_ingreso
   
   belongs_to :paraje
   belongs_to :departamento
@@ -54,6 +54,8 @@ class AnalisisRsd < ActiveRecord::Base
   scope :mi_vista, lambda { |persona_id, mi_vista| 
     {:conditions => "(promotor_id = #{persona_id} OR agente_id = #{persona_id} OR laboratorista_id = #{persona_id}) OR NOT #{mi_vista}"}
   }
+
+  after_create :establecer_identificacion
 
   def fecha_analisis_si_analisado
     if analizado == true && fecha_analisis.nil?
@@ -90,5 +92,15 @@ class AnalisisRsd < ActiveRecord::Base
     if incidencia.blank? && analizado == true then
       errors.add(:incidencia, ": si se realizó el análisis rsd debe ingresar la incidencia.")
     end
+  end
+
+  def AnalisisRsd.generar_identificador(numero, fecha)
+    numero = numero % 1000000
+    fecha.year.to_s.gsub(/-/,'') + ("%06d" % numero) + "RS"
+  end
+
+  def establecer_identificacion
+    self.identificacion = AnalisisRsd.generar_identificador(self.id, self.fecha_ingreso)
+    self.save
   end
 end

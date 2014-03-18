@@ -21,6 +21,8 @@ jQuery ->
 
   $('.datepicker').datepicker({
     dateFormat: 'dd/mm/yy'
+    dayNamesMin: [ 'Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa' ]
+    monthNames: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octobre", "Noviembre", "Deciembre" ]
   });
 
   $('#analisis_prezafra_brix_pct').change -> 

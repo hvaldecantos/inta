@@ -1,5 +1,9 @@
 <% provide(:title, 'Análisis RSD ' + @analisis_rsd.fecha_ingreso.strftime("%d/%m/%Y")) %>
-<h2>Analisis RSD</h2>
+<blockquote>
+  <h2>Edición Análisis RSD</h2>
+  <h2><small><%= @analisis_rsd.identificacion %></small></h2>
+</blockquote>
+
 <table class="table table-bordered">
   <tr>
     <td><b>Fecha extraccion:</b> <%= l(@analisis_rsd.fecha_extraccion) unless @analisis_rsd.fecha_extraccion.nil? %></td>

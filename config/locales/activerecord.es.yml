@@ -17,6 +17,8 @@ es:
       analisis_rsd:
         anio_plantacion : "Año Plantación"
         cania_variedad_id: "Variedad de Caña"
+        fecha_extraccion: "Fecha extracción"
+        fecha_analisis: "Fecha análisis"
       analisis_prezafra:
         fecha_analisis: "Fecha análisis"
         peso_tallo: "Peso tallo (g)"
@@ -28,6 +30,28 @@ es:
         rto_pct: RTO %
     errors:
       models:
+        analisis_rsd:
+          attributes:
+            fecha_ingreso: 
+              blank: ': no puede estar vacio'
+            comuna_municipio_id: 
+              blank: ': no puede estar vacio'
+            departamento_id:
+              blank: ': no puede estar vacio'
+            paraje_id:
+              blank: ': no puede estar vacio'
+            localidad_id:
+              blank: ': no puede estar vacio'
+            agente_id:
+              blank: ': no puede estar vacio'
+            promotor_id:
+              blank: ': no puede estar vacio'
+            laboratorista_id:
+              blank: ': no puede estar vacio'
+            productor:
+              blank: ': no puede estar vacio'
+            cania_variedad_id:
+              blank: ': no puede estar vacio'
         role:
           attributes:
             name:

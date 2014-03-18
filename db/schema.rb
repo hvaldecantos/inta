@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140226003742) do
+ActiveRecord::Schema.define(:version => 20140318004855) do
 
   create_table "agencias", :force => true do |t|
     t.integer "codigo"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20140226003742) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "_data_origin_id"
+    t.string   "identificacion"
   end
 
   create_table "assignments", :id => false, :force => true do |t|
